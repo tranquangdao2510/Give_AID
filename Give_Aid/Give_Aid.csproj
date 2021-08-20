@@ -131,7 +131,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataModel\Admin.cs" />
+    <Compile Include="Models\DataModel\Blog.cs" />
     <Compile Include="Models\DataModel\Category.cs" />
+    <Compile Include="Models\DataModel\Contact.cs" />
+    <Compile Include="Models\DataModel\Customer.cs" />
+    <Compile Include="Models\DataModel\Donate.cs" />
+    <Compile Include="Models\DataModel\Faq.cs" />
+    <Compile Include="Models\DataModel\Fund.cs" />
+    <Compile Include="Models\DataModel\ImageGallery.cs" />
+    <Compile Include="Models\DataModel\Organization.cs" />
+    <Compile Include="Models\DataModel\Partner.cs" />
+    <Compile Include="Models\DataModel\Payment.cs" />
+    <Compile Include="Models\DataModel\Slider.cs" />
+    <Compile Include="Models\DataModel\Tag.cs" />
+    <Compile Include="Models\DataModel\Volunteer.cs" />
     <Compile Include="Models\NgoConnectString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
