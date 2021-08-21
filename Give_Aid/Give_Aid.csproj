@@ -130,20 +130,23 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Common\AdminLogin.cs" />
+    <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Models\DAO\AminDao.cs" />
-=======
+    <Compile Include="Models\DAO\AdminDao.cs" />
     <Compile Include="Migrations\202108210842366_v1.cs" />
     <Compile Include="Migrations\202108210842366_v1.designer.cs">
       <DependentUpon>202108210842366_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
->>>>>>> 5a06b360cef499621bac3c391279ba199c71d2e4
     <Compile Include="Models\DataAccess\Admin.cs" />
     <Compile Include="Models\DataAccess\Blog.cs" />
     <Compile Include="Models\DataAccess\Category.cs" />
@@ -214,6 +217,70 @@
     <Content Include="Areas\Admin\Content\dist\js\pages\dashboard.js" />
     <Content Include="Areas\Admin\Content\dist\js\pages\dashboard2.js" />
     <Content Include="Areas\Admin\Content\dist\js\pages\dashboard3.js" />
+    <Content Include="Areas\Admin\Content\pages\calendar.html" />
+    <Content Include="Areas\Admin\Content\pages\charts\chartjs.html" />
+    <Content Include="Areas\Admin\Content\pages\charts\flot.html" />
+    <Content Include="Areas\Admin\Content\pages\charts\inline.html" />
+    <Content Include="Areas\Admin\Content\pages\charts\uplot.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\404.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\500.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\blank.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\contact-us.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\contacts.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\e-commerce.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\faq.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\forgot-password-v2.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\forgot-password.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\invoice-print.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\invoice.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\language-menu.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\legacy-user-menu.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\lockscreen.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\login-v2.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\login.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\pace.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\profile.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\project-add.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\project-detail.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\project-edit.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\projects.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\recover-password-v2.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\recover-password.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\register-v2.html" />
+    <Content Include="Areas\Admin\Content\pages\examples\register.html" />
+    <Content Include="Areas\Admin\Content\pages\forms\advanced.html" />
+    <Content Include="Areas\Admin\Content\pages\forms\editors.html" />
+    <Content Include="Areas\Admin\Content\pages\forms\general.html" />
+    <Content Include="Areas\Admin\Content\pages\forms\validation.html" />
+    <Content Include="Areas\Admin\Content\pages\gallery.html" />
+    <Content Include="Areas\Admin\Content\pages\kanban.html" />
+    <Content Include="Areas\Admin\Content\pages\layout\boxed.html" />
+    <Content Include="Areas\Admin\Content\pages\layout\collapsed-sidebar.html" />
+    <Content Include="Areas\Admin\Content\pages\layout\fixed-footer.html" />
+    <Content Include="Areas\Admin\Content\pages\layout\fixed-sidebar-custom.html" />
+    <Content Include="Areas\Admin\Content\pages\layout\fixed-sidebar.html" />
+    <Content Include="Areas\Admin\Content\pages\layout\fixed-topnav.html" />
+    <Content Include="Areas\Admin\Content\pages\layout\top-nav-sidebar.html" />
+    <Content Include="Areas\Admin\Content\pages\layout\top-nav.html" />
+    <Content Include="Areas\Admin\Content\pages\mailbox\compose.html" />
+    <Content Include="Areas\Admin\Content\pages\mailbox\mailbox.html" />
+    <Content Include="Areas\Admin\Content\pages\mailbox\read-mail.html" />
+    <Content Include="Areas\Admin\Content\pages\search\enhanced-results.html" />
+    <Content Include="Areas\Admin\Content\pages\search\enhanced.html" />
+    <Content Include="Areas\Admin\Content\pages\search\simple-results.html" />
+    <Content Include="Areas\Admin\Content\pages\search\simple.html" />
+    <Content Include="Areas\Admin\Content\pages\tables\data.html" />
+    <Content Include="Areas\Admin\Content\pages\tables\jsgrid.html" />
+    <Content Include="Areas\Admin\Content\pages\tables\simple.html" />
+    <Content Include="Areas\Admin\Content\pages\UI\buttons.html" />
+    <Content Include="Areas\Admin\Content\pages\UI\general.html" />
+    <Content Include="Areas\Admin\Content\pages\UI\icons.html" />
+    <Content Include="Areas\Admin\Content\pages\UI\modals.html" />
+    <Content Include="Areas\Admin\Content\pages\UI\navbar.html" />
+    <Content Include="Areas\Admin\Content\pages\UI\ribbons.html" />
+    <Content Include="Areas\Admin\Content\pages\UI\sliders.html" />
+    <Content Include="Areas\Admin\Content\pages\UI\timeline.html" />
+    <Content Include="Areas\Admin\Content\pages\widgets.html" />
     <Content Include="Areas\Admin\Content\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="Areas\Admin\Content\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="Areas\Admin\Content\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
@@ -2164,7 +2231,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
