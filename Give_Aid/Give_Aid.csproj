@@ -135,7 +135,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\DAO\AminDao.cs" />
+=======
+    <Compile Include="Migrations\202108210842366_v1.cs" />
+    <Compile Include="Migrations\202108210842366_v1.designer.cs">
+      <DependentUpon>202108210842366_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+>>>>>>> 5a06b360cef499621bac3c391279ba199c71d2e4
     <Compile Include="Models\DataAccess\Admin.cs" />
     <Compile Include="Models\DataAccess\Blog.cs" />
     <Compile Include="Models\DataAccess\Category.cs" />
@@ -2171,6 +2179,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202108210842366_v1.resx">
+      <DependentUpon>202108210842366_v1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
