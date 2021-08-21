@@ -131,22 +131,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataModel\Admin.cs" />
-    <Compile Include="Models\DataModel\Blog.cs" />
-    <Compile Include="Models\DataModel\Category.cs" />
-    <Compile Include="Models\DataModel\Contact.cs" />
-    <Compile Include="Models\DataModel\Customer.cs" />
-    <Compile Include="Models\DataModel\Donate.cs" />
-    <Compile Include="Models\DataModel\Faq.cs" />
-    <Compile Include="Models\DataModel\Fund.cs" />
-    <Compile Include="Models\DataModel\ImageGallery.cs" />
-    <Compile Include="Models\DataModel\Organization.cs" />
-    <Compile Include="Models\DataModel\Partner.cs" />
-    <Compile Include="Models\DataModel\Payment.cs" />
-    <Compile Include="Models\DataModel\Slider.cs" />
-    <Compile Include="Models\DataModel\Tag.cs" />
-    <Compile Include="Models\DataModel\Volunteer.cs" />
-    <Compile Include="Models\NgoConnectString.cs" />
+    <Compile Include="Migrations\202108210842366_v1.cs" />
+    <Compile Include="Migrations\202108210842366_v1.designer.cs">
+      <DependentUpon>202108210842366_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DataAccess\Admin.cs" />
+    <Compile Include="Models\DataAccess\Blog.cs" />
+    <Compile Include="Models\DataAccess\Category.cs" />
+    <Compile Include="Models\DataAccess\Comtact.cs" />
+    <Compile Include="Models\DataAccess\Customer.cs" />
+    <Compile Include="Models\DataAccess\Donate.cs" />
+    <Compile Include="Models\DataAccess\Faq.cs" />
+    <Compile Include="Models\DataAccess\Fund.cs" />
+    <Compile Include="Models\DataAccess\ImageGallery.cs" />
+    <Compile Include="Models\DataAccess\NgoEntity.cs" />
+    <Compile Include="Models\DataAccess\Organization.cs" />
+    <Compile Include="Models\DataAccess\Partner.cs" />
+    <Compile Include="Models\DataAccess\Payment.cs" />
+    <Compile Include="Models\DataAccess\Slide.cs" />
+    <Compile Include="Models\DataAccess\Tag.cs" />
+    <Compile Include="Models\DataAccess\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +206,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202108210842366_v1.resx">
+      <DependentUpon>202108210842366_v1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
