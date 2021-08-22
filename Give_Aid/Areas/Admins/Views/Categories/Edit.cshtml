@@ -1,65 +1,69 @@
 ﻿@model Give_Aid.Models.DataAccess.Category
-
-@{
-    ViewBag.Title = "Edit";
+@{ /**/
+    /**/
+    ViewBag.Title = "Create"; Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
 }
+<h2> Create </h2>
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Quick Example</h3>
+    </div> <!-- /.card-header --> <!-- form start -->
+    @using (Html.BeginForm("Edit", "Categories", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="card-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-7">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label " })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-<h2>Edit</h2>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control datepicker " } })
+                            @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UpdatedDate, htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.UpdatedDate, new { htmlAttributes = new { @class = "form-control datepicker1" } })
+                            @Html.ValidationMessageFor(model => model.UpdatedDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                True @Html.RadioButtonFor(model => model.Status, "True")
+                                False @Html.RadioButtonFor(model => model.Status, "False")
 
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Category</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.CategoryId)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UpdatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UpdatedDate, new { htmlAttributes = new { @class = "form-control datetimepicker" } })
-                @Html.ValidationMessageFor(model => model.UpdatedDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    True @Html.RadioButtonFor(model => model.Status, "True")
-                    False @Html.RadioButtonFor(model => model.Status, "False")
-                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/Admins/Admin/Index" class="btn btn-danger">Back</a>
         </div>
-    </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    }
 </div>
+
+@section js {
+    <script src="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function () { $(".datepicker").datepicker({ dateFormat: "dd/mm/yy", changeMonth: true, changeMonth: true, }); });
+        $(function () { $(".datepicker1").datepicker({ dateFormat: "dd/mm/yy", changeMonth: true, changeMonth: true }); });
+    </script>
+}
