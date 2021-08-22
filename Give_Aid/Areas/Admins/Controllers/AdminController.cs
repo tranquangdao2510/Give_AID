@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Give_Aid.Areas.Admin.Controllers
+namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class HomeController : BaseController
+    public class AdminController : Controller
     {
-        // GET: Admin/Home
+        // GET: Admins/Admin
         public ActionResult Index()
         {
             return View();

@@ -1,4 +1,4 @@
-﻿@model Give_Aid.Areas.Admin.Models.LoginModel
+﻿@model Give_Aid.Areas.Admins.Models.LoginModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,16 +10,16 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/Areas/Admin/Content/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/Areas/Admins/Content/plugins/fontawesome-free/css/all.min.css">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="/Areas/Admin/Content/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="/Areas/Admins/Content/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/Areas/Admin/Content/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/Areas/Admins/Content/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="/Areas/Admin/Content/index2.html"><b>Admin</b>LTE</a>
+            <a href="/Areas/Admins/Content/index2.html"><b>Admin</b>LTE</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -29,7 +29,7 @@
                 @using (Html.BeginForm("Login", "Login", FormMethod.Post))
                 {
 
-                    @Html.ValidationSummary(false, "", new { @class = "text-danger"  });
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" });
                     <div class="input-group mb-3">
                         @*<input type="text" class="form-control" placeholder="Name">*@
                         @Html.TextBoxFor(model => model.AdminName, new { @class = "form-control ", @autofocus = "autofocus", @placeholder = "Name" })
@@ -41,7 +41,7 @@
                     </div>
                     <div class="input-group mb-3">
                         @*<input type="password" class="form-control" placeholder="Password">*@
-                        @Html.PasswordFor(model => model.Password, new { @class = "form-control ",@placeholder="Password" })
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control ", @placeholder = "Password" })
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -65,9 +65,14 @@
                         <!-- /.col -->
                     </div>
                 }
-                </div>
             </div>
         </div>
-    </body>
+    </div>
+    <script src="/Areas/Admins/Content/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/Areas/Admins/Content/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/Areas/Admins/Content/dist/js/adminlte.min.js"></script>
+</body>
 </html>
 

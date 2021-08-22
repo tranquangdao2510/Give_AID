@@ -4,15 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Give_Aid.Areas.Admin.Controllers
+namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class AdminsController : Controller
+    public class BaseController : Controller
     {
-        // GET: Admin/Admins
+        // GET: Admins/Base
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }

@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace Give_Aid.Areas.Admin
+namespace Give_Aid.Areas.Admins
 {
-    public class AdminAreaRegistration : AreaRegistration 
+    public class AdminsAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Admin";
+                return "Admins";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Admin_default",
-                "Admin/{controller}/{action}/{id}",
+                "Admins_default",
+                "Admins/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

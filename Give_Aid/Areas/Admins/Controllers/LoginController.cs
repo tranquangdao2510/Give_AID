@@ -1,4 +1,4 @@
-﻿using Give_Aid.Areas.Admin.Models;
+﻿using Give_Aid.Areas.Admins.Models;
 using Give_Aid.Common;
 using Give_Aid.Models.DAO;
 using System;
@@ -7,11 +7,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Give_Aid.Areas.Admin.Controllers
+namespace Give_Aid.Areas.Admins.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Admin/Login
+        // GET: Admins/Login
         public ActionResult Index()
         {
             return View();
