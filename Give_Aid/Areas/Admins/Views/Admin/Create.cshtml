@@ -1,0 +1,104 @@
+﻿@model Give_Aid.Models.DataAccess.Admin
+@{ /**/
+                /**/
+                ViewBag.Title = "Create"; Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml"; 
+    }
+ <h2> Create </h2>
+ <div class="card card-primary">
+     <div class="card-header">
+         <h3 class="card-title">Quick Example</h3>
+     </div> <!-- /.card-header --> <!-- form start -->
+     @using (Html.BeginForm("Create", "Admin", FormMethod.Post))
+     {
+         @Html.AntiForgeryToken()
+         <div class="card-body">
+             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+             <div class="row">
+                 <div class="col-7">
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.AdminName, htmlAttributes: new { @class = "control-label " })
+                         <div class="col-md-12">
+                             @Html.EditorFor(model => model.AdminName, new { htmlAttributes = new { @class = "form-control" } })
+                             @Html.ValidationMessageFor(model => model.AdminName, "", new { @class = "text-danger" })
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                         <div class="col-md-12">
+                             @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "control-label" })
+                         <div class="col-md-12">
+                             @Html.PasswordFor(model => model.PassWord, new { htmlAttributes = new { @class = "form-control" } })
+                             @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+                         <div class="col-md-12">
+                             @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                             @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label" })
+                         <div class="col-md-12">
+                             @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                             @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-5">
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.BirthDay, htmlAttributes: new { @class = "control-label" })
+                         <div class="col-md-12">
+                             @Html.EditorFor(model => model.BirthDay, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                             @Html.ValidationMessageFor(model => model.BirthDay, "", new { @class = "text-danger" })
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "control-label" })
+                         <div class="col-md-12">
+                             @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control datepicker1 " } })
+                             @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.UpdatedDate, htmlAttributes: new { @class = "control-label" })
+                         <div class="col-md-12">
+                             @Html.EditorFor(model => model.UpdatedDate, new { htmlAttributes = new { @class = "form-control datepicker2" } })
+                             @Html.ValidationMessageFor(model => model.UpdatedDate, "", new { @class = "text-danger" })
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label " })
+                         <div class="col-md-12">
+                             <div class="checkbox">
+                                 @Html.CheckBoxFor(model => model.Status)
+                                 @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <!-- /.card-body --> 
+         <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/Admins/Admin/Index" class="btn btn-danger">Back</a>
+        </div>
+         
+     }
+ </div>
+
+@section js {
+    <script src="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function () { $(".datepicker").datepicker({ dateFormat: "dd/mm/yy", changeMonth: true, changeMonth: true, }); });
+        $(function () { $(".datepicker1").datepicker({ dateFormat: "dd/mm/yy", changeMonth: true, changeMonth: true }); });
+        $(function () { $(".datepicker2").datepicker({ dateFormat: "dd/mm/yy", changeMonth: true, changeMonth: true }); });
+    </script> 
+    }

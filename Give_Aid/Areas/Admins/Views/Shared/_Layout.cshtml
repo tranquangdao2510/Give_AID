@@ -12,9 +12,16 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/Areas/Admins/Content/dist/css/adminlte.min.css">
+<<<<<<< HEAD
+    <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.css" rel="stylesheet" />
+
+    <link href="~/Areas/Admins/Content/dist/css/Style.css" rel="stylesheet" />
+    <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.theme.min.css" rel="stylesheet" />
+=======
     <link href="~/Content/bootstrap.min.css"/>
     <link href="~/Content/bootstrap-datetimepicker.min.css" type="text/css"/>
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
+>>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
 </head>
 <!--
 `body` tag options:
@@ -195,7 +202,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
+                    with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
                             <a href="#" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -221,7 +228,21 @@
                                     <a href="~/Admins/Categories/Create" class="nav-link">
                                         <i class="nav-icon fas fa-plus"></i>
                                         <p>
+<<<<<<< HEAD
+                                            @*@Html.ActionLink("Category", "Index", "Categories")*@
+                                            Them moi
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Admins/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            Danh sach
+=======
                                             Create New
+>>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
@@ -230,7 +251,40 @@
 
                             </ul>
                         </li>
+                        @*admin*@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Manager Admin
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admins/Admin/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            @*@Html.ActionLink("List Admin", "Index", "Admin")*@
+                                            List
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admins/Admin/Create" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            Add
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
 
+                            </ul>
+                        </li>
+                        @*admin*@
 
                     </ul>
                 </nav>
@@ -241,6 +295,27 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
+<<<<<<< HEAD
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Dashboard</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Dashboard v1</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            @RenderBody()
+            <!-- /.content-header -->
+            <!-- Main content -->
+          
+=======
             @if (TempData["AlertMessage"] != null)
             {
                 <div id="AlertBox" class="alert @TempData["AlertType"] hide">
@@ -251,6 +326,7 @@
             <section>
                 @RenderBody()
             </section>
+>>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
@@ -287,6 +363,12 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/moment.min.js"></script>
     <script src="/Areas/Admins/Content/dist/js/pages/dashboard3.js"></script>
+<<<<<<< HEAD
+
+    <script src="~/Areas/Admins/Content/js/dateTime.js"></script>
+    @RenderSection("js", required: false)
+=======
     <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+>>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
 </body>
 </html>
