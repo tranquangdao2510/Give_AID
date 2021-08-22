@@ -12,16 +12,13 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/Areas/Admins/Content/dist/css/adminlte.min.css">
-<<<<<<< HEAD
     <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.css" rel="stylesheet" />
 
     <link href="~/Areas/Admins/Content/dist/css/Style.css" rel="stylesheet" />
     <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.theme.min.css" rel="stylesheet" />
-=======
     <link href="~/Content/bootstrap.min.css"/>
     <link href="~/Content/bootstrap-datetimepicker.min.css" type="text/css"/>
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
->>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
 </head>
 <!--
 `body` tag options:
@@ -228,9 +225,8 @@
                                     <a href="~/Admins/Categories/Create" class="nav-link">
                                         <i class="nav-icon fas fa-plus"></i>
                                         <p>
-<<<<<<< HEAD
                                             @*@Html.ActionLink("Category", "Index", "Categories")*@
-                                            Them moi
+                                            Create New
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
@@ -239,10 +235,7 @@
                                     <a href="/Admin/Admins/Index" class="nav-link">
                                         <i class="nav-icon fas fa-th"></i>
                                         <p>
-                                            Danh sach
-=======
-                                            Create New
->>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
+                                            List
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
@@ -295,7 +288,6 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-<<<<<<< HEAD
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
@@ -311,22 +303,16 @@
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-            @RenderBody()
-            <!-- /.content-header -->
-            <!-- Main content -->
-          
-=======
+
             @if (TempData["AlertMessage"] != null)
             {
                 <div id="AlertBox" class="alert @TempData["AlertType"] hide">
                     @TempData["AlertMessage"]
                 </div>
             }
-
-            <section>
-                @RenderBody()
-            </section>
->>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
+            @RenderBody()
+            <!-- /.content-header -->
+            <!-- Main content -->
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->

@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -2262,13 +2264,9 @@
     <Content Include="Areas\Admins\Content\plugins\uplot\uPlot.iife.js" />
     <Content Include="Areas\Admins\Content\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Areas\Admins\Content\plugins\uplot\uPlot.min.css" />
-<<<<<<< HEAD
     <Content Include="Content\bootstrap-datepicker.css" />
-    <Content Include="Content\bootstrap-datepicker3.css" />
-=======
     <Content Include="Content\bootstrap-datetimepicker.css" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
->>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2287,12 +2285,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-<<<<<<< HEAD
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-=======
->>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
     <Content Include="Areas\Admins\Views\web.config" />
     <Content Include="Areas\Admins\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Shared\_Layout.cshtml" />
@@ -2374,7 +2369,6 @@
     <Content Include="Areas\Admins\Content\plugins\summernote\summernote.js.map" />
     <Content Include="Areas\Admins\Content\plugins\summernote\summernote.min.js.map" />
     <Content Include="Areas\Admins\Content\plugins\toastr\toastr.js.map" />
-<<<<<<< HEAD
     <Content Include="Areas\Admins\Views\Home\Dashboard.cshtml" />
     <Content Include="Areas\Admins\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Admin\Create.cshtml" />
@@ -2384,7 +2378,6 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-=======
     <Content Include="Areas\Admins\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Delete.cshtml" />
@@ -2415,7 +2408,6 @@
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
->>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.moneymask.js" />

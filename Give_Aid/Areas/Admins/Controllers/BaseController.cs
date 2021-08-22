@@ -10,7 +10,6 @@ namespace Give_Aid.Areas.Admins.Controllers
 {
     public class BaseController : Controller
     {
-<<<<<<< HEAD
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             var session = (AdminLogin)Session[CommonConstants.USER_SESSION];
@@ -21,7 +20,7 @@ namespace Give_Aid.Areas.Admins.Controllers
                     );
             }
             base.OnActionExecuted(filterContext);
-=======
+        }
         // GET: Admins/Base
        
         protected void SetAlert(String message, string type)
@@ -35,7 +34,6 @@ namespace Give_Aid.Areas.Admins.Controllers
             {
                 TempData["AlertType"] = "alert-danger";
             }
->>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
         }
     }
 }
