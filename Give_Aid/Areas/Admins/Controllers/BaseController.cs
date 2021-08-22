@@ -9,9 +9,18 @@ namespace Give_Aid.Areas.Admins.Controllers
     public class BaseController : Controller
     {
         // GET: Admins/Base
-        public ActionResult Index()
+       
+        protected void SetAlert(String message, string type)
         {
-            return View();
+            TempData["AlertMessage"] = message;
+            if(type == "success")
+            {
+                TempData["AlertType"] = "alert-success";
+            }
+            else
+            {
+                TempData["AlertType"] = "alert-danger";
+            }
         }
     }
 }
