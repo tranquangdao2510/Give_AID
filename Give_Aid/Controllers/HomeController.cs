@@ -15,14 +15,62 @@ namespace Give_Aid.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Causes()
+        {
+
+            return View();
+        }
+        public ActionResult CausesDetail()
+        {
+
+            return View();
+        }
+        public ActionResult OurFaq()
+        {
+
+            return View();
+        }
+        public ActionResult Volunteerss()
+        {
+
+            return View();
+        }
+        public ActionResult BecomeVolunteerss()
+        {
+
+            return View();
+        }
+        public ActionResult Event()
+        {
+
+            return View();
+        }
+        public ActionResult EventDetail()
+        {
+
+            return View();
+        }
+        public ActionResult Blog()
+        {
+
+            return View();
+        }
+        public ActionResult BlogDetail()
+        {
+
+            return View();
+        }
+        public ActionResult Donate()
+        {
 
             return View();
         }
