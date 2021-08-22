@@ -12,10 +12,16 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/Areas/Admins/Content/dist/css/adminlte.min.css">
+<<<<<<< HEAD
     <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.css" rel="stylesheet" />
 
     <link href="~/Areas/Admins/Content/dist/css/Style.css" rel="stylesheet" />
     <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.theme.min.css" rel="stylesheet" />
+=======
+    <link href="~/Content/bootstrap.min.css"/>
+    <link href="~/Content/bootstrap-datetimepicker.min.css" type="text/css"/>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+>>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
 </head>
 <!--
 `body` tag options:
@@ -219,9 +225,10 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
+                                    <a href="~/Admins/Categories/Create" class="nav-link">
+                                        <i class="nav-icon fas fa-plus"></i>
                                         <p>
+<<<<<<< HEAD
                                             @*@Html.ActionLink("Category", "Index", "Categories")*@
                                             Them moi
                                             <span class="right badge badge-danger"></span>
@@ -233,10 +240,14 @@
                                         <i class="nav-icon fas fa-th"></i>
                                         <p>
                                             Danh sach
+=======
+                                            Create New
+>>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
                                 </li>
+                               
 
                             </ul>
                         </li>
@@ -284,6 +295,7 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
+<<<<<<< HEAD
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
@@ -303,6 +315,18 @@
             <!-- /.content-header -->
             <!-- Main content -->
           
+=======
+            @if (TempData["AlertMessage"] != null)
+            {
+                <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                    @TempData["AlertMessage"]
+                </div>
+            }
+
+            <section>
+                @RenderBody()
+            </section>
+>>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
@@ -324,6 +348,7 @@
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
     <script src="/Areas/Admins/Content/plugins/jquery/jquery.min.js"></script>
+    <script src="~/Areas/Admins/Content/dist/js/"></script>
     <!-- Bootstrap -->
     <script src="/Areas/Admins/Content/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
@@ -333,9 +358,17 @@
     <!-- AdminLTE for demo purposes -->
     <script src="/Areas/Admins/Content/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="~/Scripts/datepick.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
     <script src="/Areas/Admins/Content/dist/js/pages/dashboard3.js"></script>
+<<<<<<< HEAD
 
     <script src="~/Areas/Admins/Content/js/dateTime.js"></script>
     @RenderSection("js", required: false)
+=======
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+>>>>>>> 4d3c8524f8a9b6630a72b0785d0d99e387a32b4d
 </body>
 </html>
