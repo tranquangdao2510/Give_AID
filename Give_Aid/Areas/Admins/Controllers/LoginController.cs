@@ -30,7 +30,7 @@ namespace Give_Aid.Areas.Admins.Controllers
                     userSession.AdminId = user.AdminId;
 
                     Session.Add(CommonConstants.USER_SESSION, userSession);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Dashboard", "Home");
                 }
                 else if (result == Convert.ToBoolean(0))
                 {

@@ -9,7 +9,7 @@ namespace Give_Aid.Areas.Admins.Controllers
     public class HomeController : Controller
     {
         // GET: Admins/Home
-        public ActionResult Index()
+        public ActionResult Dashboard()
         {
             return View();
         }

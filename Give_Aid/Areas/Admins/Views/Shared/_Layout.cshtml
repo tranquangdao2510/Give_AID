@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/Areas/Admins/Content/dist/css/adminlte.min.css">
+    <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.css" rel="stylesheet" />
+
+    <link href="~/Areas/Admins/Content/dist/css/Style.css" rel="stylesheet" />
+    <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.theme.min.css" rel="stylesheet" />
 </head>
 <!--
 `body` tag options:
@@ -192,7 +196,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
+                    with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
                             <a href="#" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -225,7 +229,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admin/Categories/Index" class="nav-link">
+                                    <a href="/Admin/Admins/Index" class="nav-link">
                                         <i class="nav-icon fas fa-th"></i>
                                         <p>
                                             Danh sach
@@ -236,7 +240,40 @@
 
                             </ul>
                         </li>
+                        @*admin*@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Manager Admin
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admins/Admin/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            @*@Html.ActionLink("List Admin", "Index", "Admin")*@
+                                            List
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admins/Admin/Create" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            Add
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
 
+                            </ul>
+                        </li>
+                        @*admin*@
 
                     </ul>
                 </nav>
@@ -247,9 +284,25 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <section>
-                @RenderBody();
-            </section>
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Dashboard</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Dashboard v1</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            @RenderBody()
+            <!-- /.content-header -->
+            <!-- Main content -->
+          
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
@@ -281,5 +334,8 @@
     <script src="/Areas/Admins/Content/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/Areas/Admins/Content/dist/js/pages/dashboard3.js"></script>
+
+    <script src="~/Areas/Admins/Content/js/dateTime.js"></script>
+    @RenderSection("js", required: false)
 </body>
 </html>

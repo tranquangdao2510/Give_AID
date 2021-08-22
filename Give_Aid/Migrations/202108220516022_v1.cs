@@ -20,7 +20,7 @@
                         BirthDay = c.DateTime(),
                         CreatedDate = c.DateTime(),
                         UpdatedDate = c.DateTime(),
-                        Status = c.Boolean(),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.AdminId);
             
