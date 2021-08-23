@@ -34,10 +34,10 @@ namespace Give_Aid.Models.DAO
             try
             {
                 var Cate = db.Categories.Find(cate.CategoryId);
-                Cate.CategoryName = Cate.CategoryName;
-                Cate.CreateDate = Cate.CreateDate;
+                Cate.CategoryName = cate.CategoryName;
+                Cate.CreateDate = cate.CreateDate;
                 Cate.UpdatedDate = DateTime.Now;
-                Cate.Status = Cate.Status;
+                Cate.Status = cate.Status;
                 db.SaveChanges();
                 return true;
             }
