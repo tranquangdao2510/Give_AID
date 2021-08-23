@@ -144,6 +144,7 @@
     <Compile Include="Areas\Admins\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admins\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admins\Controllers\OrganizationController.cs" />
     <Compile Include="Areas\Admins\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\AdminLogin.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
     <Compile Include="Models\DAO\CategoryDao.cs" />
+    <Compile Include="Models\DAO\OrganizationDao.cs" />
     <Compile Include="Models\DataAccess\Admin.cs" />
     <Compile Include="Models\DataAccess\Blog.cs" />
     <Compile Include="Models\DataAccess\Category.cs" />
@@ -2388,6 +2390,9 @@
     <Content Include="Content\assets\library\icofont\fonts\icofont.woff" />
     <Content Include="Content\assets\library\icofont\fonts\icofont.woff2" />
     <Content Include="Areas\Admins\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Organization\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Organization\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Organization\Edit.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />

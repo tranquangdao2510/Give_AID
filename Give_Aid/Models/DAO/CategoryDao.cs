@@ -18,11 +18,14 @@ namespace Give_Aid.Models.DAO
             return db.Categories;
         }
 
-        public Category Detail(int id)
+        public Category Detail(int id) 
         {
             return db.Categories.Where(a => a.CategoryId == id).FirstOrDefault();
         }
-
+        public Category GetbyName(string name)
+        {
+            return db.Categories.SingleOrDefault(x => x.CategoryName == name);
+        }
         public int Insert(Category cate)
         {
             db.Categories.Add(cate);
