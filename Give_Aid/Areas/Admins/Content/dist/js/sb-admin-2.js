@@ -1,4 +1,4 @@
 ﻿$(function () {
     $('#AlertBox').removeClass('hide');
-    $('#AlertBox').delay(50).slideUp(10);
+    $('#AlertBox').delay(500).slideUp(200);
 });
