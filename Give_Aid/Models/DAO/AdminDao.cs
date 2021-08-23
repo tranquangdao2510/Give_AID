@@ -3,27 +3,30 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Give_Aid.Models.DAO
 {
     public class AdminDao
     {
-        NgoEntity db = null;
+        private NgoEntity db = null;
+
         public AdminDao()
         {
             db = new NgoEntity();
         }
+
         public int Insert(Admin entity)
         {
             db.Admins.Add(entity);
             db.SaveChanges();
             return entity.AdminId;
         }
+
         public IEnumerable<Admin> GetAllPaging(int page, int pageSize)
         {
-            return db.Admins.OrderByDescending(x=>x.CreatedDate).ToPagedList(page,pageSize);
+            return db.Admins.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
+
         public bool Update(Admin admin)
         {
             try
@@ -47,18 +50,19 @@ namespace Give_Aid.Models.DAO
             catch (Exception)
             {
                 return false;
-                
             }
-            
         }
+
         public Admin GetbyId(string name)
         {
             return db.Admins.SingleOrDefault(x => x.AdminName == name);
         }
+
         public Admin ViewDetail(int id)
         {
-            return db.Admins.Where(a=> a.AdminId == id).FirstOrDefault();
+            return db.Admins.Where(a => a.AdminId == id).FirstOrDefault();
         }
+
         public bool Login(string name, string password)
         {
             var result = db.Admins.SingleOrDefault(x => x.AdminName == name);
@@ -83,6 +87,21 @@ namespace Give_Aid.Models.DAO
                         return Convert.ToBoolean(-2);
                     }
                 }
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                var admin = db.Admins.Find(id);
+                db.Admins.Remove(admin);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }
