@@ -142,9 +142,11 @@
     <Compile Include="Areas\Admins\AdminsAreaRegistration.cs" />
     <Compile Include="Areas\Admins\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admins\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admins\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admins\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admins\Controllers\OrganizationController.cs" />
+    <Compile Include="Areas\Admins\Controllers\TagsController.cs" />
     <Compile Include="Areas\Admins\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\AdminLogin.cs" />
@@ -156,6 +158,10 @@
     <Compile Include="Migrations\202108220516022_v1.cs" />
     <Compile Include="Migrations\202108220516022_v1.designer.cs">
       <DependentUpon>202108220516022_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108240815215_DataAnnotations.cs" />
+    <Compile Include="Migrations\202108240815215_DataAnnotations.Designer.cs">
+      <DependentUpon>202108240815215_DataAnnotations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
@@ -2393,6 +2399,12 @@
     <Content Include="Areas\Admins\Views\Organization\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Organization\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Organization\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Blogs\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Blogs\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Blogs\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Tags\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Tags\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Tags\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -2503,6 +2515,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202108220516022_v1.resx">
       <DependentUpon>202108220516022_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108240815215_DataAnnotations.resx">
+      <DependentUpon>202108240815215_DataAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
