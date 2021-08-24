@@ -12,13 +12,8 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/Areas/Admins/Content/dist/css/adminlte.min.css">
-    <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.css" rel="stylesheet" />
-
     <link href="~/Areas/Admins/Content/dist/css/Style.css" rel="stylesheet" />
-    <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.theme.min.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap.min.css"/>
-    <link href="~/Content/bootstrap-datetimepicker.min.css" type="text/css"/>
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Areas/Admins/Content/js/Stylescss.css" rel="stylesheet" />
 </head>
 <!--
 `body` tag options:
@@ -210,12 +205,12 @@
                             </a>
 
                         </li>
-                        @*Category*@
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Manager Fund
+                                    Category
                                     <i class="fas fa-angle-left right"></i>
                                     <span class="badge badge-info right"></span>
                                 </p>
@@ -223,53 +218,19 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="" class="nav-link">
-                                        <i class="nav-icon fas fa-plus"></i>
+                                        <i class="nav-icon fas fa-th"></i>
                                         <p>
                                             @*@Html.ActionLink("Category", "Index", "Categories")*@
-                                            Category
+                                            Them moi
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
+                                    <a href="/Admins/Payment/Index" class="nav-link">
                                         <i class="nav-icon fas fa-th"></i>
                                         <p>
-                                            List fund
-                                            <span class="right badge badge-danger"></span>
-                                        </p>
-                                    </a>
-                                </li>
-
-
-                            </ul>
-                        </li>
-                        @*admin*@
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Manager Admin
-                                    <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right"></span>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/Admins/Admin/Index" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>
-                                            @*@Html.ActionLink("List Admin", "Index", "Admin")*@
-                                            List
-                                            <span class="right badge badge-danger"></span>
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/Admins/Admin/Create" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>
-                                            Add
+                                            Danh sach
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
@@ -277,77 +238,7 @@
 
                             </ul>
                         </li>
-                        @*admin*@
 
-                        @*Blog*@
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Manager Blog
-                                    <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right"></span>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>
-                                            @*@Html.ActionLink("List Admin", "Index", "Admin")*@
-                                            Tag
-                                            <span class="right badge badge-danger"></span>
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>
-                                            List Blog
-                                            <span class="right badge badge-danger"></span>
-                                        </p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        @*Blog*@
-
-                        @*admin*@
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Manager Customer
-                                    <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right"></span>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/Admins/Admin/Index" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>
-                                            @*@Html.ActionLink("List Admin", "Index", "Admin")*@
-                                            List
-                                            <span class="right badge badge-danger"></span>
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/Admins/Admin/Create" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>
-                                            Add
-                                            <span class="right badge badge-danger"></span>
-                                        </p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        @*admin*@
 
                     </ul>
                 </nav>
@@ -358,31 +249,18 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-
-            @if (TempData["AlertMessage"] != null)
-            {
-                <div id="AlertBox" class="alert @TempData["AlertType"] hide">
-                    @TempData["AlertMessage"]
+            <section>
+                <div class=" container-fluid">
+                    @if (TempData["AlertMessage"] != null)
+                    {
+                        <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                            @TempData["AlertMessage"]
+                        </div>
+                    }
+                    @RenderBody()
                 </div>
-            }
-            @RenderBody()
-            <!-- /.content-header -->
-            <!-- Main content -->
+
+            </section>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
@@ -404,35 +282,17 @@
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
     <script src="/Areas/Admins/Content/plugins/jquery/jquery.min.js"></script>
-    <script src="~/Areas/Admins/Content/dist/js/"></script>
     <!-- Bootstrap -->
     <script src="/Areas/Admins/Content/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
     <script src="/Areas/Admins/Content/dist/js/adminlte.js"></script>
     <!-- OPTIONAL SCRIPTS -->
     <script src="/Areas/Admins/Content/plugins/chart.js/Chart.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="/Areas/Admins/Content/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="~/Scripts/datepick.js"></script>
-    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/moment.min.js"></script>
     <script src="/Areas/Admins/Content/dist/js/pages/dashboard3.js"></script>
-<<<<<<< HEAD
-
-=======
->>>>>>> 5629fdab11fb5de8ef99228115bc1fdf9aba4348
-    <script src="~/Areas/Admins/Content/js/dateTime.js"></script>
-    <script src="~/Areas/Admins/Content/dist/js/sb-admin-2.js"></script>
     @RenderSection("js", required: false)
-<<<<<<< HEAD
-
-    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
-
-=======
-    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
->>>>>>> 5629fdab11fb5de8ef99228115bc1fdf9aba4348
 </body>
 </html>
+

@@ -22,8 +22,13 @@ namespace Give_Aid.Models.DAO
             return entity.AdminId;
         }
 
-        public IEnumerable<Admin> GetAllPaging(int page, int pageSize)
+        public IEnumerable<Admin> GetAllPaging(string searchString, int page, int pageSize)
         {
+            IOrderedQueryable<Admin> model = db.Admins;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.AdminName.Contains(searchString)||x.Email.Contains(searchString)).OrderByDescending(x => x.CreatedDate);
+            }
             return db.Admins.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
