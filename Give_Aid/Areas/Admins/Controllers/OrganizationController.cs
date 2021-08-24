@@ -67,5 +67,12 @@ namespace Give_Aid.Areas.Admins.Controllers
 
             return View("Index");
         }
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            new OrganizationDao().Delete(id);
+            var item = new OrganizationDao().GetAll().ToList();
+            return View("Index",item);
+        }
     }
 }

@@ -48,5 +48,18 @@ namespace Give_Aid.Models.DAO
                 return false;
             }
         }
+        public bool Delete(int id)
+        {
+            try
+            {
+                var Org = db.Organizations.Find(id);
+                db.Organizations.Remove(Org);
+                db.SaveChanges();
+                return true;
+            }catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

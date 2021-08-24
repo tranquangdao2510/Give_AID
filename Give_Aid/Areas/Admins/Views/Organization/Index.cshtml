@@ -36,6 +36,7 @@
                             <th>CreateDate</th>
                             <th>UpdateDate</th>
                             <th>Status</th>
+                            <th>#</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,7 +68,15 @@
                                 <td>
                                     <a href="/Admins/Organization/Edit/@item.OrganizationId"><span class="fa fa-edit"></span></a> |
                                     @Html.ActionLink("Details", "Details", new { id = item.OrganizationId }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.OrganizationId })
+                                    @*@Ajax.ActionLink("Delete", "Delete", new {@id = item.OrganizationId}, new AjaxOptions {
+                                   Confirm= "Do you want to delete it?",
+                                   OnComplete = "$('#row_"+@item.OrganizationId+"').remove()",
+                                   HttpMethod = "Delete",*@
+                       
+
+                                    <a href="@Url.Action("Delete", new {id = item.OrganizationId})"><i class="fas fa-trash"></i></a>
+
+                                   
                                 </td>
                             </tr>
                         }
