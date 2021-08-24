@@ -11,7 +11,7 @@ namespace Give_Aid.Areas.Admins.Controllers
 {
     public class PaymentController : Controller
     {
-        NgoEntity db = new NgoEntity();
+        //NgoEntity db = new NgoEntity();
         // GET: Admins/Payment
         public ActionResult Index()
         {

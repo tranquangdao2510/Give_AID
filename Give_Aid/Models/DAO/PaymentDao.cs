@@ -96,12 +96,15 @@ namespace Give_Aid.Models.DAO
             }
             catch (Exception ex)
             {
+                
                 return payment.PaymentId;
-
-
             }
             
            
+        }
+        public bool bbs()
+        {
+            return false;
         }
         
     }

@@ -24,7 +24,7 @@ var paymentController = {
             },
             messages: {
                 txtName: {
-                    required: "ban phai nhap ten",
+                    required: "ban phai nhap tsdadsen",
                     minlength: "ten phai lon hon 5 ki tu",
                 }
             }

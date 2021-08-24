@@ -13,5 +13,9 @@ namespace Give_Aid.Areas.Admins.Controllers
         {
             return View();
         }
+        public ActionResult Index()
+        {
+            return View();
+        }
     }
 }

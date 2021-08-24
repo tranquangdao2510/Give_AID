@@ -194,7 +194,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
                             <a href="#" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -205,23 +205,93 @@
                             </a>
 
                         </li>
-
+                        @* manager Fund *@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Category
+                                    Fund
                                     <i class="fas fa-angle-left right"></i>
                                     <span class="badge badge-info right"></span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
+                                    <a href="/Admins/Categories/Index" class="nav-link">
                                         <i class="nav-icon fas fa-th"></i>
                                         <p>
                                             @*@Html.ActionLink("Category", "Index", "Categories")*@
-                                            Them moi
+                                            List Category
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admins/Funs/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            List
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        @* manager Fund *@
+
+                        @* manager Organization *@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Organization
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admins/Organization/Create" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            @*@Html.ActionLink("Category", "Index", "Categories")*@
+                                            Create At
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admins/Organization/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            List
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        @* manager Organization *@
+
+                        @* manager Payment *@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Payment
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admins/Payment/Create" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            @*@Html.ActionLink("Category", "Index", "Categories")*@
+                                            Create At
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
@@ -230,7 +300,7 @@
                                     <a href="/Admins/Payment/Index" class="nav-link">
                                         <i class="nav-icon fas fa-th"></i>
                                         <p>
-                                            Danh sach
+                                            List
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
@@ -238,6 +308,9 @@
 
                             </ul>
                         </li>
+                        @* manager Organization *@
+
+
 
 
                     </ul>
