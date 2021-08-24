@@ -144,8 +144,10 @@
     <Compile Include="Areas\Admins\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admins\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admins\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admins\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admins\Controllers\OrganizationController.cs" />
+    <Compile Include="Areas\Admins\Controllers\PaymentController.cs" />
     <Compile Include="Areas\Admins\Controllers\TagsController.cs" />
     <Compile Include="Areas\Admins\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -167,6 +169,7 @@
     <Compile Include="Models\DAO\AdminDao.cs" />
     <Compile Include="Models\DAO\CategoryDao.cs" />
     <Compile Include="Models\DAO\OrganizationDao.cs" />
+    <Compile Include="Models\DAO\PaymentDao.cs" />
     <Compile Include="Models\DataAccess\Admin.cs" />
     <Compile Include="Models\DataAccess\Blog.cs" />
     <Compile Include="Models\DataAccess\Category.cs" />
@@ -186,6 +189,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admins\Content\Controller\paymentController.js" />
     <Content Include="Areas\Admins\Content\dist\css\adminlte.css" />
     <Content Include="Areas\Admins\Content\dist\css\adminlte.min.css" />
     <Content Include="Areas\Admins\Content\dist\css\alt\adminlte.components.css" />
@@ -2405,6 +2409,8 @@
     <Content Include="Areas\Admins\Views\Tags\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Tags\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Tags\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Payment\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Payment\_AddorUpdate.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -2419,6 +2425,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.moneymask.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

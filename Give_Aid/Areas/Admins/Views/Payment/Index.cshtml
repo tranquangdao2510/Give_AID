@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
+}
+@section js{
+    @*<script src="~/Areas/Admins/Content/js/ajaxjquery.min.js"></script>>*@
+    <script src="~/Areas/Admins/Content/js/bootbox.min.js"></script>
+    <script src="~/Areas/Admins/Content/js/jquery.twbsPagination.min.js"></script>
+    <script src="~/Areas/Admins/Content/js/mustache.min.js"></script>>
+    <script src="~/Areas/Admins/Content/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/Areas/Admins/Content/Controller/paymentController.js"></script>
+
+
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Payment List</h3>
+                <div class="card-tools">
+                    <div></div>
+
+                    <div class="input-group input-group-sm" style="width: 200px;">
+                        <div class="input-group-append">
+                            @*<button class="btn btn-default " id="btAddNew" data-toggle="modal" data-target="#btAddNeworUpdate">Create at</button>*@
+                            <button type="button" class="btn btn-default" id="btAddNew">
+                                Create at
+                            </button>
+                        </div>
+                        <input type="text" name="txtSreach" class="form-control float-right" id="txtSreachPayment" placeholder="Search">
+
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-default" id="btnSearch">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User</th>
+                            <th>Status</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbldata"></tbody>
+                </table>
+
+                <script id="data-template" type="x-tmpl-mustache">
+                    <tr>
+                        <td>{{PaymentId}}</td>
+                        <td>{{PaymentName}}</td>
+                        <td>{{{Status}}}</td>
+                        <td>
+                            <button class="btn btn-primary btn-xs btn-edit" data-id="{{PaymentId}}"><span class="fa fa-edit"></span></button>
+                            <button class="btn btn-danger btn-xs btn-delete" data-id="{{PaymentId}}"><span class="fa fa-trash"></span></button>
+                        </td>
+                    </tr>
+                </script>
+            </div>
+
+            <div class="card-footer clearfix" id="pagination">
+
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+
+@RenderPage("_AddorUpdate.cshtml")
