@@ -13,9 +13,10 @@ namespace Give_Aid.Models.DAO
         {
             db = new NgoEntity();
         }
-        public IEnumerable<Category> GetAll()
+        public IEnumerable<Category> GetAll(string search_name)
         {
-            return db.Categories;
+            search_name = search_name ?? "";
+            return db.Categories.Where(x => x.CategoryName.Contains(search_name)).OrderBy(x => x.CategoryName);
         }
 
         public Category Detail(int id) 
@@ -50,6 +51,20 @@ namespace Give_Aid.Models.DAO
 
             }
 
+        }
+        public bool Delete(int id)
+        {
+            try
+            {
+                var Cate = db.Categories.Find(id);
+                db.Categories.Remove(Cate);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
