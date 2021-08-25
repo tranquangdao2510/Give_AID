@@ -18,18 +18,19 @@ namespace Give_Aid.Models.DAO
         public int Insert(Admin entity)
         {
             db.Admins.Add(entity);
+            entity.CreatedDate = DateTime.Now;
             db.SaveChanges();
             return entity.AdminId;
         }
 
         public IEnumerable<Admin> GetAllPaging(string searchString, int page, int pageSize)
         {
-            IOrderedQueryable<Admin> model = db.Admins;
+            IQueryable<Admin> model = db.Admins;
             if (!string.IsNullOrEmpty(searchString))
             {
-                model = model.Where(x => x.AdminName.Contains(searchString)||x.Email.Contains(searchString)).OrderByDescending(x => x.CreatedDate);
+                model = model.Where(x => x.AdminName.Contains(searchString)).OrderByDescending(x => x.CreatedDate);
             }
-            return db.Admins.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+            return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
         public bool Update(Admin admin)

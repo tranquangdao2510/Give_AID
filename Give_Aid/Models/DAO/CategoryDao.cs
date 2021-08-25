@@ -29,6 +29,7 @@ namespace Give_Aid.Models.DAO
         }
         public int Insert(Category cate)
         {
+            cate.CreateDate = DateTime.Now;
             db.Categories.Add(cate);
             db.SaveChanges();
             return cate.CategoryId;

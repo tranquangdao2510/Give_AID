@@ -21,6 +21,6 @@ namespace Give_Aid.Models.DataAccess
 
         public DateTime? UpdatedDate { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
     }
 }

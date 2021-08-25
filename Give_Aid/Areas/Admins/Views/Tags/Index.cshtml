@@ -59,7 +59,7 @@
                                     @Html.DisplayFor(modelItem => item.Status)
                                 </td>
                                 <td>
-                                    <a href="/Admins/Admin/Edit/@item.TagId"><span class="fa fa-edit"></span></a> |
+                                    @*<a href="/Admins/Admin/Edit/@item.TagId"><span class="fa fa-edit"></span></a> |*@
                                     @Html.ActionLink("Edit", "Edit", new { id = item.TagId }) |
                                     @Html.ActionLink("Delete", "Delete", new { id = item.TagId },new {@onclick="return confirm('you may want to delete ?')" })
                                 </td>

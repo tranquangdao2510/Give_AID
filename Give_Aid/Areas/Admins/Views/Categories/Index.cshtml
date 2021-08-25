@@ -10,7 +10,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Fixed Header Table</h3>
+                <h3 class="card-title">Category</h3>
 
                 <div class="card-tools">
                     <form action="Categories" method="get">
@@ -60,7 +60,7 @@
                                 </td>
                                 <td>
                                     <a href="/Admins/Categories/Edit/@item.CategoryId"><span class="fa fa-edit"></span></a> |
-                                    @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
+                                    
                                     @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId }, new { @onclick = "return confirm('you may want to delete ?')" })
 
                                 </td>

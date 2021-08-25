@@ -10,7 +10,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Fixed Header Table</h3>
+                <h3 class="card-title">Organization</h3>
 
                 <div class="card-tools">
                     <form action="Organization" method="get" >
@@ -69,7 +69,7 @@
                                 </td>
                                 <td>
                                     <a href="/Admins/Organization/Edit/@item.OrganizationId"><span class="fa fa-edit"></span></a> |
-                                    @Html.ActionLink("Details", "Details", new { id = item.OrganizationId }) |
+                                   
                                     @Html.ActionLink("Delete", "Delete", new { id = item.OrganizationId }, new { @onclick = "return confirm('you may want to delete ?')" })
 
                                 </td>

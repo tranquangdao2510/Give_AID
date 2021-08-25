@@ -12,9 +12,10 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/Areas/Admins/Content/dist/css/adminlte.min.css">
+    <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.theme.css" rel="stylesheet" />
     <link href="~/Areas/Admins/Content/dist/css/Style.css" rel="stylesheet" />
     <link href="~/Areas/Admins/Content/js/Stylescss.css" rel="stylesheet" />
-    <link href="~/Content/PagedList.css" rel="stylesheet" />
 </head>
 <!--
 `body` tag options:
@@ -195,7 +196,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
                             <a href="#" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -309,9 +310,42 @@
 
                             </ul>
                         </li>
-                        @* manager Organization *@
+                        @* manager Payment *@
 
+                        @* manager Blog *@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Blog
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admins/Tags/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            @*@Html.ActionLink("Category", "Index", "Categories")*@
+                                            Tags
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admins/Blogs/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            List
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
 
+                            </ul>
+                        </li>
+                        @* manager Blog *@
 
 
                     </ul>
@@ -361,11 +395,17 @@
     <!-- AdminLTE -->
     <script src="/Areas/Admins/Content/dist/js/adminlte.js"></script>
     <!-- OPTIONAL SCRIPTS -->
+    <script src="~/Areas/Admins/Content/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="/Areas/Admins/Content/plugins/chart.js/Chart.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="/Areas/Admins/Content/dist/js/demo.js"></script>
+    <script src="~/Content/ckeditor/ckeditor.js"></script>>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/Areas/Admins/Content/dist/js/pages/dashboard3.js"></script>
+    <script src="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Content/assets/js/ckEdittor.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
     <script src="~/Areas/Admins/Content/dist/js/sb-admin-2.js"></script>
     @RenderSection("js", required: false)
 </body>
