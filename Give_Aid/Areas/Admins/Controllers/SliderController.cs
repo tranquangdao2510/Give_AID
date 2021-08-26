@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class SliderController : Controller
+    public class SliderController : BaseController
     {
         // GET: Admins/Slider
         public ActionResult Index()

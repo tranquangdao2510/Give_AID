@@ -15,7 +15,7 @@ namespace Give_Aid.Models.DataAccess
 
         public DateTime? CreateDate { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         public int? PaymentId { get; set; }
 
