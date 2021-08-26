@@ -1,0 +1,98 @@
+﻿@model PagedList.IPagedList<Give_Aid.Models.DataAccess.Slide>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">List Admin </h3>
+
+
+                <div class="card-tools">
+
+                    @using (Html.BeginForm("Index", "Slider", FormMethod.Get))
+                    {
+                        <div class="input-group input-group-sm" style="width: 220px;">
+                            <div class="input-group-append"><a href="/Admins/Slider/Create" class=" btn btn-success">Create at</a></div>
+                            <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control float-right" placeholder="Search">
+
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Url</th>
+                            <th>Image</th>
+                            <th>Display Order</th>
+                            <th>Create At</th>
+                            <th>Status</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.SliderId">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SliderId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Url)
+                                </td>
+                                <td>
+                                    <img src="@item.Image" alt="Alternate Text" width="100px" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DisplayOrder)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreateDate)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    <a href="/Admins/Slider/Edit/@item.SliderId"><span class="fa fa-edit" style="color:cornflowerblue"></span></a> |
+                                    @Ajax.ActionLink(" ", "Delete",new { @id = item.SliderId }, new AjaxOptions
+                               {
+                                   Confirm="Do you want to delete this record? " + item.SliderId,
+                                   OnComplete = "$('#row_"+@item.SliderId+"').remove()",
+                                   HttpMethod = "Delete",
+                               }, new { @class = "fa fa-trash" , @style= "Color:firebrick" })
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+
+
+

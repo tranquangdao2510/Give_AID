@@ -78,7 +78,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             var result = dao.Delete(id);
             if (result)
             {
-                SetAlert("Delete organization success", "success");
+                SetAlert("Delete Categories success", "success");
                 return RedirectToAction("Index", "Categories");
             }
             else
