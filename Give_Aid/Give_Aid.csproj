@@ -160,12 +160,9 @@
     <Compile Include="Areas\Admins\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admins\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admins\Controllers\CategoriesController.cs" />
-<<<<<<< HEAD
     <Compile Include="Areas\Admins\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Admins\Controllers\DonateController.cs" />
-=======
     <Compile Include="Areas\Admins\Controllers\ContactsController.cs" />
->>>>>>> b94665c8517e6b90a4e47e1c66244fa57798d98a
     <Compile Include="Areas\Admins\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admins\Controllers\OrganizationController.cs" />
@@ -182,41 +179,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Migrations\202108260338513_v1.cs" />
-    <Compile Include="Migrations\202108260338513_v1.Designer.cs">
-      <DependentUpon>202108260338513_v1.cs</DependentUpon>
-=======
-    <Compile Include="Migrations\202108270643127_v2.cs" />
-    <Compile Include="Migrations\202108270643127_v2.Designer.cs">
-      <DependentUpon>202108270643127_v2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108270742572_DataAnnotations.cs" />
-    <Compile Include="Migrations\202108270742572_DataAnnotations.Designer.cs">
-      <DependentUpon>202108270742572_DataAnnotations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108270805466_DataAnnotations1.cs" />
-    <Compile Include="Migrations\202108270805466_DataAnnotations1.Designer.cs">
-      <DependentUpon>202108270805466_DataAnnotations1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108270902565_v3.cs" />
-    <Compile Include="Migrations\202108270902565_v3.Designer.cs">
-      <DependentUpon>202108270902565_v3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108270905183_v4.cs" />
-    <Compile Include="Migrations\202108270905183_v4.Designer.cs">
-      <DependentUpon>202108270905183_v4.cs</DependentUpon>
->>>>>>> b94665c8517e6b90a4e47e1c66244fa57798d98a
-    </Compile>
+
+    
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
     <Compile Include="Models\DAO\CategoryDao.cs" />
     <Compile Include="Models\DAO\CustomerDao.cs" />
-<<<<<<< HEAD
+
     <Compile Include="Models\DAO\DonateDao.cs" />
-=======
     <Compile Include="Models\DAO\ImageGalleryDao.cs" />
->>>>>>> b94665c8517e6b90a4e47e1c66244fa57798d98a
     <Compile Include="Models\DAO\OrganizationDao.cs" />
     <Compile Include="Models\DAO\PaymentDao.cs" />
     <Compile Include="Models\DAO\SliderDao.cs" />
@@ -3446,14 +3417,12 @@
     <Content Include="Content\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\ckfinder\userfiles\.htaccess" />
-<<<<<<< HEAD
     <Content Include="Areas\Admins\Views\Slider\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Slider\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Customer\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Customer\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Customer\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Donate\Create.cshtml" />
-=======
     <Content Include="Areas\Admins\Views\Blogs\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Tags\Create.cshtml" />
@@ -3465,7 +3434,6 @@
     <Content Include="Areas\Admins\Views\Volunteers\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Blogs\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Contacts\Index.cshtml" />
->>>>>>> b94665c8517e6b90a4e47e1c66244fa57798d98a
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -3577,26 +3545,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Migrations\202108260338513_v1.resx">
-      <DependentUpon>202108260338513_v1.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="Migrations\202108270643127_v2.resx">
-      <DependentUpon>202108270643127_v2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108270742572_DataAnnotations.resx">
-      <DependentUpon>202108270742572_DataAnnotations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108270805466_DataAnnotations1.resx">
-      <DependentUpon>202108270805466_DataAnnotations1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108270902565_v3.resx">
-      <DependentUpon>202108270902565_v3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108270905183_v4.resx">
-      <DependentUpon>202108270905183_v4.cs</DependentUpon>
->>>>>>> b94665c8517e6b90a4e47e1c66244fa57798d98a
-    </EmbeddedResource>
+    
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
