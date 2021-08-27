@@ -19,11 +19,6 @@ namespace Give_Aid.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-
-            return View();
-        }
         public ActionResult Causes()
         {
 

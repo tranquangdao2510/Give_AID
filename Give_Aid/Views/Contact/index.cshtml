@@ -1,4 +1,10 @@
-﻿   <!-- Page Breadcrumbs Start -->
+﻿@model Give_Aid.Models.DataAccess.Contact
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Page Breadcrumbs Start -->
 <section class="breadcrumbs-page-wrap">
     <div class="bg-fixed pos-rel breadcrumbs-page">
         <div class="container">
@@ -33,43 +39,49 @@
                         <i class="charity-love_hearts"></i>
                     </div>
                     <div id="sucessmessage"> </div>
-                    <form action="#" method="post" id="contact_form" novalidate="novalidate">
+                    @using (Html.BeginForm("Index", "Contact", FormMethod.Post, new {@action= "https://formsubmit.co/eprojectsemIII@gmail.com" }))
+                    {
+                        @Html.AntiForgeryToken()
                         <div class="row">
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="First Name">
+                                    @Html.TextBoxFor(x => x.FirstName, new { @placeholder = "First Name", @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name">
+                                    @Html.TextBoxFor(x => x.LastName, new { @placeholder = "Last Name", @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    <input type="text" name="email" id="email" class="form-control" placeholder="Your Email">
+                                    @Html.TextBoxFor(x => x.Email, new { @placeholder = "Your Email", @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    <input type="number" name="phone" id="phone" class="form-control" placeholder="Phone Number">
+                                    @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Phone Numbe", @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-12 mb-0">
                                 <div class="form-group">
-                                    <textarea name="comment" id="comment" class="form-control" rows="6" placeholder="Message"></textarea>
+                                    @Html.TextAreaFor(x => x.Message, new { @placeholder = "Message", @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Message, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary text-nowrap">Send Message</button>
                             </div>
                         </div>
-
-                    </form>
+                    }
                 </div>
             </div>
 

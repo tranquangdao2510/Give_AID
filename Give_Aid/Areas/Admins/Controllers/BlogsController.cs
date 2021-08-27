@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Give_Aid.Models.DataAccess;
+using PagedList;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
@@ -15,10 +16,14 @@ namespace Give_Aid.Areas.Admins.Controllers
         private NgoEntity db = new NgoEntity();
 
         // GET: Admins/Blogs
-        public ActionResult Index()
+        public ActionResult Index(string search_title, int? page)
         {
-            var blogs = db.Blogs.Include(b => b.Tag);
-            return View(blogs.ToList());
+            page = page ?? 1;
+            int pagesize = 5;
+            search_title = search_title ?? "";
+            ViewBag.search_title = search_title;
+            var blogs = db.Blogs.Include(b => b.Tag).Where(x => x.Title.Contains(search_title)).OrderBy(x=>x.BlogId);
+            return View(blogs.ToPagedList(page.Value,pagesize));
         }
 
         // GET: Admins/Blogs/Create
