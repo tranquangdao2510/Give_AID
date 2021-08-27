@@ -163,6 +163,7 @@
     <Compile Include="Areas\Admins\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Admins\Controllers\DonateController.cs" />
     <Compile Include="Areas\Admins\Controllers\ContactsController.cs" />
+    <Compile Include="Areas\Admins\Controllers\FundController.cs" />
     <Compile Include="Areas\Admins\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admins\Controllers\OrganizationController.cs" />
@@ -179,14 +180,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-
-    
+    <Compile Include="Migrations\202108271504540_v1.cs" />
+    <Compile Include="Migrations\202108271504540_v1.Designer.cs">
+      <DependentUpon>202108271504540_v1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
     <Compile Include="Models\DAO\CategoryDao.cs" />
     <Compile Include="Models\DAO\CustomerDao.cs" />
-
     <Compile Include="Models\DAO\DonateDao.cs" />
+    <Compile Include="Models\DAO\FundDao.cs" />
     <Compile Include="Models\DAO\ImageGalleryDao.cs" />
     <Compile Include="Models\DAO\OrganizationDao.cs" />
     <Compile Include="Models\DAO\PaymentDao.cs" />
@@ -3372,8 +3375,6 @@
     <Content Include="Areas\Admins\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Admin\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Admin\Edit.cshtml" />
-    <Content Include="Areas\Admins\Views\Categories\Index.cshtml" />
-    <Content Include="Areas\Admins\Views\Categories\Create.cshtml" />
     <Content Include="Areas\Admins\Views\_ViewStart.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -3388,10 +3389,6 @@
     <Content Include="Content\assets\css\fonts\icomoon2849.woff" />
     <Content Include="Content\assets\library\icofont\fonts\icofont.woff" />
     <Content Include="Content\assets\library\icofont\fonts\icofont.woff2" />
-    <Content Include="Areas\Admins\Views\Categories\Edit.cshtml" />
-    <Content Include="Areas\Admins\Views\Organization\Index.cshtml" />
-    <Content Include="Areas\Admins\Views\Organization\Create.cshtml" />
-    <Content Include="Areas\Admins\Views\Organization\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Payment\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Payment\_AddorUpdate.cshtml" />
     <Content Include="Content\ckeditor\bender-runner.config.json" />
@@ -3434,6 +3431,15 @@
     <Content Include="Areas\Admins\Views\Volunteers\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Blogs\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Contacts\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Fund\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Fund\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Fund\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Organization\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Organization\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Organization\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -3545,7 +3551,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    
+    <EmbeddedResource Include="Migrations\202108271504540_v1.resx">
+      <DependentUpon>202108271504540_v1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

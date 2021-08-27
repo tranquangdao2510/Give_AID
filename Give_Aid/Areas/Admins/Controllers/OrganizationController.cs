@@ -18,7 +18,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             page = page ?? 1;
             int pagesize = 3;
             var dao = new OrganizationDao();
-            var model = dao.GetAll(search_name);
+            var model = dao.GetByName(search_name);
             return View(model.ToPagedList(page.Value,pagesize));
         }
 

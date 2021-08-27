@@ -15,8 +15,7 @@ namespace Give_Aid.Models.DataAccess
             Donates = new HashSet<Donate>();
         }
 
-        [StringLength(50)]
-        public string FundId { get; set; }
+        public int FundId { get; set; }
 
         [StringLength(250)]
         public string FundName { get; set; }
