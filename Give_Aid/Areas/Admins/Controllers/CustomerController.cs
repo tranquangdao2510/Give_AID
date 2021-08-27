@@ -47,8 +47,8 @@ namespace Give_Aid.Areas.Admins.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var adm = new CustomerDao().ViewDetail(id);
-            return View(adm);
+            var cus = new CustomerDao().ViewDetail(id);
+            return View(cus);
         }
         [HttpPost]
         public ActionResult Edit(Customer customer)
