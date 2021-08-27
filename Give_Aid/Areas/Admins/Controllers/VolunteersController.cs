@@ -11,92 +11,102 @@ using PagedList;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class TagsController : Controller
+    public class VolunteersController : Controller
     {
         private NgoEntity db = new NgoEntity();
 
-        // GET: Admins/Tags
+        // GET: Admins/Volunteers
         public ActionResult Index(string search_name, int? page)
         {
             page = page ?? 1;
             int pagesize = 5;
             search_name = search_name ?? "";
             ViewBag.search_name = search_name;
-            var tags = db.Tags.ToList().Where(x => x.TagName.Contains(search_name));
-            return View(tags.ToPagedList(page.Value,pagesize));
+            var volunteers = db.Volunteers.ToList().Where(x => x.VolunteersName.Contains(search_name));
+            return View(volunteers.ToPagedList(page.Value, pagesize));
         }
 
-
-        // GET: Admins/Tags/Create
+        // GET: Admins/Volunteers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admins/Tags/Create
+        // POST: Admins/Volunteers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TagId,TagName,CreateDate,UpdatedDate,Status")] Tag tag)
+        public ActionResult Create([Bind(Include = "VolunteersId,VolunteersName,Email,Address,Phone,Image,BirthDay,CreateDate,UpdatedDate,Status")] Volunteer volunteer, HttpPostedFileBase fileimage)
         {
             if (ModelState.IsValid)
             {
-                db.Tags.Add(tag);
+                if (fileimage != null)
+                {
+                    fileimage.SaveAs(Server.MapPath("~/Content/assets/images/team" + fileimage.FileName));
+                    volunteer.Image = "/Content/assets/images/team" + fileimage.FileName;
+                }
+                db.Volunteers.Add(volunteer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(tag);
+            return View(volunteer);
         }
 
-        // GET: Admins/Tags/Edit/5
+        // GET: Admins/Volunteers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tag tag = db.Tags.Find(id);
-            if (tag == null)
+            Volunteer volunteer = db.Volunteers.Find(id);
+            if (volunteer == null)
             {
                 return HttpNotFound();
             }
-            return View(tag);
+            return View(volunteer);
         }
 
-        // POST: Admins/Tags/Edit/5
+        // POST: Admins/Volunteers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TagId,TagName,CreateDate,UpdatedDate,Status")] Tag tag)
+        public ActionResult Edit([Bind(Include = "VolunteersId,VolunteersName,Email,Address,Phone,Image,BirthDay,CreateDate,UpdatedDate,Status")] Volunteer volunteer, HttpPostedFileBase fileimage)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tag).State = EntityState.Modified;
+                    if (fileimage != null)
+                    {
+                        fileimage.SaveAs(Server.MapPath("~/Content/assets/images/team" + fileimage.FileName));
+                        volunteer.Image = "/Content/assets/images/team" + fileimage.FileName;
+                    }
+                    db.Entry(volunteer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tag);
+            return View(volunteer);
         }
 
-        // GET: Admins/Tags/Delete/5
+        // GET: Admins/Volunteers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tag tag = db.Tags.Find(id);
-            if (tag == null)
+            Volunteer volunteer = db.Volunteers.Find(id);
+            if (volunteer == null)
             {
                 return HttpNotFound();
             }
-            db.Tags.Remove(tag);
+            db.Volunteers.Remove(volunteer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

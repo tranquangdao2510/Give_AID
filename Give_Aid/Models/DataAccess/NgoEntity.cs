@@ -15,7 +15,7 @@ namespace Give_Aid.Models.DataAccess
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Comtact> Comtacts { get; set; }
+        public virtual DbSet<Contact> Comtacts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Donate> Donates { get; set; }
         public virtual DbSet<Faq> Faqs { get; set; }
@@ -70,28 +70,24 @@ namespace Give_Aid.Models.DataAccess
                 .Property(e => e.CategoryName)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Comtact>()
+            modelBuilder.Entity<Contact>()
                 .Property(e => e.Phone)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Comtact>()
+            modelBuilder.Entity<Contact>()
                 .Property(e => e.Message)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Comtact>()
+            modelBuilder.Entity<Contact>()
                 .Property(e => e.FirstName)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Comtact>()
+            modelBuilder.Entity<Contact>()
                 .Property(e => e.LastName)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Comtact>()
+            modelBuilder.Entity<Contact>()
                 .Property(e => e.Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Comtact>()
-                .Property(e => e.Address)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Customer>()

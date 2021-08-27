@@ -160,38 +160,70 @@
     <Compile Include="Areas\Admins\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admins\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admins\Controllers\CategoriesController.cs" />
+<<<<<<< HEAD
     <Compile Include="Areas\Admins\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Admins\Controllers\DonateController.cs" />
+=======
+    <Compile Include="Areas\Admins\Controllers\ContactsController.cs" />
+>>>>>>> b94665c8517e6b90a4e47e1c66244fa57798d98a
     <Compile Include="Areas\Admins\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admins\Controllers\OrganizationController.cs" />
     <Compile Include="Areas\Admins\Controllers\PaymentController.cs" />
     <Compile Include="Areas\Admins\Controllers\SliderController.cs" />
     <Compile Include="Areas\Admins\Controllers\TagsController.cs" />
+    <Compile Include="Areas\Admins\Controllers\VolunteersController.cs" />
     <Compile Include="Areas\Admins\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\AdminLogin.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\202108260338513_v1.cs" />
     <Compile Include="Migrations\202108260338513_v1.Designer.cs">
       <DependentUpon>202108260338513_v1.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\202108270643127_v2.cs" />
+    <Compile Include="Migrations\202108270643127_v2.Designer.cs">
+      <DependentUpon>202108270643127_v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108270742572_DataAnnotations.cs" />
+    <Compile Include="Migrations\202108270742572_DataAnnotations.Designer.cs">
+      <DependentUpon>202108270742572_DataAnnotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108270805466_DataAnnotations1.cs" />
+    <Compile Include="Migrations\202108270805466_DataAnnotations1.Designer.cs">
+      <DependentUpon>202108270805466_DataAnnotations1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108270902565_v3.cs" />
+    <Compile Include="Migrations\202108270902565_v3.Designer.cs">
+      <DependentUpon>202108270902565_v3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108270905183_v4.cs" />
+    <Compile Include="Migrations\202108270905183_v4.Designer.cs">
+      <DependentUpon>202108270905183_v4.cs</DependentUpon>
+>>>>>>> b94665c8517e6b90a4e47e1c66244fa57798d98a
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
     <Compile Include="Models\DAO\CategoryDao.cs" />
     <Compile Include="Models\DAO\CustomerDao.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\DAO\DonateDao.cs" />
+=======
+    <Compile Include="Models\DAO\ImageGalleryDao.cs" />
+>>>>>>> b94665c8517e6b90a4e47e1c66244fa57798d98a
     <Compile Include="Models\DAO\OrganizationDao.cs" />
     <Compile Include="Models\DAO\PaymentDao.cs" />
     <Compile Include="Models\DAO\SliderDao.cs" />
     <Compile Include="Models\DataAccess\Admin.cs" />
     <Compile Include="Models\DataAccess\Blog.cs" />
     <Compile Include="Models\DataAccess\Category.cs" />
-    <Compile Include="Models\DataAccess\Comtact.cs" />
+    <Compile Include="Models\DataAccess\Contact.cs" />
     <Compile Include="Models\DataAccess\Customer.cs" />
     <Compile Include="Models\DataAccess\Donate.cs" />
     <Compile Include="Models\DataAccess\Faq.cs" />
@@ -3287,7 +3319,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admins\Views\web.config" />
     <Content Include="Areas\Admins\Views\Login\Index.cshtml" />
-    <Content Include="Areas\Admins\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admins\Content\dist\css\adminlte.css.map" />
     <Content Include="Areas\Admins\Content\dist\css\adminlte.min.css.map" />
     <Content Include="Areas\Admins\Content\dist\css\alt\adminlte.components.css.map" />
@@ -3390,12 +3421,6 @@
     <Content Include="Areas\Admins\Views\Organization\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Organization\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Organization\Edit.cshtml" />
-    <Content Include="Areas\Admins\Views\Blogs\Create.cshtml" />
-    <Content Include="Areas\Admins\Views\Blogs\Edit.cshtml" />
-    <Content Include="Areas\Admins\Views\Blogs\Index.cshtml" />
-    <Content Include="Areas\Admins\Views\Tags\Create.cshtml" />
-    <Content Include="Areas\Admins\Views\Tags\Edit.cshtml" />
-    <Content Include="Areas\Admins\Views\Tags\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Payment\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Payment\_AddorUpdate.cshtml" />
     <Content Include="Content\ckeditor\bender-runner.config.json" />
@@ -3421,12 +3446,26 @@
     <Content Include="Content\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\ckfinder\userfiles\.htaccess" />
+<<<<<<< HEAD
     <Content Include="Areas\Admins\Views\Slider\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Slider\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Customer\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Customer\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Customer\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Donate\Create.cshtml" />
+=======
+    <Content Include="Areas\Admins\Views\Blogs\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Blogs\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Tags\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Tags\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Tags\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admins\Views\Volunteers\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Volunteers\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Volunteers\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Blogs\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Contacts\Index.cshtml" />
+>>>>>>> b94665c8517e6b90a4e47e1c66244fa57798d98a
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -3514,7 +3553,6 @@
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Home\BlogDetail.cshtml" />
     <Content Include="Views\Home\Causes.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Event.cshtml" />
     <Content Include="Views\Home\EventDetail.cshtml" />
@@ -3527,6 +3565,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\BecomeVolunteerss.cshtml" />
     <Content Include="Views\Home\CausesDetail.cshtml" />
+    <Content Include="Views\Contact\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3538,8 +3577,25 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202108260338513_v1.resx">
       <DependentUpon>202108260338513_v1.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\202108270643127_v2.resx">
+      <DependentUpon>202108270643127_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108270742572_DataAnnotations.resx">
+      <DependentUpon>202108270742572_DataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108270805466_DataAnnotations1.resx">
+      <DependentUpon>202108270805466_DataAnnotations1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108270902565_v3.resx">
+      <DependentUpon>202108270902565_v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108270905183_v4.resx">
+      <DependentUpon>202108270905183_v4.cs</DependentUpon>
+>>>>>>> b94665c8517e6b90a4e47e1c66244fa57798d98a
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

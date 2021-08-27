@@ -1,12 +1,12 @@
-﻿@model PagedList.IPagedList<Give_Aid.Models.DataAccess.Blog>
+﻿@model PagedList.IPagedList<Give_Aid.Models.DataAccess.Contact>
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
 }
+
 <div style="padding-top:10px;margin-bottom:10px">
-    <a href="/Admins/Blogs/Create" class="btn btn-primary">Create</a>
-    <a href="/Admins/Blogs" class="btn btn-primary">Reload</a>
+    <a href="/Admins/Contacts" class="btn btn-primary">Reload</a>
 </div>
 
 <div class="row">
@@ -17,7 +17,7 @@
                 <form action="" method="get" style="margin-left:30px">
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="search_title" class="form-control float-right" placeholder="Search">
+                            <input type="text" name="search_name" class="form-control float-right" placeholder="Search">
 
                             <div class="input-group-append">
                                 <button class="btn btn-default">
@@ -34,31 +34,25 @@
                     <thead>
                         <tr>
                             <th>
-                               Id
+                                Id
                             </th>
                             <th>
-                                Tag Name
+                                Phone
                             </th>
                             <th>
-                                Title
+                                Message
                             </th>
                             <th>
-                                Description
+                                FirstName
                             </th>
                             <th>
-                                BlogImage
+                                LastName
                             </th>
                             <th>
-                                Content
+                                Email
                             </th>
                             <th>
                                 CreateDate
-                            </th>
-                            <th>
-                                UpdatedDate
-                            </th>
-                            <th>
-                                Status
                             </th>
                             <th></th>
                         </tr>
@@ -69,39 +63,32 @@
                         {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.BlogId)
+                                @Html.DisplayFor(modelItem => item.IdMessage)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Tag.TagName)
+                                @Html.DisplayFor(modelItem => item.Phone)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Title)
+                                @Html.DisplayFor(modelItem => item.Message)
                             </td>
                             <td>
-                                @item.Description.Substring(0, Math.Min(item.Description.Length, 5));
+                                @Html.DisplayFor(modelItem => item.FirstName)
                             </td>
                             <td>
-                                <img src="@item.BlogImage" width="50px" />
+                                @Html.DisplayFor(modelItem => item.LastName)
                             </td>
                             <td>
-                                @item.Description.Substring(0, Math.Min(item.Content.Length, 5));
+                                @Html.DisplayFor(modelItem => item.Email)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.CreateDate)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.UpdatedDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Status)
-                            </td>
-                            <td>
-                                <a href="/Admins/Admin/Edit/@item.BlogId"><span class="fa fa-edit"></span></a> |
-                                @Html.ActionLink("Edit", "Edit", new { id = item.BlogId }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.BlogId }, new { @onclick = "return confirm('you may want to delete ?')" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.IdMessage }, new { @onclick = "return confirm('you may want to delete ?')" })
                             </td>
                         </tr>
                         }
+
                     </tbody>
                 </table>
 
@@ -112,4 +99,3 @@
         <div class="float-left">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, search_name = @ViewBag.search_name }))</div>
     </div>
 </div>
-

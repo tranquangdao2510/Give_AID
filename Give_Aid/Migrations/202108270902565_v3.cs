@@ -3,7 +3,7 @@ namespace Give_Aid.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class v1 : DbMigration
+    public partial class v3 : DbMigration
     {
         public override void Up()
         {
