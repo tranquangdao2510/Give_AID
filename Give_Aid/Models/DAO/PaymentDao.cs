@@ -102,10 +102,10 @@ namespace Give_Aid.Models.DAO
             
            
         }
-        public bool bbs()
+        public List<Payment> ListPayment()
         {
-            return false;
+            return db.Payments.Where(x => x.Status == true).ToList();
         }
-        
+
     }
 }

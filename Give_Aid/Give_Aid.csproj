@@ -160,7 +160,10 @@
     <Compile Include="Areas\Admins\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admins\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admins\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admins\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\Admins\Controllers\DonateController.cs" />
     <Compile Include="Areas\Admins\Controllers\ContactsController.cs" />
+    <Compile Include="Areas\Admins\Controllers\FundController.cs" />
     <Compile Include="Areas\Admins\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admins\Controllers\OrganizationController.cs" />
@@ -177,25 +180,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108270643127_v2.cs" />
-    <Compile Include="Migrations\202108270643127_v2.Designer.cs">
-      <DependentUpon>202108270643127_v2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108270742572_DataAnnotations.cs" />
-    <Compile Include="Migrations\202108270742572_DataAnnotations.Designer.cs">
-      <DependentUpon>202108270742572_DataAnnotations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108270805466_DataAnnotations1.cs" />
-    <Compile Include="Migrations\202108270805466_DataAnnotations1.Designer.cs">
-      <DependentUpon>202108270805466_DataAnnotations1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108270902565_v3.cs" />
-    <Compile Include="Migrations\202108270902565_v3.Designer.cs">
-      <DependentUpon>202108270902565_v3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108270905183_v4.cs" />
-    <Compile Include="Migrations\202108270905183_v4.Designer.cs">
-      <DependentUpon>202108270905183_v4.cs</DependentUpon>
+    <Compile Include="Migrations\202108271504540_v1.cs" />
+    <Compile Include="Migrations\202108271504540_v1.Designer.cs">
+      <DependentUpon>202108271504540_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202108280548291_DataAnnotations2.cs" />
     <Compile Include="Migrations\202108280548291_DataAnnotations2.Designer.cs">
@@ -205,6 +192,8 @@
     <Compile Include="Models\DAO\AdminDao.cs" />
     <Compile Include="Models\DAO\CategoryDao.cs" />
     <Compile Include="Models\DAO\CustomerDao.cs" />
+    <Compile Include="Models\DAO\DonateDao.cs" />
+    <Compile Include="Models\DAO\FundDao.cs" />
     <Compile Include="Models\DAO\ImageGalleryDao.cs" />
     <Compile Include="Models\DAO\OrganizationDao.cs" />
     <Compile Include="Models\DAO\PaymentDao.cs" />
@@ -404,70 +393,6 @@
     <Content Include="Areas\Admins\Content\dist\js\pages\dashboard2.js" />
     <Content Include="Areas\Admins\Content\dist\js\pages\dashboard3.js" />
     <Content Include="Areas\Admins\Content\js\dateTime.js" />
-    <Content Include="Areas\Admins\Content\pages\calendar.html" />
-    <Content Include="Areas\Admins\Content\pages\charts\chartjs.html" />
-    <Content Include="Areas\Admins\Content\pages\charts\flot.html" />
-    <Content Include="Areas\Admins\Content\pages\charts\inline.html" />
-    <Content Include="Areas\Admins\Content\pages\charts\uplot.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\404.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\500.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\blank.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\contact-us.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\contacts.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\e-commerce.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\faq.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\forgot-password-v2.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\forgot-password.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\invoice-print.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\invoice.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\language-menu.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\legacy-user-menu.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\lockscreen.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\login-v2.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\login.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\pace.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\profile.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\project-add.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\project-detail.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\project-edit.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\projects.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\recover-password-v2.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\recover-password.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\register-v2.html" />
-    <Content Include="Areas\Admins\Content\pages\examples\register.html" />
-    <Content Include="Areas\Admins\Content\pages\forms\advanced.html" />
-    <Content Include="Areas\Admins\Content\pages\forms\editors.html" />
-    <Content Include="Areas\Admins\Content\pages\forms\general.html" />
-    <Content Include="Areas\Admins\Content\pages\forms\validation.html" />
-    <Content Include="Areas\Admins\Content\pages\gallery.html" />
-    <Content Include="Areas\Admins\Content\pages\kanban.html" />
-    <Content Include="Areas\Admins\Content\pages\layout\boxed.html" />
-    <Content Include="Areas\Admins\Content\pages\layout\collapsed-sidebar.html" />
-    <Content Include="Areas\Admins\Content\pages\layout\fixed-footer.html" />
-    <Content Include="Areas\Admins\Content\pages\layout\fixed-sidebar-custom.html" />
-    <Content Include="Areas\Admins\Content\pages\layout\fixed-sidebar.html" />
-    <Content Include="Areas\Admins\Content\pages\layout\fixed-topnav.html" />
-    <Content Include="Areas\Admins\Content\pages\layout\top-nav-sidebar.html" />
-    <Content Include="Areas\Admins\Content\pages\layout\top-nav.html" />
-    <Content Include="Areas\Admins\Content\pages\mailbox\compose.html" />
-    <Content Include="Areas\Admins\Content\pages\mailbox\mailbox.html" />
-    <Content Include="Areas\Admins\Content\pages\mailbox\read-mail.html" />
-    <Content Include="Areas\Admins\Content\pages\search\enhanced-results.html" />
-    <Content Include="Areas\Admins\Content\pages\search\enhanced.html" />
-    <Content Include="Areas\Admins\Content\pages\search\simple-results.html" />
-    <Content Include="Areas\Admins\Content\pages\search\simple.html" />
-    <Content Include="Areas\Admins\Content\pages\tables\data.html" />
-    <Content Include="Areas\Admins\Content\pages\tables\jsgrid.html" />
-    <Content Include="Areas\Admins\Content\pages\tables\simple.html" />
-    <Content Include="Areas\Admins\Content\pages\UI\buttons.html" />
-    <Content Include="Areas\Admins\Content\pages\UI\general.html" />
-    <Content Include="Areas\Admins\Content\pages\UI\icons.html" />
-    <Content Include="Areas\Admins\Content\pages\UI\modals.html" />
-    <Content Include="Areas\Admins\Content\pages\UI\navbar.html" />
-    <Content Include="Areas\Admins\Content\pages\UI\ribbons.html" />
-    <Content Include="Areas\Admins\Content\pages\UI\sliders.html" />
-    <Content Include="Areas\Admins\Content\pages\UI\timeline.html" />
-    <Content Include="Areas\Admins\Content\pages\widgets.html" />
     <Content Include="Areas\Admins\Content\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="Areas\Admins\Content\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="Areas\Admins\Content\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
@@ -3454,8 +3379,6 @@
     <Content Include="Areas\Admins\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Admin\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Admin\Edit.cshtml" />
-    <Content Include="Areas\Admins\Views\Categories\Index.cshtml" />
-    <Content Include="Areas\Admins\Views\Categories\Create.cshtml" />
     <Content Include="Areas\Admins\Views\_ViewStart.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -3470,10 +3393,6 @@
     <Content Include="Content\assets\css\fonts\icomoon2849.woff" />
     <Content Include="Content\assets\library\icofont\fonts\icofont.woff" />
     <Content Include="Content\assets\library\icofont\fonts\icofont.woff2" />
-    <Content Include="Areas\Admins\Views\Categories\Edit.cshtml" />
-    <Content Include="Areas\Admins\Views\Organization\Index.cshtml" />
-    <Content Include="Areas\Admins\Views\Organization\Create.cshtml" />
-    <Content Include="Areas\Admins\Views\Organization\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Payment\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Payment\_AddorUpdate.cshtml" />
     <Content Include="Content\ckeditor\bender-runner.config.json" />
@@ -3499,6 +3418,12 @@
     <Content Include="Content\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\ckfinder\userfiles\.htaccess" />
+    <Content Include="Areas\Admins\Views\Slider\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Slider\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Customer\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Customer\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Customer\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Donate\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Blogs\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Tags\Create.cshtml" />
@@ -3510,6 +3435,15 @@
     <Content Include="Areas\Admins\Views\Volunteers\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Blogs\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Contacts\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Fund\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Fund\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Fund\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Organization\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Organization\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Organization\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -3621,20 +3555,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108270643127_v2.resx">
-      <DependentUpon>202108270643127_v2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108270742572_DataAnnotations.resx">
-      <DependentUpon>202108270742572_DataAnnotations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108270805466_DataAnnotations1.resx">
-      <DependentUpon>202108270805466_DataAnnotations1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108270902565_v3.resx">
-      <DependentUpon>202108270902565_v3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108270905183_v4.resx">
-      <DependentUpon>202108270905183_v4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108271504540_v1.resx">
+      <DependentUpon>202108271504540_v1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108280548291_DataAnnotations2.resx">
       <DependentUpon>202108280548291_DataAnnotations2.cs</DependentUpon>

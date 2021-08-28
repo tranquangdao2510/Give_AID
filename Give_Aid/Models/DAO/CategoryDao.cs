@@ -13,7 +13,11 @@ namespace Give_Aid.Models.DAO
         {
             db = new NgoEntity();
         }
-        public IEnumerable<Category> GetAll(string search_name)
+        public IEnumerable<Category> GetAll()
+        {
+            return db.Categories.Where(a => a.Status == true).ToList();
+        }
+        public IEnumerable<Category>GetByName(string search_name)
         {
             search_name = search_name ?? "";
             return db.Categories.Where(x => x.CategoryName.Contains(search_name)).OrderBy(x => x.CategoryName);
