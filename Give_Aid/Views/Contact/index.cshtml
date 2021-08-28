@@ -39,41 +39,41 @@
                         <i class="charity-love_hearts"></i>
                     </div>
                     <div id="sucessmessage"> </div>
-                    @using (Html.BeginForm("Index", "Contact", FormMethod.Post, new {@action= "https://formsubmit.co/eprojectsemIII@gmail.com" }))
+                    @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
                         <div class="row">
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.FirstName, new { @placeholder = "First Name", @class = "form-control" })
+                                    @Html.TextBoxFor(x => x.FirstName, new { @placeholder = "First Name", @class = "form-control",@name= "firstName"})
                                     @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.LastName, new { @placeholder = "Last Name", @class = "form-control" })
+                                    @Html.TextBoxFor(x => x.LastName, new { @placeholder = "Last Name", @class = "form-control", @name = "lastName" })
                                     @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.Email, new { @placeholder = "Your Email", @class = "form-control" })
+                                    @Html.TextBoxFor(x => x.Email, new { @placeholder = "Your Email", @class = "form-control", @name = "email" })
                                     @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Phone Numbe", @class = "form-control" })
+                                    @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Phone Numbe", @class = "form-control", @name = "phone" })
                                     @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-12 mb-0">
                                 <div class="form-group">
-                                    @Html.TextAreaFor(x => x.Message, new { @placeholder = "Message", @class = "form-control" })
+                                    @Html.TextAreaFor(x => x.Message, new { @placeholder = "Message", @class = "form-control", @name = "message" })
                                     @Html.ValidationMessageFor(x => x.Message, "", new { @class = "text-danger" })
                                 </div>
                             </div>
