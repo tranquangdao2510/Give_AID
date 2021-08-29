@@ -30,6 +30,7 @@ namespace Give_Aid.Models.DataAccess
 
         [StringLength(250)]
         [Required(ErrorMessage = "Email cannot be empty")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address. Example(abc@gmail.com)")]
         public string Email { get; set; }
 
         public DateTime? CreateDate { get; set; }
