@@ -1,7 +1,7 @@
-﻿@model Give_Aid.Models.DataAccess.Organization
+﻿@model Give_Aid.Models.DataAccess.Partner
 
 @{
-    ViewBag.Title = "Create";
+
     ViewBag.Title = "Create"; Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
 
 }
@@ -9,9 +9,9 @@
 
 <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title">Quick Example</h3>
+        <h3 class="card-title">Partner</h3>
     </div> <!-- /.card-header --> <!-- form start -->
-    @using (Html.BeginForm("Create", "Organization", FormMethod.Post))
+    @using (Html.BeginForm("Create", "Partner", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         <div class="card-body">
@@ -19,22 +19,41 @@
             <div class="row">
                 <div class="col-7">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.OrganizationName, htmlAttributes: new { @class = "control-label " })
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.OrganizationName, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.OrganizationName, "", new { @class = "text-danger" })
+                        @Html.LabelFor(model => model.PartnerName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PartnerName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PartnerName, "", new { @class = "text-danger" })
                         </div>
                     </div>
+
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label " })
-                        <div class="col-md-12">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Image, new { @class = "form-control", @id = "linkImg" })
+                            <a id="selectImg" href="#">Select Image </a>
+                            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
                             @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                         </div>
                     </div>
+
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label " })
-                        <div class="col-md-12">
+                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
                             @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
                         </div>
@@ -44,7 +63,7 @@
                         @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             <div class="checkbox">
-                                @Html.CheckBoxFor(model => model.Status)
+                                @Html.EditorFor(model => model.Status)
                                 @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -55,15 +74,30 @@
         <!-- /.card-body -->
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="/Admins/Organization/Index" class="btn btn-danger">Back</a>
+            <a href="/Admins/Partner/Index" class="btn btn-danger">Back</a>
         </div>
 
     }
 </div>
-@section js {
+@*@section js {
     <script src="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.min.js"></script>
     <script type="text/javascript">
         $(function () { $(".datepicker").datepicker({ dateFormat: "mm/dd/yy", changeMonth: true, changeMonth: true, }); });
         $(function () { $(".datepicker1").datepicker({ dateFormat: "mm/dd/yy", changeMonth: true, changeMonth: true }); });
     </script>
-}
+
+
+    var editor = CKEditor.replace('txtContent'{
+    CustomConfig :'/Content/ckeditor/config.js',
+    });
+}*@
+
+
+
+
+
+
+
+
+
+

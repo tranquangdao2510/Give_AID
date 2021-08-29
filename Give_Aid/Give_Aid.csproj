@@ -167,6 +167,7 @@
     <Compile Include="Areas\Admins\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admins\Controllers\OrganizationController.cs" />
+    <Compile Include="Areas\Admins\Controllers\PartnerController.cs" />
     <Compile Include="Areas\Admins\Controllers\PaymentController.cs" />
     <Compile Include="Areas\Admins\Controllers\SliderController.cs" />
     <Compile Include="Areas\Admins\Controllers\TagsController.cs" />
@@ -180,9 +181,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108271504540_v1.cs" />
-    <Compile Include="Migrations\202108271504540_v1.Designer.cs">
-      <DependentUpon>202108271504540_v1.cs</DependentUpon>
+    <Compile Include="Migrations\202108281350022_v1.cs" />
+    <Compile Include="Migrations\202108281350022_v1.Designer.cs">
+      <DependentUpon>202108281350022_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="Models\DAO\FundDao.cs" />
     <Compile Include="Models\DAO\ImageGalleryDao.cs" />
     <Compile Include="Models\DAO\OrganizationDao.cs" />
+    <Compile Include="Models\DAO\PartnerDao.cs" />
     <Compile Include="Models\DAO\PaymentDao.cs" />
     <Compile Include="Models\DAO\SliderDao.cs" />
     <Compile Include="Models\DataAccess\Admin.cs" />
@@ -3440,6 +3442,9 @@
     <Content Include="Areas\Admins\Views\Organization\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Organization\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Organization\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Partner\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Partner\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Partner\Edit.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -3551,8 +3556,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108271504540_v1.resx">
-      <DependentUpon>202108271504540_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108281350022_v1.resx">
+      <DependentUpon>202108281350022_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

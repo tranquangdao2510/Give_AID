@@ -22,8 +22,8 @@ namespace Give_Aid.Models.DAO
         }
         public int Insert(Fund fund)
         {
-
             db.Funds.Add(fund);
+            fund.CreateDate = DateTime.Now;
             db.SaveChanges();
             return fund.FundId;
         }
@@ -45,7 +45,6 @@ namespace Give_Aid.Models.DAO
                 F.CurentAmount = fund.CurentAmount;
                 F.CategoryId = fund.CategoryId;
                 F.OrganizationId = fund.OrganizationId;
-                F.CreateDate = fund.CreateDate;
                 F.UpdatedDate = DateTime.Now;
                 F.Status = fund.Status;
                 db.SaveChanges();
