@@ -214,7 +214,7 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Fund
+                                    Fund management
                                     <i class="fas fa-angle-left right"></i>
                                     <span class="badge badge-info right"></span>
                                 </p>
@@ -224,17 +224,52 @@
                                     <a href="/Admins/Categories/Index" class="nav-link">
                                         <i class="nav-icon fas fa-th"></i>
                                         <p>
-                                            @*@Html.ActionLink("Category", "Index", "Categories")*@
-                                            List Category
+
+                                            Category List
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admins/Funs/Index" class="nav-link">
+                                    <a href="/Admins/Fund/Index" class="nav-link">
                                         <i class="nav-icon fas fa-th"></i>
                                         <p>
-                                            List
+                                            Funds List
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        @* manager Fund *@
+
+                        @* manager Fund *@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Partner management
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admins/Organization/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+
+                                            Organization List
+                                            <span class="right badge badge-danger"></span>
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admins/Partner/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-th"></i>
+                                        <p>
+                                            Partner List
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
@@ -247,29 +282,28 @@
                         @* manager Organization *@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
+                                <i class="nav-icon fas fa-users"></i>
                                 <p>
-                                    Organization
+                                    User management
                                     <i class="fas fa-angle-left right"></i>
                                     <span class="badge badge-info right"></span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/Admins/Organization/Create" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
+                                    <a href="/Admins/Admin/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-user-cog"></i>
                                         <p>
-                                            @*@Html.ActionLink("Category", "Index", "Categories")*@
-                                            Create At
+                                            Admin List
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admins/Organization/Index" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
+                                    <a href="/Admins/Customer/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-user"></i>
                                         <p>
-                                            List
+                                            Customer List
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
@@ -282,29 +316,28 @@
                         @* manager Payment *@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
+                                <i class="nav-icon fas fa-money-check-alt"></i>
                                 <p>
-                                    Payment
+                                    Donate management
                                     <i class="fas fa-angle-left right"></i>
                                     <span class="badge badge-info right"></span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/Admins/Payment/Create" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
+                                    <a href="/Admins/Payment/Index" class="nav-link">
+                                        <i class="nav-icon fas fa-credit-card"></i>
                                         <p>
-                                            @*@Html.ActionLink("Category", "Index", "Categories")*@
-                                            Create At
+                                            Payment List
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/Admins/Payment/Index" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
+                                        <i class="nav-icon fas fa-ruble-sign"></i>
                                         <p>
-                                            List
+                                            Donate List
                                             <span class="right badge badge-danger"></span>
                                         </p>
                                     </a>
@@ -314,75 +347,69 @@
                         </li>
                         @* manager Payment *@
 
-                        @* manager Blog *@
+
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
+                                <i class="nav-icon fas fa-book"></i>
                                 <p>
-                                    Blog
+                                    Pages
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right"></span>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/Admins/Tags/Index" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
+                            <ul class="nav nav-treeview" style="display: none;">
+
+                                <li class="nav-item menu-is-opening menu-open">
+                                    <a href="/Admins/Blog/Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>
-                                            @*@Html.ActionLink("Category", "Index", "Categories")*@
-                                            Tags
-                                            <span class="right badge badge-danger"></span>
+                                            Blog
+                                            <i class="right fas fa-angle-left"></i>
                                         </p>
+                                    </a>
+                                    <ul class="nav nav-treeview" style="display: block;">
+                                        <li class="nav-item">
+                                            <a href="/Admins/Tags/Index" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>Tag</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>List Blog</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/examples/profile.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Contact</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admins/Blogs/Index" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>
-                                            List
-                                            <span class="right badge badge-danger"></span>
-                                        </p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        @* manager Blog *@
-
-                        @* manager Blog *@
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Slider
-                                    <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right"></span>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/Admins/Slider/Create" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>
-                                            @*@Html.ActionLink("Category", "Index", "Categories")*@
-                                            Create
-                                            <span class="right badge badge-danger"></span>
-                                        </p>
+                                    <a href="/Admins/Volunteers/Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Volunteers</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/Admins/Slider/Index" class="nav-link">
-                                        <i class="nav-icon fas fa-th"></i>
-                                        <p>
-                                            List
-                                            <span class="right badge badge-danger"></span>
-                                        </p>
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Slider</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admins/Fags/Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>FAQ</p>
                                     </a>
                                 </li>
 
                             </ul>
                         </li>
-                        @* manager Blog *@
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

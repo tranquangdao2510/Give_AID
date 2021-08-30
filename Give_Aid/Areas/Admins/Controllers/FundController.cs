@@ -19,7 +19,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             int pagesize = 3;
             var dao = new FundDao();
             var model = dao.GetAll(search_name);
-            return View(model.ToPagedList(page.Value, pagesize));
+            return View(model);
         }
         
         [HttpGet]

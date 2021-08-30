@@ -180,15 +180,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108271504540_v1.cs" />
-    <Compile Include="Migrations\202108271504540_v1.Designer.cs">
-      <DependentUpon>202108271504540_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108280548291_DataAnnotations2.cs" />
-    <Compile Include="Migrations\202108280548291_DataAnnotations2.Designer.cs">
-      <DependentUpon>202108280548291_DataAnnotations2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
     <Compile Include="Models\DAO\CategoryDao.cs" />
     <Compile Include="Models\DAO\CustomerDao.cs" />
@@ -3553,14 +3544,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108271504540_v1.resx">
-      <DependentUpon>202108271504540_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108280548291_DataAnnotations2.resx">
-      <DependentUpon>202108280548291_DataAnnotations2.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
