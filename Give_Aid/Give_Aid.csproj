@@ -176,21 +176,19 @@
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\AdminLogin.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108281350022_v1.cs" />
-    <Compile Include="Migrations\202108281350022_v1.Designer.cs">
-      <DependentUpon>202108281350022_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108280548291_DataAnnotations2.cs" />
-    <Compile Include="Migrations\202108280548291_DataAnnotations2.Designer.cs">
-      <DependentUpon>202108280548291_DataAnnotations2.cs</DependentUpon>
+    <Compile Include="Migrations\202108300117154_v1.cs" />
+    <Compile Include="Migrations\202108300117154_v1.Designer.cs">
+      <DependentUpon>202108300117154_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
+    <Compile Include="Models\DAO\BlogClientDao.cs" />
     <Compile Include="Models\DAO\CategoryDao.cs" />
     <Compile Include="Models\DAO\CustomerDao.cs" />
     <Compile Include="Models\DAO\DonateDao.cs" />
@@ -3548,6 +3546,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\BecomeVolunteerss.cshtml" />
     <Content Include="Views\Home\CausesDetail.cshtml" />
+    <Content Include="Views\Blog\BlogDetail.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Contact\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -3560,11 +3560,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108281350022_v1.resx">
-      <DependentUpon>202108281350022_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108280548291_DataAnnotations2.resx">
-      <DependentUpon>202108280548291_DataAnnotations2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108300117154_v1.resx">
+      <DependentUpon>202108300117154_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
