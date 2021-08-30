@@ -69,5 +69,13 @@ namespace Give_Aid.Models.DAO
                 return false;
             }
         }
+        public List<Fund> ListtopFund(int orderBy)
+        {
+            return db.Funds.Where(x => x.Status == true && x.DisplayOrder != null).OrderByDescending(x => x.CreateDate).Take(orderBy).ToList();
+        }
+        public List<Fund> ListAllFund()
+        {
+            return db.Funds.Where(x => x.Status == true).OrderByDescending(x => x.CreateDate).ToList();
+        }
     }
 }

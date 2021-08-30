@@ -84,7 +84,7 @@
                                 @Html.DisplayFor(modelItem => item.CreateDate)
                             </td>
                             <td>
-                                @Html.ActionLink("Delete", "Delete", new { id = item.IdMessage }, new { @onclick = "return confirm('you may want to delete ?')" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.IdMessage }, new { @onclick = "return confirm('you may want to delete ?')" }, new { @class = "fa fa-trash", @style = "Color:firebrick" })
                             </td>
                         </tr>
                         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Give_Aid.Models.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,20 @@ namespace Give_Aid.Controllers
     {
         public ActionResult Index()
         {
+            var funddao = new FundDao();
+            ViewBag.TopFund = funddao.ListtopFund(4);
+            ViewBag.AllFund = funddao.ListAllFund();
+
+            var blogdao = new BlogClientDao();
+            ViewBag.AllBlog = blogdao.GetBlog();
+
+            var partnertdao = new PartnerDao();
+            ViewBag.AllPartner = partnertdao.GetPartner();
+
+            var voluteerdao = new VolunteerDao();
+            ViewBag.AllVolunteer =voluteerdao.GetVolunteer();
+
+
             return View();
         }
 
@@ -68,6 +83,13 @@ namespace Give_Aid.Controllers
         {
 
             return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult Sliders()
+        {
+            var model = new SliderDao().ListAll();
+            return PartialView(model);
         }
     }
 }

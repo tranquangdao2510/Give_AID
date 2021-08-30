@@ -1,0 +1,40 @@
+﻿@model List<Give_Aid.Models.DataAccess.Slide>
+
+<!-- Banner Start -->
+
+    <div class="slides-wrap">
+        <div class="owl-carousel owl-theme">
+            <!--/owl-slide-->
+            <!--/owl-slide-->
+            <!--/owl-slide-->
+            
+
+            <!--/owl-slide-->
+           
+            <!--/owl-slide-->
+            @foreach (var item in Model)
+            {
+                <div class="owl-slide d-flex align-items-center cover" style="background-image: url(@item.Image);">
+                    <div class="container">
+                        <div class="row justify-content-center justify-content-md-start no-gutters">
+                            <div class="col-10 col-md-6 static">
+                                <div class="owl-slide-text">
+                                    <h3 class="owl-slide-animated owl-slide-title"></h3>
+                                    <h1 class="owl-slide-animated owl-slide-subtitle">
+                                        @Html.Raw(@item.Description)
+                                    </h1>
+                                    <div class="owl-slide-animated owl-slide-cta">
+                                        <a class="btn btn-default mr-3" href="causes-list.html" role="button">Join Us Now</a>
+                                        <a class="slider-link popup-video" href="http://player.vimeo.com/video/7449107">Watch the video <i class="charity-play_button"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+<!-- Banner Start -->
