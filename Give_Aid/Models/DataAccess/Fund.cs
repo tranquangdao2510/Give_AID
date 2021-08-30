@@ -14,8 +14,9 @@ namespace Give_Aid.Models.DataAccess
         {
             Donates = new HashSet<Donate>();
         }
-
-        public int FundId { get; set; }
+        [StringLength(50)]
+        [Column(TypeName ="varchar")]
+        public string FundId { get; set; }
 
         [StringLength(250)]
         public string FundName { get; set; }
@@ -41,6 +42,9 @@ namespace Give_Aid.Models.DataAccess
         public DateTime? UpdatedDate { get; set; }
 
         public bool Status { get; set; }
+        [StringLength(250)]
+        public string MetaTitle { get; set; }
+        public int? DisplayOrder { get; set; }
 
         public virtual Category Category { get; set; }
 

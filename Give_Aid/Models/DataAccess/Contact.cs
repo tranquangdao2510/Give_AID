@@ -38,5 +38,7 @@ namespace Give_Aid.Models.DataAccess
         {
             this.CreateDate = DateTime.Now;
         }
+        [StringLength(250)]
+        public string MetaTitle { get; set; }
     }
 }

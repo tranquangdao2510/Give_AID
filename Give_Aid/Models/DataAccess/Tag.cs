@@ -27,6 +27,9 @@ namespace Give_Aid.Models.DataAccess
         public DateTime? UpdatedDate { get; set; }
         [Required(ErrorMessage = "Status  cannot be empty")]
         public bool? Status { get; set; }
+        [StringLength(250)]
+        public string MetaTitle { get; set; }
+        public int? DisplayOrder{ get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Blog> Blogs { get; set; }
