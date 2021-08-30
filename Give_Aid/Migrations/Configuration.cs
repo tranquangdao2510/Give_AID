@@ -1,6 +1,5 @@
 namespace Give_Aid.Migrations
 {
-    using Give_Aid.Models.DataAccess;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -27,10 +26,6 @@ namespace Give_Aid.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-            context.Admins.AddOrUpdate(
-              new Admin {AdminId=1 ,AdminName = "admin", PassWord = "admin1234", CreatedDate = DateTime.Now, Status =true }
-            );
         }
     }
 }
