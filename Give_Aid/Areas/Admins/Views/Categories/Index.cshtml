@@ -14,7 +14,8 @@
 
                 <div class="card-tools">
                     <form action="Categories" method="get">
-                        <div class="input-group input-group-sm" style="width: 150px;">
+                        <div class="input-group input-group-sm" style="width: 220px;">
+                            <div class="input-group-append"><a href="/Admins/Categories/Create" class=" btn btn-success">Create at</a></div>
                             <input type="text" name="search_name" class="form-control float-right" placeholder="Search">
 
                             <div class="input-group-append">
@@ -28,7 +29,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
-                <table class="table table-head-fixed text-nowrap">
+                <table class="table table-head-fixed text-nowrap" style="text-align:center">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -36,6 +37,7 @@
                             <th>CreateDate</th>
                             <th>UpdateDate</th>
                             <th>Status</th>
+                            <th>#</th>
                         </tr>
                     </thead>
                     <tbody>

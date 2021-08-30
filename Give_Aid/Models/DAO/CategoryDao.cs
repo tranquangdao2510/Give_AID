@@ -27,14 +27,11 @@ namespace Give_Aid.Models.DAO
         {
             return db.Categories.Where(a => a.CategoryId == id).FirstOrDefault();
         }
-        public Category GetbyName(string name)
-        {
-            return db.Categories.SingleOrDefault(x => x.CategoryName == name);
-        }
+      
         public int Insert(Category cate)
         {
-            cate.CreateDate = DateTime.Now;
             db.Categories.Add(cate);
+            cate.CreateDate = DateTime.Now;
             db.SaveChanges();
             return cate.CategoryId;
         }
@@ -44,7 +41,6 @@ namespace Give_Aid.Models.DAO
             {
                 var Cate = db.Categories.Find(cate.CategoryId);
                 Cate.CategoryName = cate.CategoryName;
-                Cate.CreateDate = cate.CreateDate;
                 Cate.UpdatedDate = DateTime.Now;
                 Cate.Status = cate.Status;
                 db.SaveChanges();

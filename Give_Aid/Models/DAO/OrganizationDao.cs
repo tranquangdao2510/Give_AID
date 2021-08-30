@@ -25,6 +25,7 @@ namespace Give_Aid.Models.DAO
         public int Insert (Organization organization)
         {
             db.Organizations.Add(organization);
+            organization.CreatedDate = DateTime.Now;
             db.SaveChanges();
             return organization.OrganizationId;
         }
@@ -42,7 +43,6 @@ namespace Give_Aid.Models.DAO
                 Org.OrganizationName = organization.OrganizationName;
                 Org.Address = organization.Address;
                 Org.Phone = organization.Phone;
-                Org.CreatedDate = organization.CreatedDate;
                 Org.UpdatedDate = DateTime.Now;
                 Org.Status = organization.Status;
                 db.SaveChanges();

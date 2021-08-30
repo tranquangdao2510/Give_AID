@@ -4,44 +4,37 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class FundController : BaseController
+    public class PartnerController : BaseController
     {
-        // GET: Admins/Fund
+        // GET: Admins/Partner
         public ActionResult Index(int? page, string search_name)
         {
             page = page ?? 1;
             int pagesize = 3;
-            var dao = new FundDao();
+            var dao = new PartnerDao();
             var model = dao.GetAll(search_name);
-            return View(model);
+            return View(model.ToPagedList(page.Value, pagesize));
         }
-        
         [HttpGet]
         public ActionResult Create()
         {
-            SetviewBag();
             return View();
         }
         [HttpPost]
-        public ActionResult Create([Bind(Include = "")] Fund fund, HttpPostedFileBase fileimage)
+        public ActionResult Create(Partner partner)
         {
-            var dao = new FundDao();
-            if(fileimage != null)
-            {
-                fileimage.SaveAs(Server.MapPath("~/Content/assets/images/Funds" + fileimage.FileName));
-                fund.FundImg = "/Content/assets/images/Funds" + fileimage.FileName;
-            }
-            int id = dao.Insert(fund);
+            var dao = new PartnerDao();
+            
+            int id = dao.Insert(partner);
             if (id > 0)
             {
-                SetAlert("Create Fund success", "success");
-                return RedirectToAction("Index", "Fund");
+                SetAlert("Create Partner success", "success");
+                return RedirectToAction("Index", "Partner");
 
             }
             else
@@ -55,22 +48,21 @@ namespace Give_Aid.Areas.Admins.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var fund = new FundDao().Detail(id);
-            SetviewBag();
-            return View(fund);
+            var partner = new PartnerDao().Detail(id);
+            return View(partner);
         }
         [HttpPost]
-        public ActionResult Edit(Fund fund)
+        public ActionResult Edit(Partner partner)
         {
 
             if (ModelState.IsValid)
             {
-                var dao = new FundDao();
-                var result = dao.Update(fund);
+                var dao = new PartnerDao();
+                var result = dao.Update(partner);
                 if (result)
                 {
                     SetAlert("Update Fund success", "success");
-                    return RedirectToAction("Index", "Fund");
+                    return RedirectToAction("Index", "Partner");
                 }
                 else
                 {
@@ -83,7 +75,7 @@ namespace Give_Aid.Areas.Admins.Controllers
         public ActionResult Delete(int id)
         {
 
-            var dao = new FundDao();
+            var dao = new PartnerDao();
             var result = dao.Delete(id);
             if (result)
             {
@@ -95,13 +87,6 @@ namespace Give_Aid.Areas.Admins.Controllers
                 ModelState.AddModelError("", "error");
             }
             return RedirectToAction("Index");
-        }
-        public void SetviewBag(string SelectedId = null)
-        {
-            var catedao = new CategoryDao();
-            var orgdao = new OrganizationDao();
-            ViewBag.CategoryId = new SelectList(catedao.GetAll(), "CategoryId", "CategoryName", SelectedId);
-            ViewBag.OrganizationId = new SelectList(orgdao.GetAll(), "OrganizationId", "OrganizationName", SelectedId);
         }
     }
 }

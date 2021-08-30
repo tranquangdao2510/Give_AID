@@ -162,10 +162,7 @@ namespace Give_Aid.Models.DataAccess
                 .Property(e => e.Phone)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Partner>()
-                .Property(e => e.PartnerId)
-                .IsUnicode(false);
-
+   
             modelBuilder.Entity<Partner>()
                 .Property(e => e.PartnerName)
                 .IsUnicode(false);
