@@ -182,14 +182,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
-    <Compile Include="Migrations\202108300117154_v1.cs" />
-    <Compile Include="Migrations\202108300117154_v1.Designer.cs">
-      <DependentUpon>202108300117154_v1.cs</DependentUpon>
+    <Compile Include="Migrations\202108300440427_v1.cs" />
+    <Compile Include="Migrations\202108300440427_v1.Designer.cs">
+      <DependentUpon>202108300440427_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
->>>>>>> c05896656d01b3b8e4a1e6e15398f125c8f80ab7
     <Compile Include="Models\DAO\AdminDao.cs" />
     <Compile Include="Models\DAO\BlogClientDao.cs" />
     <Compile Include="Models\DAO\CategoryDao.cs" />
@@ -3562,14 +3559,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-<<<<<<< HEAD
-=======
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108300117154_v1.resx">
-      <DependentUpon>202108300117154_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108300440427_v1.resx">
+      <DependentUpon>202108300440427_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
->>>>>>> c05896656d01b3b8e4a1e6e15398f125c8f80ab7
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

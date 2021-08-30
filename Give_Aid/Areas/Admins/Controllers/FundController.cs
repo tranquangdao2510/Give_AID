@@ -1,12 +1,9 @@
 ﻿using Give_Aid.Models.DAO;
 using Give_Aid.Models.DataAccess;
-using PagedList;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
@@ -19,7 +16,8 @@ namespace Give_Aid.Areas.Admins.Controllers
             int pagesize = 3;
             var dao = new FundDao();
             var model = dao.GetAll(search_name);
-            return View(model);
+            return View(model.ToPagedList(page.Value, pagesize));
+
         }
         
         [HttpGet]
@@ -29,7 +27,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create([Bind(Include = "")] Fund fund, HttpPostedFileBase fileimage)
+        public ActionResult Create(Fund fund, HttpPostedFileBase fileimage)
         {
             var dao = new FundDao();
             if(fileimage != null)
