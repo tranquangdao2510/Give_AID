@@ -1,0 +1,77 @@
+﻿@model Give_Aid.Models.DataAccess.Contact
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Edit</h3>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IdMessage)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control datepicker d-none" } })
+            @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                Show @Html.RadioButtonFor(model => model.Status, "True")
+                Hidden @Html.RadioButtonFor(model => model.Status, "False")
+
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <a href="/Admins/Contacts/Index" class="btn btn-danger">Back to List</a>
+        </div>
+    </div>
+</div>
+}
+
+
+@section js {
+    <script src="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function () { $(".datepicker").datepicker({ dateFormat: "mm/dd/yy", changeMonth: true, changeMonth: true}); });
+        $(function () { $(".datepicker1").datepicker({ dateFormat: "mm/dd/yy", changeMonth: true, changeMonth: true}); });
+
+    </script>
+}

@@ -58,10 +58,14 @@
                                     @Html.DisplayFor(modelItem => item.UpdatedDate)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Status)
+                                    @{if (item.Status == true)
+                                        {
+                                            <p>Show</p>}
+                                        else
+                                        {<p>Hidden</p> } }
                                 </td>
                                 <td>
-                                    @*<a href="/Admins/Admin/Edit/@item.TagId"><span class="fa fa-edit"></span></a> |*@
+                                    <span class="fa fa-edit"></span> |
                                     @Html.ActionLink("Edit", "Edit", new { id = item.TagId }) |
                                     @Html.ActionLink("Delete", "Delete", new { id = item.TagId }, new { @onclick = "return confirm('you may want to delete ?')" })
                                 </td>

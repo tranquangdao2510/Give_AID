@@ -17,16 +17,8 @@ namespace Give_Aid.Models.DataAccess
         public string Phone { get; set; }
 
         [Column(TypeName = "text")]
-        [Required(ErrorMessage = "Message cannot be empty")]
-        public string Message { get; set; }
-
-        [StringLength(50)]
-        [Required(ErrorMessage = "FirstName cannot be empty")]
-        public string FirstName { get; set; }
-
-        [StringLength(50)]
-        [Required(ErrorMessage = "LastName cannot be empty")]
-        public string LastName { get; set; }
+        [Required(ErrorMessage = "Address cannot be empty")]
+        public string Address { get; set; }
 
         [StringLength(250)]
         [Required(ErrorMessage = "Email cannot be empty")]
@@ -34,9 +26,13 @@ namespace Give_Aid.Models.DataAccess
         public string Email { get; set; }
 
         public DateTime? CreateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
+        [Required(ErrorMessage = "Status  cannot be empty")]
+        public bool? Status { get; set; }
         public Contact()
         {
             this.CreateDate = DateTime.Now;
+            this.UpdateDate = DateTime.Now;
         }
     }
 }

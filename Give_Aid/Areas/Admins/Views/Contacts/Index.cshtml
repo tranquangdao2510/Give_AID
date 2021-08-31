@@ -5,10 +5,12 @@
     Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Index</h2>
+
 <div style="padding-top:10px;margin-bottom:10px">
+    <a href="/Admins/Contacts/Create" class="btn btn-primary">Create</a>
     <a href="/Admins/Contacts" class="btn btn-primary">Reload</a>
 </div>
-
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -17,7 +19,7 @@
                 <form action="" method="get" style="margin-left:30px">
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="search_name" class="form-control float-right" placeholder="Search">
+                            <input type="text" name="search_email" class="form-control float-right" placeholder="Search">
 
                             <div class="input-group-append">
                                 <button class="btn btn-default">
@@ -33,69 +35,58 @@
                 <table class="table table-head-fixed text-nowrap">
                     <thead>
                         <tr>
-                            <th>
-                                Id
-                            </th>
-                            <th>
-                                Phone
-                            </th>
-                            <th>
-                                Message
-                            </th>
-                            <th>
-                                FirstName
-                            </th>
-                            <th>
-                                LastName
-                            </th>
-                            <th>
-                                Email
-                            </th>
-                            <th>
-                                CreateDate
-                            </th>
-                            <th></th>
+                            <th>ID</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Create Date</th>
+                            <th>Update Date</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdMessage)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Phone)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Message)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FirstName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.LastName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Email)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CreateDate)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Delete", "Delete", new { id = item.IdMessage }, new { @onclick = "return confirm('you may want to delete ?')" })
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdMessage)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreateDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                                </td>
+                                <td>
+                                    @{if (item.Status == true)
+                                        {
+                                            <p>Show</p>}
+                                        else
+                                        {<p>Hidden</p> } }
+                                </td>
+                                <td>
+                                    <span class="fa fa-edit"></span> |
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.IdMessage }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.IdMessage }, new { @onclick = "return confirm('you may want to delete ?')" })
+                                </td>
+                            </tr>
                         }
-
                     </tbody>
                 </table>
-
             </div>
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
-        <div class="float-left">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, search_name = @ViewBag.search_name }))</div>
+        <div class="float-left">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, search_email = @ViewBag.search_email }))</div>
     </div>
 </div>

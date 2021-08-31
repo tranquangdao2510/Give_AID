@@ -13,6 +13,8 @@ namespace Give_Aid.Models.DataAccess
         public Tag()
         {
             Blogs = new HashSet<Blog>();
+            this.CreateDate = DateTime.Now;
+            this.UpdatedDate = DateTime.Now;
         }
 
         public int TagId { get; set; }
@@ -20,10 +22,7 @@ namespace Give_Aid.Models.DataAccess
         [StringLength(250)]
         [Required(ErrorMessage = "name cannot be empty")]
         public string TagName { get; set; }
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "Created date cannot be empty")]
         public DateTime? CreateDate { get; set; }
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? UpdatedDate { get; set; }
         [Required(ErrorMessage = "Status  cannot be empty")]
         public bool? Status { get; set; }

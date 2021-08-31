@@ -1,6 +1,5 @@
 ﻿@model Give_Aid.Models.DAO.BlogClientDao
 @using PagedList.Mvc;
-@using Give_Aid.Models.DataAccess;
 <!-- Page Breadcrumbs Start -->
 <section class="breadcrumbs-page-wrap">
     <div class="bg-fixed pos-rel breadcrumbs-page">
@@ -55,22 +54,15 @@
                     <div class="theme-pagination">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true"><i data-feather="chevron-left"></i></span>
-                                    </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true"><i data-feather="chevron-right"></i></span>
-                                    </a>
-                                </li>
+                                @{
+                                    int count = (Model.BlogsPagination.Count() + 5) / 6;
+                                    for (int i = 1; i <= count; i++)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="?page=@i">@i</a></li>
+                                    }
+                                }
                             </ul>
                         </nav>
-                        @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page, search_name = @ViewBag.search_name }))*@
                     </div>
                 </div>
 
@@ -104,7 +96,7 @@
                         <!-- Widget Wrap -->
                         <!-- Widget Wrap -->
                         <div class="widget-wrap">
-                            <h3 class="widget-title">New Posts</h3>
+                            <h3 class="widget-title">News Posts</h3>
 
                             <div class="popular-post">
                                 <ul class="list-unstyled">
@@ -113,7 +105,7 @@
                                         <li>
                                             <img src="@item.BlogImage" alt="">
                                             <div>
-                                                <h6><a href="blog-single.html">@item.Title</a></h6>
+                                                <h6><a href="Blog/BlogDetail/@item.BlogId">@item.Title</a></h6>
                                                 <small>@item.CreateDate</small>
                                             </div>
                                         </li>
@@ -126,92 +118,6 @@
                     <!-- Sidebar Primary End -->
                     <!-- Sidebar Secondary Start -->
                     <div class="sidebar-secondary col-lg-12 col-md-6">
-                        <!-- Widget Wrap -->
-                        <!--<div class="widget-wrap">
-                            <h3 class="widget-title">Recent Causes</h3>
-                            <div class="owl-carousel owl-theme" id="sidebar-causes">-->
-                        <!-- Causes Wrap -->
-                        <!--<div class="causes-wrap">
-                            <div class="img-wrap">
-                                <a href="causes-single.html"><img src="assets/images/causes/causes_img_3.jpg" alt=""></a>
-                                <div class="raised-progress">
-                                    <div class="skillbar-wrap">
-                                        <div class="clearfix">
-                                            <span class="txt-orange">$10086</span> raised of <span class="txt-green">$15000</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="content-wrap">
-                                <span class="tag">Health</span>
-                                <h3><a href="causes-single.html">Supply Water For Good Health</a></h3>
-                                <div class="text-md-right">
-                                    <a href="causes-single.html" class="read-more-line"><span>Read More</span></a>
-                                </div>
-                            </div>
-
-                        </div>-->
-                        <!-- Causes Wrap -->
-                        <!-- Causes Wrap -->
-                        <!--<div class="item">
-                            <div class="causes-wrap">
-                                <div class="img-wrap">
-                                    <a href="causes-single.html"><img src="assets/images/causes/causes_img_2.jpg" alt=""></a>
-                                    <div class="raised-progress">
-                                        <div class="skillbar-wrap">
-                                            <div class="clearfix">
-                                                <span class="txt-orange">$10086</span> raised of <span class="txt-green">$15000</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="content-wrap">
-                                    <span class="tag">People</span>
-                                    <h3><a href="causes-single.html">Help For Homeless People</a></h3>
-                                    <div class="text-md-right">
-                                        <a href="causes-single.html" class="read-more-line"><span>Read More</span></a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>-->
-                        <!-- Causes Wrap -->
-                        <!-- Causes Wrap -->
-                        <!--<div class="item">
-                            <div class="causes-wrap">
-                                <div class="img-wrap">
-                                    <a href="causes-single.html"><img src="assets/images/causes/causes_img_6.jpg" alt=""></a>
-                                    <div class="raised-progress">
-                                        <div class="skillbar-wrap">
-                                            <div class="clearfix">
-                                                <span class="txt-orange">$10086</span> raised of <span class="txt-green">$15000</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="content-wrap">
-                                    <span class="tag">Health</span>
-                                    <h3>
-                                        <a href="causes-single.html">
-                                            Help From Natural
-                                            Disaster
-                                        </a>
-                                    </h3>
-                                    <div class="text-md-right">
-                                        <a href="causes-single.html" class="read-more-line"><span>Read More</span></a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>-->
-                        <!-- Causes Wrap -->
-                        <!--</div>
-                        </div>-->
-                        <!-- Widget Wrap -->
-                        <!-- Widget Wrap -->
                         <div class="widget-wrap">
                             <div class="sidebar-ads">
                                 <img src="/content/assets/images/sidebar_ads.jpg" alt="">

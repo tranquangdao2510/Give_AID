@@ -73,17 +73,8 @@ namespace Give_Aid.Models.DataAccess
             modelBuilder.Entity<Contact>()
                 .Property(e => e.Phone)
                 .IsUnicode(false);
-
             modelBuilder.Entity<Contact>()
-                .Property(e => e.Message)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Contact>()
-                .Property(e => e.FirstName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Contact>()
-                .Property(e => e.LastName)
+                .Property(e => e.Address)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Contact>()

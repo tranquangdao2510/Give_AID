@@ -160,9 +160,9 @@
     <Compile Include="Areas\Admins\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admins\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admins\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admins\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admins\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Admins\Controllers\DonateController.cs" />
-    <Compile Include="Areas\Admins\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admins\Controllers\FundController.cs" />
     <Compile Include="Areas\Admins\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoginController.cs" />
@@ -185,6 +185,22 @@
     <Compile Include="Migrations\202108300117154_v1.cs" />
     <Compile Include="Migrations\202108300117154_v1.Designer.cs">
       <DependentUpon>202108300117154_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108310415075_update-contact.cs" />
+    <Compile Include="Migrations\202108310415075_update-contact.Designer.cs">
+      <DependentUpon>202108310415075_update-contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108310419250_contactstatus.cs" />
+    <Compile Include="Migrations\202108310419250_contactstatus.Designer.cs">
+      <DependentUpon>202108310419250_contactstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108310715346_update table tag.cs" />
+    <Compile Include="Migrations\202108310715346_update table tag.Designer.cs">
+      <DependentUpon>202108310715346_update table tag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108310722023_update table blog.cs" />
+    <Compile Include="Migrations\202108310722023_update table blog.Designer.cs">
+      <DependentUpon>202108310722023_update table blog.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
@@ -3434,7 +3450,6 @@
     <Content Include="Areas\Admins\Views\Volunteers\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Volunteers\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Blogs\Index.cshtml" />
-    <Content Include="Areas\Admins\Views\Contacts\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Index.cshtml" />
@@ -3447,6 +3462,9 @@
     <Content Include="Areas\Admins\Views\Partner\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Partner\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Partner\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Contacts\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Contacts\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Contacts\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -3531,8 +3549,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Blog.cshtml" />
-    <Content Include="Views\Home\BlogDetail.cshtml" />
     <Content Include="Views\Home\Causes.cshtml" />
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Event.cshtml" />
@@ -3562,6 +3578,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202108300117154_v1.resx">
       <DependentUpon>202108300117154_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108310415075_update-contact.resx">
+      <DependentUpon>202108310415075_update-contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108310419250_contactstatus.resx">
+      <DependentUpon>202108310419250_contactstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108310715346_update table tag.resx">
+      <DependentUpon>202108310715346_update table tag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108310722023_update table blog.resx">
+      <DependentUpon>202108310722023_update table blog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

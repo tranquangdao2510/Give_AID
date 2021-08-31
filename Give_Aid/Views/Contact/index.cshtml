@@ -1,9 +1,8 @@
-﻿@model Give_Aid.Models.DataAccess.Contact
+﻿@model IEnumerable<Give_Aid.Models.DataAccess.Contact>
 @{
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <!-- Page Breadcrumbs Start -->
 <section class="breadcrumbs-page-wrap">
     <div class="bg-fixed pos-rel breadcrumbs-page">
@@ -38,43 +37,42 @@
                     <div class="contact-icon-xl">
                         <i class="charity-love_hearts"></i>
                     </div>
-                    <div id="sucessmessage"> </div>
-                    @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
+                    <div id="sucessmessage">
+                        @if (ViewBag.msg != null)
+                        {
+                            <div class="alert alert-success">@ViewBag.msg</div>
+                        }
+                    </div>
+                    @using (Html.BeginForm())
                     {
-                        @Html.AntiForgeryToken()
                         <div class="row">
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.FirstName, new { @placeholder = "First Name", @class = "form-control",@name= "firstName"})
-                                    @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "text-danger" })
+                                    <input type="text" name="firstName" class="form-control" placeholder="First Name">
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.LastName, new { @placeholder = "Last Name", @class = "form-control", @name = "lastName" })
-                                    @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "text-danger" })
+                                    <input type="text" name="lastName" class="form-control" placeholder="Last Name">
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.Email, new { @placeholder = "Your Email", @class = "form-control", @name = "email" })
-                                    @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                                    <input type="text" name="email" class="form-control" placeholder="Your Email">
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Phone Numbe", @class = "form-control", @name = "phone" })
-                                    @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+                                    <input type="number" name="phone" class="form-control" placeholder="Phone Number">
                                 </div>
                             </div>
 
                             <div class="col-md-12 mb-0">
                                 <div class="form-group">
-                                    @Html.TextAreaFor(x => x.Message, new { @placeholder = "Message", @class = "form-control", @name = "message" })
-                                    @Html.ValidationMessageFor(x => x.Message, "", new { @class = "text-danger" })
+                                    <textarea name="message" class="form-control" rows="6" placeholder="Message"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -90,23 +88,31 @@
                 <div class="icon-box-4 bg-orange mb-4">
                     <i data-feather="map-pin"></i>
                     <h3>Our Address</h3>
-                    <div>Envato Pty Ltd 13/2 Elizabeth St melbourne VLC 3000 Australia</div>
+                    @foreach (var item in Model)
+                    {
+                        <div>@item.Address</div>
+                    }
                 </div>
                 <!-- Icon Boxes Style -->
                 <!-- Icon Boxes Style -->
                 <div class="icon-box-4 bg-green mb-4">
                     <i data-feather="phone"></i>
                     <h3>Phone Number</h3>
-                    <div>+1234567899<br>1-800-763-5400</div>
-                </div>
+                    @foreach (var item in Model)
+                    {
+                        <div>@item.Phone</div>
+                    }
+                    </div>
                 <!-- Icon Boxes Style -->
                 <!-- Icon Boxes Style -->
                 <div class="icon-box-4 bg-gray mb-4">
                     <i data-feather="mail"></i>
                     <h3>Email Address</h3>
-                    <div><a href="mailto:info@hoperaise.com">info@hoperaise.com</a></div>
-                    <div><a href="mailto:volunteer@hoperaise.com">volunteer@hoperaise.com</a></div>
-                </div>
+                    @foreach (var item in Model)
+                    {
+                        <div><a href="mailto:@item.Email">@item.Email</a></div>
+                    }
+                    </div>
                 <!-- Icon Boxes Style -->
             </div>
 
@@ -116,7 +122,7 @@
 
 <section class="wide-tb-100">
     <div class="map-frame">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319"></iframe>
+        <iframe src="https://www.google.com/maps/d/embed?mid=1tU28c5E8Q-7hRCmlhUVaHx2fnwU" width="640" height="480"></iframe>
     </div>
     <div class="container">
         <div class="row">

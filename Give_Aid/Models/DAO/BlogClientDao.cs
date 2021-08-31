@@ -13,6 +13,7 @@ namespace Give_Aid.Models.DAO
     {
         public IEnumerable<Blog> Blogs { get; set; }
         public IEnumerable<Blog> BlogsNewpost { get; set; }
+        public IEnumerable<Blog> BlogsPagination { get; set; }
         public IEnumerable<Tag> Tags { get; set; }
     }
 }

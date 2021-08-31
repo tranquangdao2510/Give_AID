@@ -27,14 +27,16 @@ namespace Give_Aid.Models.DataAccess
         [Column(TypeName = "text")]
         [Required(ErrorMessage = "Content cannot be empty")]
         public string Content { get; set; }
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "Created date cannot be empty")]
         public DateTime? CreateDate { get; set; }
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? UpdatedDate { get; set; }
         [Required(ErrorMessage = "Status cannot be empty")]
         public bool? Status { get; set; }
 
         public virtual Tag Tag { get; set; }
+        public Blog()
+        {
+            this.CreateDate = DateTime.Now;
+            this.UpdatedDate = DateTime.Now;
+        }
     }
 }
