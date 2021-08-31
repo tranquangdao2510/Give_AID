@@ -1,5 +1,4 @@
 ﻿@model Give_Aid.Models.DAO.BlogClientDao
-@using PagedList.Mvc;
 <!-- Page Breadcrumbs Start -->
 <section class="breadcrumbs-page-wrap">
     <div class="bg-fixed pos-rel breadcrumbs-page">
@@ -33,10 +32,7 @@
                                         <div class="post-date">@item.CreateDate</div>
                                         <h3 class="post-title">
                                             <a href="">
-                                                @Html.ActionLink(item.Title, "BlogDetail", new
-                                           {
-                                               id = item.BlogId
-                                           })
+                                                @Html.ActionLink(item.Title, "BlogDetail", new { id = item.BlogId })
                                             </a>
                                         </h3>
                                         <div class="post-category">@item.Tag.TagName</div>

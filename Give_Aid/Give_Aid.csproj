@@ -182,25 +182,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108300440427_v1.cs" />
-    <Compile Include="Migrations\202108300440427_v1.Designer.cs">
-      <DependentUpon>202108300440427_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108310415075_update-contact.cs" />
-    <Compile Include="Migrations\202108310415075_update-contact.Designer.cs">
-      <DependentUpon>202108310415075_update-contact.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108310419250_contactstatus.cs" />
-    <Compile Include="Migrations\202108310419250_contactstatus.Designer.cs">
-      <DependentUpon>202108310419250_contactstatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108310715346_update table tag.cs" />
-    <Compile Include="Migrations\202108310715346_update table tag.Designer.cs">
-      <DependentUpon>202108310715346_update table tag.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108310722023_update table blog.cs" />
-    <Compile Include="Migrations\202108310722023_update table blog.Designer.cs">
-      <DependentUpon>202108310722023_update table blog.cs</DependentUpon>
+    <Compile Include="Migrations\202108310849334_v1.cs" />
+    <Compile Include="Migrations\202108310849334_v1.Designer.cs">
+      <DependentUpon>202108310849334_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
@@ -3565,7 +3549,7 @@
     <Content Include="Views\Home\CausesDetail.cshtml" />
     <Content Include="Views\Blog\BlogDetail.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
-    <Content Include="Views\Contact\index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3577,20 +3561,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108300440427_v1.resx">
-      <DependentUpon>202108300440427_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108310415075_update-contact.resx">
-      <DependentUpon>202108310415075_update-contact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108310419250_contactstatus.resx">
-      <DependentUpon>202108310419250_contactstatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108310715346_update table tag.resx">
-      <DependentUpon>202108310715346_update table tag.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108310722023_update table blog.resx">
-      <DependentUpon>202108310722023_update table blog.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108310849334_v1.resx">
+      <DependentUpon>202108310849334_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

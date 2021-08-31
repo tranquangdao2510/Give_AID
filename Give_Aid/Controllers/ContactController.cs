@@ -24,7 +24,7 @@ namespace Give_Aid.Controllers
             string body = "First Name:" + firstName + ";  \nLast Name:" + lastName + ";  \nPhone:" + phone + ";  \nMessage:" + message + ";  \n From:\n" + email;
             WebMail.Send("eprojectsemiii@gmail.com", subject, body, null, null, null, true, null, null, null, null, null, null);
             ViewBag.msg = "Email sent successfully...";
-            return View();
+            return View(db.Comtacts.ToList().Where(x => x.Status == true).Take(1));
         }
     }
 }
