@@ -182,9 +182,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108300117154_v1.cs" />
-    <Compile Include="Migrations\202108300117154_v1.Designer.cs">
-      <DependentUpon>202108300117154_v1.cs</DependentUpon>
+    <Compile Include="Migrations\202108300440427_v1.cs" />
+    <Compile Include="Migrations\202108300440427_v1.Designer.cs">
+      <DependentUpon>202108300440427_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202108310415075_update-contact.cs" />
     <Compile Include="Migrations\202108310415075_update-contact.Designer.cs">
@@ -214,6 +214,7 @@
     <Compile Include="Models\DAO\PartnerDao.cs" />
     <Compile Include="Models\DAO\PaymentDao.cs" />
     <Compile Include="Models\DAO\SliderDao.cs" />
+    <Compile Include="Models\DAO\VolunteerDao.cs" />
     <Compile Include="Models\DataAccess\Admin.cs" />
     <Compile Include="Models\DataAccess\Blog.cs" />
     <Compile Include="Models\DataAccess\Category.cs" />
@@ -3576,8 +3577,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108300117154_v1.resx">
-      <DependentUpon>202108300117154_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108300440427_v1.resx">
+      <DependentUpon>202108300440427_v1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108310415075_update-contact.resx">
       <DependentUpon>202108310415075_update-contact.cs</DependentUpon>

@@ -81,5 +81,9 @@ namespace Give_Aid.Models.DAO
                 return false;
             }
         }
+        public List<Slide> ListAll()
+        {
+            return db.Slides.Where(x => x.Status == true).OrderBy(x => x.DisplayOrder).ToList();
+        }
     }
 }

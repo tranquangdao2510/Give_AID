@@ -5,6 +5,7 @@ namespace Give_Aid.Models.DataAccess
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Mvc;
 
     [Table("Slide")]
     public partial class Slide
@@ -16,6 +17,7 @@ namespace Give_Aid.Models.DataAccess
         public string Image { get; set; }
 
         [StringLength(500)]
+        [AllowHtml]
         public string Description { get; set; }
 
         public int? DisplayOrder { get; set; }

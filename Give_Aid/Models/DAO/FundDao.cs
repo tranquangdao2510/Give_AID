@@ -20,16 +20,16 @@ namespace Give_Aid.Models.DAO
             search_name = search_name ?? "";
             return db.Funds.Where(x => x.FundName.Contains(search_name)).OrderBy(x=>x.FundName);
         }
-        public int Insert(Fund fund)
+        public string Insert(Fund fund)
         {
             db.Funds.Add(fund);
             fund.CreateDate = DateTime.Now;
             db.SaveChanges();
             return fund.FundId;
         }
-        public Fund Detail(int id)
+        public Fund Detail(string id)
         {
-            return db.Funds.Where(x=>x.FundId == id).FirstOrDefault();
+            return db.Funds.Where(x=>x.FundId.Contains(id)).FirstOrDefault();
         }
 
         public bool Update(Fund fund)
@@ -55,7 +55,7 @@ namespace Give_Aid.Models.DAO
                 return false;
             }
         }
-        public bool Delete(int id)
+        public bool Delete(string id)
         {
             try
             {
@@ -68,6 +68,14 @@ namespace Give_Aid.Models.DAO
             {
                 return false;
             }
+        }
+        public List<Fund> ListtopFund(int orderBy)
+        {
+            return db.Funds.Where(x => x.Status == true && x.DisplayOrder != null).OrderByDescending(x => x.CreateDate).Take(orderBy).ToList();
+        }
+        public List<Fund> ListAllFund()
+        {
+            return db.Funds.Where(x => x.Status == true).OrderByDescending(x => x.CreateDate).ToList();
         }
     }
 }

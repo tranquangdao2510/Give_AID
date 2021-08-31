@@ -82,7 +82,7 @@
                                 <td>
                                     <a href="/Admins/Partner/Edit/@item.PartnerId"><span class="fa fa-edit"></span></a> |
 
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.PartnerId }, new { @onclick = "return confirm('you may want to delete ?')" })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.PartnerId,@class = "fa fa-trash", @style = "Color:firebrick" }, new { @onclick = "return confirm('you may want to delete ?')" })
 
                                 </td>
                             </tr>

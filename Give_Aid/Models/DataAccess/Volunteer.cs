@@ -40,5 +40,7 @@ namespace Give_Aid.Models.DataAccess
         public DateTime? UpdatedDate { get; set; }
         [Required(ErrorMessage = "Status cannot be empty")]
         public bool Status { get; set; }
+        [StringLength(250)]
+        public string MetaTitle { get; set; }
     }
 }

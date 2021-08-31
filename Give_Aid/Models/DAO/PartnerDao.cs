@@ -63,5 +63,9 @@ namespace Give_Aid.Models.DAO
                 return false;
             }
         }
+        public List<Partner> GetPartner()
+        {
+            return db.Partners.Where(p => p.Status == true).OrderByDescending(p => p.CreateDate).ToList();
+        }
     }
 }
