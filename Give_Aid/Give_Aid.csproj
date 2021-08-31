@@ -198,6 +198,7 @@
     <Compile Include="Models\DAO\PartnerDao.cs" />
     <Compile Include="Models\DAO\PaymentDao.cs" />
     <Compile Include="Models\DAO\SliderDao.cs" />
+    <Compile Include="Models\DAO\VolunteerDao.cs" />
     <Compile Include="Models\DataAccess\Admin.cs" />
     <Compile Include="Models\DataAccess\Blog.cs" />
     <Compile Include="Models\DataAccess\Category.cs" />

@@ -9,7 +9,7 @@ namespace Give_Aid.Models.DataAccess
     [Table("Partner")]
     public partial class Partner
     {
-        
+        [Key]
         public int PartnerId { get; set; }
 
         [StringLength(250)]
