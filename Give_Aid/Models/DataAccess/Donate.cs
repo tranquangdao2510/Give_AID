@@ -12,6 +12,10 @@ namespace Give_Aid.Models.DataAccess
         public int DonateId { get; set; }
 
         public decimal? Amount { get; set; }
+        [StringLength(200)]
+        public string NameCrad { get; set; }
+        [StringLength(200)]
+        public string CradNumber { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
