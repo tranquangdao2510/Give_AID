@@ -79,11 +79,6 @@ namespace Give_Aid.Controllers
 
             return View();
         }
-        public ActionResult Donate()
-        {
-
-            return View();
-        }
 
         [ChildActionOnly]
         public ActionResult Sliders()

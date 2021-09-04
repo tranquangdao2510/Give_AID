@@ -70,46 +70,12 @@ namespace Give_Aid.Models.DAO
             return db.Donates.Where(a => a.DonateId == id).FirstOrDefault();
         }
 
-        //public bool Login(string name, string password)
-        //{
-        //    var result = db.Donates.SingleOrDefault(x => x.AdminName == name);
-        //    if (result == null)
-        //    {
-        //        return Convert.ToBoolean(0);
-        //    }
-        //    else
-        //    {
-        //        if (result.Status == false)
-        //        {
-        //            return Convert.ToBoolean(-1);
-        //        }
-        //        else
-        //        {
-        //            if (result.PassWord == password)
-        //            {
-        //                return Convert.ToBoolean(1);
-        //            }
-        //            else
-        //            {
-        //                return Convert.ToBoolean(-2);
-        //            }
-        //        }
-        //    }
-        //}
+        public int GetCustomerDonate()
+        {
+            var cus = from d in db.Donates
+                      join c in db.Customers
+                      on d.CustomerId equals c.CustomerId
 
-        //public bool Delete(int id)
-        //{
-        //    try
-        //    {
-        //        var Donate = db.Donates.Find(id);
-        //        db.Donates.Remove(Donate);
-        //        db.SaveChanges();
-        //        return true;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //}
+        }
     }
 }
