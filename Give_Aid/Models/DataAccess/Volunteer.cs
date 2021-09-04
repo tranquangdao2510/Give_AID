@@ -33,14 +33,15 @@ namespace Give_Aid.Models.DataAccess
         [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "BirthDay date cannot be empty")]
         public DateTime? BirthDay { get; set; }
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "Created date cannot be empty")]
         public DateTime? CreateDate { get; set; }
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? UpdatedDate { get; set; }
-        [Required(ErrorMessage = "Status cannot be empty")]
         public bool Status { get; set; }
         [StringLength(250)]
         public string MetaTitle { get; set; }
+        public Volunteer()
+        {
+            this.CreateDate = DateTime.Now;
+            this.UpdatedDate = DateTime.Now;
+        }
     }
 }

@@ -100,7 +100,11 @@
                                     @Html.DisplayFor(modelItem => item.UpdatedDate)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Status)
+                                    @{if (item.Status == true)
+                                        {
+                                            <p>Show</p>}
+                                        else
+                                        {<p>Hidden</p> } }
                                 </td>
                                 <td>
                                     <a href="/Admins/Admin/Edit/@item.VolunteersId"><span class="fa fa-edit"></span></a> |
