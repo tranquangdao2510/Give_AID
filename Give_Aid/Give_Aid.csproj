@@ -176,9 +176,12 @@
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\AdminLogin.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Controllers\BecomeVolunteerController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VolunteerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,12 +189,35 @@
     <Compile Include="Migrations\202108310849334_v1.Designer.cs">
       <DependentUpon>202108310849334_v1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109030701032_DataAnnotations.cs" />
+    <Compile Include="Migrations\202109030701032_DataAnnotations.Designer.cs">
+      <DependentUpon>202109030701032_DataAnnotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109030745336_DataAnnotations1.cs" />
+    <Compile Include="Migrations\202109030745336_DataAnnotations1.Designer.cs">
+      <DependentUpon>202109030745336_DataAnnotations1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109040535493_becomvolunteer.cs" />
+    <Compile Include="Migrations\202109040535493_becomvolunteer.Designer.cs">
+      <DependentUpon>202109040535493_becomvolunteer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109040604561_clientbecome.cs" />
+    <Compile Include="Migrations\202109040604561_clientbecome.Designer.cs">
+      <DependentUpon>202109040604561_clientbecome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109040701250_DataAnnotations2.cs" />
+    <Compile Include="Migrations\202109040701250_DataAnnotations2.Designer.cs">
+      <DependentUpon>202109040701250_DataAnnotations2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
+    <Compile Include="Models\DAO\BecomVolunteerDao.cs" />
     <Compile Include="Models\DAO\BlogClientDao.cs" />
     <Compile Include="Models\DAO\CategoryDao.cs" />
+    <Compile Include="Models\DAO\ContactClientDao.cs" />
     <Compile Include="Models\DAO\CustomerDao.cs" />
     <Compile Include="Models\DAO\DonateDao.cs" />
+    <Compile Include="Models\DAO\FaqClientDao.cs" />
     <Compile Include="Models\DAO\FundDao.cs" />
     <Compile Include="Models\DAO\ImageGalleryDao.cs" />
     <Compile Include="Models\DAO\OrganizationDao.cs" />
@@ -3539,17 +3565,17 @@
     <Content Include="Views\Home\Event.cshtml" />
     <Content Include="Views\Home\EventDetail.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\OurFaq.cshtml" />
-    <Content Include="Views\Home\Volunteerss.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\BecomeVolunteerss.cshtml" />
     <Content Include="Views\Home\CausesDetail.cshtml" />
     <Content Include="Views\Blog\BlogDetail.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Volunteer\Index.cshtml" />
+    <Content Include="Views\Faq\Index.cshtml" />
+    <Content Include="Views\BecomeVolunteer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3563,6 +3589,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202108310849334_v1.resx">
       <DependentUpon>202108310849334_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109030701032_DataAnnotations.resx">
+      <DependentUpon>202109030701032_DataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109030745336_DataAnnotations1.resx">
+      <DependentUpon>202109030745336_DataAnnotations1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109040535493_becomvolunteer.resx">
+      <DependentUpon>202109040535493_becomvolunteer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109040604561_clientbecome.resx">
+      <DependentUpon>202109040604561_clientbecome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109040701250_DataAnnotations2.resx">
+      <DependentUpon>202109040701250_DataAnnotations2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
