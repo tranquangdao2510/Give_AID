@@ -179,35 +179,17 @@
     <Compile Include="Controllers\BecomeVolunteerController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DonateController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
+    <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VolunteerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108311447106_vs1.cs" />
-    <Compile Include="Migrations\202108311447106_vs1.Designer.cs">
-      <DependentUpon>202108311447106_vs1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109030701032_DataAnnotations.cs" />
-    <Compile Include="Migrations\202109030701032_DataAnnotations.Designer.cs">
-      <DependentUpon>202109030701032_DataAnnotations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109030745336_DataAnnotations1.cs" />
-    <Compile Include="Migrations\202109030745336_DataAnnotations1.Designer.cs">
-      <DependentUpon>202109030745336_DataAnnotations1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109040535493_becomvolunteer.cs" />
-    <Compile Include="Migrations\202109040535493_becomvolunteer.Designer.cs">
-      <DependentUpon>202109040535493_becomvolunteer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109040604561_clientbecome.cs" />
-    <Compile Include="Migrations\202109040604561_clientbecome.Designer.cs">
-      <DependentUpon>202109040604561_clientbecome.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109040701250_DataAnnotations2.cs" />
-    <Compile Include="Migrations\202109040701250_DataAnnotations2.Designer.cs">
-      <DependentUpon>202109040701250_DataAnnotations2.cs</DependentUpon>
+    <Compile Include="Migrations\202109041303243_v1.cs" />
+    <Compile Include="Migrations\202109041303243_v1.Designer.cs">
+      <DependentUpon>202109041303243_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
@@ -241,6 +223,7 @@
     <Compile Include="Models\DataAccess\Slide.cs" />
     <Compile Include="Models\DataAccess\Tag.cs" />
     <Compile Include="Models\DataAccess\Volunteer.cs" />
+    <Compile Include="Models\ViewCustomerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -3464,9 +3447,6 @@
     <Content Include="Areas\Admins\Views\Categories\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Index.cshtml" />
-    <Content Include="Areas\Admins\Views\Fund\Create.cshtml" />
-    <Content Include="Areas\Admins\Views\Fund\Edit.cshtml" />
-    <Content Include="Areas\Admins\Views\Fund\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Organization\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Organization\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Organization\Index.cshtml" />
@@ -3476,6 +3456,9 @@
     <Content Include="Areas\Admins\Views\Contacts\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Contacts\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Contacts\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Fund\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Fund\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Fund\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -3576,6 +3559,9 @@
     <Content Include="Views\Volunteer\Index.cshtml" />
     <Content Include="Views\Faq\Index.cshtml" />
     <Content Include="Views\BecomeVolunteer\Index.cshtml" />
+    <Content Include="Views\Donate\DonateList.cshtml" />
+    <Content Include="Views\Fund\FundDetail.cshtml" />
+    <Content Include="Views\Fund\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3587,23 +3573,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108311447106_vs1.resx">
-      <DependentUpon>202108311447106_vs1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109030701032_DataAnnotations.resx">
-      <DependentUpon>202109030701032_DataAnnotations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109030745336_DataAnnotations1.resx">
-      <DependentUpon>202109030745336_DataAnnotations1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109040535493_becomvolunteer.resx">
-      <DependentUpon>202109040535493_becomvolunteer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109040604561_clientbecome.resx">
-      <DependentUpon>202109040604561_clientbecome.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109040701250_DataAnnotations2.resx">
-      <DependentUpon>202109040701250_DataAnnotations2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109041303243_v1.resx">
+      <DependentUpon>202109041303243_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

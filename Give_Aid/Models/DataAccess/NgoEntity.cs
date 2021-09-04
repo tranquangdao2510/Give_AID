@@ -124,7 +124,11 @@ namespace Give_Aid.Models.DataAccess
             modelBuilder.Entity<Fund>()
                 .Property(e => e.FundName)
                 .IsUnicode(false);
-
+            
+            modelBuilder.Entity<Fund>()
+                .Property(e => e.Title)
+                .IsUnicode(false);
+            
             modelBuilder.Entity<Fund>()
                 .Property(e => e.Description)
                 .IsUnicode(false);

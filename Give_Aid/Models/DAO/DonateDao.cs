@@ -70,12 +70,12 @@ namespace Give_Aid.Models.DAO
             return db.Donates.Where(a => a.DonateId == id).FirstOrDefault();
         }
 
-        public int GetCustomerDonate()
-        {
-            var cus = from d in db.Donates
-                      join c in db.Customers
-                      on d.CustomerId equals c.CustomerId
+        //public int GetCustomerDonate()
+        //{
+        //    var cus = from d in db.Donates
+        //              join c in db.Customers
+        //              on d.CustomerId equals c.CustomerId
 
-        }
+        //}
     }
 }
