@@ -1,0 +1,175 @@
+﻿@model Give_Aid.Models.DAO.VolunteerDao
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Page Breadcrumbs Start -->
+<section class="breadcrumbs-page-wrap">
+    <div class="bg-fixed pos-rel breadcrumbs-page">
+        <div class="container">
+            <h1>Volunteers</h1>
+            <nav aria-label="breadcrumb" class="breadcrumb-wrap">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Volunteers</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- Page Breadcrumbs End -->
+<!-- About Us Style Start -->
+<section class="wide-tb-100">
+    <div class="container">
+        <h1 class="heading-main">
+            <small>Team Member</small>
+            Our Expert Volunteer
+        </h1>
+        <div class="row">
+
+            <!-- Team Column One -->
+            @foreach (var item in Model.GetVolunteers)
+            {
+                <div class="col-12 col-lg-3 col-sm-6">
+                    <div class="team-section-wrap">
+                        <div class="img green">
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/"><i class="icofont-facebook"></i></a>
+                                <a href="https://twitter.com/"><i class="icofont-twitter"></i></a>
+                                <a href="https://www.instagram.com/"><i class="icofont-instagram"></i></a>
+                            </div>
+                            <img src="@item.Image" alt="" class="rounded-circle">
+                        </div>
+                        <h4>@item.VolunteersName</h4>
+                        <h5>Volunteer</h5>
+                    </div>
+                </div>
+            }
+            <!-- Team Column One -->
+        </div>
+        <div class="theme-pagination">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    @{
+                        int count = (Model.GetVolunteers.Count() + 7) / 8;
+                        for (int i = 1; i <= count; i++)
+                        {
+                            <li class="page-item"><a class="page-link" href="?page=@i">@i</a></li>
+                        }
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- About Us Style Start -->
+<!-- Team Member Style Start -->
+<section class="wide-tb-100 mb-spacer-md pb-0">
+    <div class="container">
+    </div>
+</section>
+<!-- Team Member Style End -->
+<!-- Faq's Style Start -->
+<section class="wide-tb-100 pattern-orange pt-0 mb-spacer-md">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+
+                <div class="faqs-wrap pos-rel">
+                    <div class="bg-overlay blue opacity-80"></div>
+                    <div class="row">
+                        <div class="col-12 col-lg-6 col-md-12">
+                            <h1 class="heading-main light-mode">
+                                <small>Have Questions</small>
+                                Frequently Asked Questions
+                            </h1>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                            <a class="btn btn-default" href="/Faq">Ask It Now</a>
+                        </div>
+
+                        <!-- Spacer For Medium -->
+                        <div class="w-100 d-none d-sm-block d-lg-none spacer-60"></div>
+                        <!-- Spacer For Medium -->
+
+                        <div class="col-12 col-lg-6 col-md-12">
+                            <div class="theme-collapse light">
+                                <!-- Toggle Links 1 -->
+                                <div class="toggle arrow-down">
+                                    <span class="icon">
+                                        <i class="icofont-plus"></i>
+                                    </span> Our Philosophy
+                                </div>
+                                <!-- Toggle Links 1 -->
+                                <!-- Toggle Content 1 -->
+                                <div class="collapse show">
+                                    <div class="content">
+                                        Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.
+                                    </div>
+                                </div>
+                                <!-- Toggle Content 1 -->
+                                <!-- Toggle Links 2 -->
+                                <div class="toggle">
+                                    <span class="icon">
+                                        <i class="icofont-plus"></i>
+                                    </span> Our Organization
+                                </div>
+                                <!-- Toggle Links 2 -->
+                                <!-- Toggle Content 2 -->
+                                <div class="collapse">
+                                    <div class="content">
+                                        Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.
+                                    </div>
+                                </div>
+                                <!-- Toggle Content 2 -->
+                                <!-- Toggle Links 3 -->
+                                <div class="toggle">
+                                    <span class="icon">
+                                        <i class="icofont-plus"></i>
+                                    </span> Know More About Adoption
+                                </div>
+                                <!-- Toggle Links 3 -->
+                                <!-- Toggle Content 3 -->
+                                <div class="collapse">
+                                    <div class="content">
+                                        Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.
+                                    </div>
+                                </div>
+                                <!-- Toggle Content 3 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Faq's Style End -->
+<!-- Our Partners Start -->
+<section class="wide-tb-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <h1 class="heading-main">
+                    <small>Global Providers</small>
+                    Our World Wide Partner
+                </h1>
+            </div>
+            <div class="col-sm-12">
+                <div class="owl-carousel owl-theme" id="home-clients">
+
+                    <!-- Client Logo -->
+                    @foreach (var item in Model.GetPartners)
+                    {
+                        <div class="item">
+                            <div class="clients-logo">
+                                <img src="@item.Image" alt="">
+                            </div>
+                        </div>
+                    }
+                    <!-- Client Logo -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Our Partners End -->

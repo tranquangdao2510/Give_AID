@@ -1,8 +1,11 @@
-﻿@model IEnumerable<Give_Aid.Models.DataAccess.Contact>
+﻿@model Give_Aid.Models.DAO.ContactClientDao
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 <section class="breadcrumbs-page-wrap">
     <div class="bg-fixed pos-rel breadcrumbs-page">
@@ -38,46 +41,53 @@
                     <div id="sucessmessage">
                         @if (ViewBag.msg != null)
                         {
-                            <div class="alert alert-success">@ViewBag.msg</div>
+                            <div id="success-alert" class="alert alert-success">@ViewBag.msg</div>
                         }
                     </div>
-                    @using (Html.BeginForm())
-                    {
-                        <div class="row">
+                    <form method="post">
+                        <div class="row" id="erro">
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    <input type="text" name="firstName" class="form-control" placeholder="First Name">
+                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name" } })
+                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    <input type="text" name="lastName" class="form-control" placeholder="Last Name">
+                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Last Name" } })
+                                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    <input type="text" name="email" class="form-control" placeholder="Your Email">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Your Email" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-0">
                                 <div class="form-group">
-                                    <input type="number" name="phone" class="form-control" placeholder="Phone Number">
+                                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Your Phone" } })
+                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
                                 </div>
                             </div>
 
                             <div class="col-md-12 mb-0">
                                 <div class="form-group">
-                                    <textarea name="message" class="form-control" rows="6" placeholder="Message"></textarea>
+                                    @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control", @placeholder = "Message" } })
+                                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary text-nowrap">Send Message</button>
+                                <button id="mail-submit" name="submit" type="submit" class="btn btn-primary text-nowrap">Send Message</button>
                             </div>
                         </div>
-                    }
+                    </form>
                 </div>
             </div>
 
@@ -86,7 +96,7 @@
                 <div class="icon-box-4 bg-orange mb-4">
                     <i data-feather="map-pin"></i>
                     <h3>Our Address</h3>
-                    @foreach(var item in Model)
+                    @foreach (var item in Model.GetContacts)
                     {
                         <div>@item.Address</div>
                     }
@@ -96,7 +106,7 @@
                 <div class="icon-box-4 bg-green mb-4">
                     <i data-feather="phone"></i>
                     <h3>Phone Number</h3>
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.GetContacts)
                     {
                         <div>@item.Phone</div>
                     }
@@ -106,7 +116,7 @@
                 <div class="icon-box-4 bg-gray mb-4">
                     <i data-feather="mail"></i>
                     <h3>Email Address</h3>
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.GetContacts)
                     {
                         <div><a href="mailto:@item.Email">@item.Email</a></div>
                     }
@@ -117,4 +127,9 @@
         </div>
     </div>
 </section>
+<script>
+    $("#success-alert").fadeTo(2000, 5000).slideUp(2000, function () {
+        $("#success-alert").slideUp(500);
+    });
+</script>
 

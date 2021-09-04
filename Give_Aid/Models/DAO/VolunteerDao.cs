@@ -9,14 +9,14 @@ namespace Give_Aid.Models.DAO
     public class VolunteerDao
     {
         private NgoEntity db = null;
-        public VolunteerDao()
-        {
-            db = new NgoEntity();
-        }
+        public IEnumerable<Volunteer> GetVolunteers { get; set; }
+        public IEnumerable<Partner> GetPartners { get; set; }
+
         public List<Volunteer> GetVolunteer()
         {
-            return db.Volunteers.Where(v => v.Status == true).OrderBy(v => v.CreateDate).ToList();
+            return db.Volunteers.Where(b => b.Status == true).OrderByDescending(b => b.CreateDate).ToList();
         }
-        
+
+
     }
 }

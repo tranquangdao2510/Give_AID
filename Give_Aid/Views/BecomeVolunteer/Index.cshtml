@@ -1,4 +1,12 @@
-﻿   <!-- Page Breadcrumbs Start -->
+﻿@model Give_Aid.Models.DAO.BecomVolunteerDao
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<!-- Page Breadcrumbs Start -->
 <section class="breadcrumbs-page-wrap">
     <div class="bg-fixed pos-rel breadcrumbs-page">
         <div class="container">
@@ -15,10 +23,14 @@
 <!-- Joining Process Start -->
 <section class="wide-tb-100">
     <div class="container">
+        @if (ViewBag.msg != null)
+        {
+            <div id="success-alert" class="alert alert-success">@ViewBag.msg</div>
+        }
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-12">
                 <div class="text-center">
-                    <img src="assets/images/about_img.png" alt="">
+                    <img src="/content/assets/images/about_img.png" alt="">
                 </div>
             </div>
             <div class="col-lg-5 col-md-12">
@@ -38,13 +50,15 @@
                 </div>
 
                 <div class="d-flex">
-                    <a class="nav-link btn btn-default mr-3" href="volunteers.html">Join Now</a>
-                    <div class="about-phone">
-                        <i data-feather="phone-call"></i>
-                        Conatct Us <br> +1234567899
-                    </div>
+                    <a class="nav-link btn btn-default mr-3" href="/Volunteer">Join Now</a>
+                    @foreach (var item in Model.GetContacts)
+                    {
+                        <div class="about-phone">
+                            <i data-feather="phone-call"></i>
+                            Conatct Us <br> @item.Phone
+                        </div>
+                    }
                 </div>
-
 
             </div>
         </div>
@@ -62,29 +76,36 @@
                             <small>Become A Volunteer</small>
                         </h1>
                         <div class="form">
-                            <form>
+                            @using (Html.BeginForm())
+                            {
+
                                 <div class="form-group">
                                     <label for="fullname"><strong>Full Name</strong></label>
-                                    <input type="text" class="form-control form-light" id="fullname">
+                                    @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control form-light" } })
+                                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label for="email"><strong>Email Address</strong></label>
-                                    <input type="email" class="form-control form-light" id="email">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control form-light" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label for="phone"><strong>Phone Number</strong></label>
-                                    <input type="tel" class="form-control form-light" id="phone">
+                                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control form-light" } })
+                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label for="refrence"><strong>Refrence Contact</strong></label>
-                                    <input type="tel" class="form-control form-light" id="refrence">
+                                    @Html.EditorFor(model => model.RefrenceContact, new { htmlAttributes = new { @class = "form-control form-light" } })
+                                    @Html.ValidationMessageFor(model => model.RefrenceContact, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label for="msg"><strong>Your Comments</strong></label>
-                                    <textarea class="form-control form-light" rows="5" id="msg"></textarea>
+                                    @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control form-light" } })
+                                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
                                 </div>
                                 <button type="submit" class="btn btn-outline-light mt-3">Send Request</button>
-                            </form>
+                            }
                         </div>
 
                     </div>
@@ -126,39 +147,14 @@
                 <div class="owl-carousel owl-theme" id="home-clients">
 
                     <!-- Client Logo -->
-                    <div class="item">
-                        <div class="clients-logo">
-                            <img src="assets/images/clients/client1.png" alt="">
+                    @foreach (var item in Model.GetPartners)
+                    {
+                        <div class="item">
+                            <div class="clients-logo">
+                                <img src="@item.Image" alt="">
+                            </div>
                         </div>
-                    </div>
-                    <!-- Client Logo -->
-                    <!-- Client Logo -->
-                    <div class="item">
-                        <div class="clients-logo">
-                            <img src="assets/images/clients/client2.png" alt="">
-                        </div>
-                    </div>
-                    <!-- Client Logo -->
-                    <!-- Client Logo -->
-                    <div class="item">
-                        <div class="clients-logo">
-                            <img src="assets/images/clients/client3.png" alt="">
-                        </div>
-                    </div>
-                    <!-- Client Logo -->
-                    <!-- Client Logo -->
-                    <div class="item">
-                        <div class="clients-logo">
-                            <img src="assets/images/clients/client4.png" alt="">
-                        </div>
-                    </div>
-                    <!-- Client Logo -->
-                    <!-- Client Logo -->
-                    <div class="item">
-                        <div class="clients-logo">
-                            <img src="assets/images/clients/client5.png" alt="">
-                        </div>
-                    </div>
+                    }
                     <!-- Client Logo -->
 
                 </div>
@@ -166,4 +162,9 @@
         </div>
     </div>
 </section>
+<script>
+    $("#success-alert").fadeTo(2000, 5000).slideUp(2000, function () {
+        $("#success-alert").slideUp(500);
+    });
+</script>
 <!-- Our Partners End -->

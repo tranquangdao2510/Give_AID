@@ -33,7 +33,7 @@ namespace Give_Aid.Controllers
             search_title = search_title ?? "";
             search_tag = search_tag ?? "";
             var model = new BlogClientDao();
-            model.Blogs = db.Blogs.ToList().Where(x => (x.BlogId.Equals(id)) && (x.Title.Contains(search_title)) && (x.TagId.ToString().Contains(search_tag)));
+            model.Blogs = db.Blogs.ToList().Where(x => (x.Status==true)&&(x.BlogId.Equals(id)) && (x.Title.Contains(search_title)) && (x.TagId.ToString().Contains(search_tag)));
             model.BlogsNewpost = db.Blogs.Where(x => x.Status == true).OrderByDescending(x => x.CreateDate).Take(2).ToList();
             model.Tags = db.Tags.ToList().Where(x => x.Status == true);
             if (id == null)

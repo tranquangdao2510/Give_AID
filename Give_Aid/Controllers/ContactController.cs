@@ -1,4 +1,5 @@
 ﻿using Give_Aid.Models.DataAccess;
+using Give_Aid.Models.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,9 @@ namespace Give_Aid.Controllers
         private NgoEntity db = new NgoEntity();
         public ActionResult Index()
         {
-            return View(db.Comtacts.ToList().Where(x=>x.Status==true).Take(1));
+            var model = new ContactClientDao();
+            model.GetContacts = db.Comtacts.ToList().Where(x => x.Status == true).Take(1);
+            return View(model);
         }
         [HttpPost]
         public ActionResult Index(string firstName, string lastName, string email, string phone, string message)
@@ -24,7 +27,9 @@ namespace Give_Aid.Controllers
             string body = "First Name:" + firstName + ";  \nLast Name:" + lastName + ";  \nPhone:" + phone + ";  \nMessage:" + message + ";  \n From:\n" + email;
             WebMail.Send("eprojectsemiii@gmail.com", subject, body, null, null, null, true, null, null, null, null, null, null);
             ViewBag.msg = "Email sent successfully...";
-            return View(db.Comtacts.ToList().Where(x => x.Status == true).Take(1));
+            var model = new ContactClientDao();
+            model.GetContacts = db.Comtacts.ToList().Where(x => x.Status == true).Take(1);
+            return View(model);
         }
     }
 }
