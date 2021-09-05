@@ -3,7 +3,7 @@ namespace Give_Aid.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class DataAnnotations1 : DbMigration
+    public partial class tqdao : DbMigration
     {
         public override void Up()
         {

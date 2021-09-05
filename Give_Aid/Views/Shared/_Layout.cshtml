@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿
+<!doctype html>
 <html lang="en">
 
 <!-- Mirrored from mannatstudio.com/html/gracious/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Aug 2021 09:00:13 GMT -->
@@ -93,6 +94,21 @@
                     <a class="btn-outline-primary btn ml-3" href="#" id="search_home"><i data-feather="search"></i></a>
 
                     <a class="nav-link btn btn-default ml-3 donate-btn" href="/Donate/DonateList">Donate</a>
+                    @{
+                        var session = Session[Give_Aid.Common.CommonConstants.USER_SESSION] as Give_Aid.Common.CustomerLogin;
+
+                    }
+                    @if (session == null)
+                    {
+                        <a class=" ml-3 donate-btn" href="/Customer/Login" style="color:aliceblue;display:block">Login</a>
+                        <a class="ml-3 donate-btn" href="/Customer/Register" style="color:aliceblue;display:block">Register</a>
+                    }
+                    else
+                    {
+                        @*<a class="ml-3 donate-btn"  style="color:aliceblue;display:block">Register</a>*@
+
+                        <p>Hello: @session.CustomerName </p>
+                    }
 
                     <!-- Toggle Button Start -->
                     <button class="navbar-toggler x collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

@@ -71,32 +71,32 @@ namespace Give_Aid.Models.DAO
             return db.Customers.Where(a => a.CustomerId == id).FirstOrDefault();
         }
 
-        //public bool Login(string name, string password)
-        //{
-        //    var result = db.Customers.SingleOrDefault(x => x.CustomerName == name);
-        //    if (result == null)
-        //    {
-        //        return Convert.ToBoolean(0);
-        //    }
-        //    else
-        //    {
-        //        if (result.Status == false)
-        //        {
-        //            return Convert.ToBoolean(-1);
-        //        }
-        //        else
-        //        {
-        //            if (result.PassWord == password)
-        //            {
-        //                return Convert.ToBoolean(1);
-        //            }
-        //            else
-        //            {
-        //                return Convert.ToBoolean(-2);
-        //            }
-        //        }
-        //    }
-        //}
+        public bool Login(string name, string password)
+        {
+            var result = db.Customers.SingleOrDefault(x => x.CustomerName == name);
+            if (result == null)
+            {
+                return Convert.ToBoolean(0);
+            }
+            else
+            {
+                if (result.Status == false)
+                {
+                    return Convert.ToBoolean(-1);
+                }
+                else
+                {
+                    if (result.PassWord == password)
+                    {
+                        return Convert.ToBoolean(1);
+                    }
+                    else
+                    {
+                        return Convert.ToBoolean(-2);
+                    }
+                }
+            }
+        }
 
         public bool Delete(int id)
         {
@@ -111,6 +111,16 @@ namespace Give_Aid.Models.DAO
             {
                 return false;
             }
+        }
+
+        public  bool CkeckCustomerName(string customerName)
+        {
+            return db.Customers.Count(x => x.CustomerName == customerName) > 0;
+        }
+
+        public  bool CkeckCustomerEmail(string email)
+        {
+            return db.Customers.Count(x => x.Email == email) > 0;
         }
     }
 }

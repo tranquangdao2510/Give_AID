@@ -7,13 +7,13 @@ namespace Give_Aid.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class clientbecome : IMigrationMetadata
+    public sealed partial class tqdao : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(clientbecome));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tqdao));
         
         string IMigrationMetadata.Id
         {
-            get { return "202109040604561_clientbecome"; }
+            get { return "202109050713294_tqdao"; }
         }
         
         string IMigrationMetadata.Source
