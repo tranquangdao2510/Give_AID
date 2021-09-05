@@ -1,10 +1,11 @@
-namespace Give_Aid.Models.DataAccess
+﻿namespace Give_Aid.Models.DataAccess
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Mvc;
 
     [Table("Fund")]
     public partial class Fund
@@ -15,15 +16,18 @@ namespace Give_Aid.Models.DataAccess
             Donates = new HashSet<Donate>();
         }
         [StringLength(50)]
-        [Column(TypeName ="varchar")]
+        [Column(TypeName = "varchar")]
         public string FundId { get; set; }
 
         [StringLength(250)]
         public string FundName { get; set; }
+        [StringLength(250)]
+        public string Title { get; set; }
 
-        [StringLength(300)]
+
+        [AllowHtml]
         public string Description { get; set; }
-
+        [AllowHtml]
         public string Content { get; set; }
 
         [StringLength(500)]
