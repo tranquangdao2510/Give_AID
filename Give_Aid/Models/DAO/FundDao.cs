@@ -85,5 +85,19 @@ namespace Give_Aid.Models.DAO
         {
             return db.Funds.Where(x => x.Status == true ).OrderByDescending(x => x.CreateDate).Take(orderBy).ToList();
         }
+
+        public bool UpdateAmount(Fund fund)
+        {
+            try
+            {
+                var F = db.Funds.Find(fund.FundId);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

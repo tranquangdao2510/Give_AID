@@ -2,6 +2,7 @@ namespace Give_Aid.Models.DataAccess
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -9,13 +10,16 @@ namespace Give_Aid.Models.DataAccess
     [Table("Donate")]
     public partial class Donate
     {
+        
         public int DonateId { get; set; }
-
+        [Required(ErrorMessage = "The amount must not be vacated.")]
         public decimal? Amount { get; set; }
-        [StringLength(200)]
-        public string NameCrad { get; set; }
-        [StringLength(200)]
-        public string CradNumber { get; set; }
+        [Required(ErrorMessage = "The card name must not be vacated.")]
+        [StringLength(200,ErrorMessage = "The card name must not exceed 200 characters")]
+        public string NameCard { get; set; }
+        [Required(ErrorMessage = "The card number must not be vacated.")]
+        [StringLength(200, MinimumLength = 12,ErrorMessage = "The card number must have at least 12 characters.")]
+        public string CardNumber { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
@@ -27,6 +31,9 @@ namespace Give_Aid.Models.DataAccess
 
         [StringLength(50)]
         public string FundId { get; set; }
+        
+        [StringLength(250)]
+        public string Content { get; set; }
 
         public virtual Customer Customer { get; set; }
 

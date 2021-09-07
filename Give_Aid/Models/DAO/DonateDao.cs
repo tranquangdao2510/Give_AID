@@ -1,4 +1,5 @@
 ﻿using Give_Aid.Models.DataAccess;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,15 +25,15 @@ namespace Give_Aid.Models.DAO
             return entity.DonateId;
         }
 
-        //public IEnumerable<Donate> GetAllPaging(string searchString, int page, int pageSize)
-        //{
-        //    IQueryable<Donate> model = db.Donates;
-        //    if (!string.IsNullOrEmpty(searchString))
-        //    {
-        //        model = model.Where(x => x.AdminName.Contains(searchString)).OrderByDescending(x => x.CreatedDate);
-        //    }
-        //    return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
-        //}
+        public IEnumerable<Donate> GetAllPaging(string searchString, int page, int pageSize)
+        {
+            IQueryable<Donate> model = db.Donates;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Customer.CustomerName.Contains(searchString)).OrderByDescending(x => x.CreateDate);
+            }
+            return model.OrderByDescending(x => x.CreateDate).ToPagedList(page, pageSize);
+        }
 
         //public bool Update(Donate Donate)
         //{
@@ -69,13 +70,17 @@ namespace Give_Aid.Models.DAO
         {
             return db.Donates.Where(a => a.DonateId == id).FirstOrDefault();
         }
+        public bool ChangeStatus(int id)
+        {
+            var donate = db.Donates.Find(id);
+            donate.Status = !donate.Status;
 
-        //public int GetCustomerDonate()
-        //{
-        //    var cus = from d in db.Donates
-        //              join c in db.Customers
-        //              on d.CustomerId equals c.CustomerId
-
-        //}
+            var funddao = new FundDao();
+            var fundamount = funddao.Detail(donate.FundId);
+            fundamount.CurentAmount += donate.Amount;
+            funddao.UpdateAmount(fundamount);
+            db.SaveChanges();
+            return donate.Status;
+        }
     }
 }

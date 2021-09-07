@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -32,9 +33,7 @@
 
         [StringLength(500)]
         public string FundImg { get; set; }
-
         public decimal? TargetAmount { get; set; }
-
         public decimal? CurentAmount { get; set; }
 
         public int? CategoryId { get; set; }

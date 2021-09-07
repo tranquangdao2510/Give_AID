@@ -1,4 +1,5 @@
 ﻿using Give_Aid.Models.DAO;
+using Give_Aid.Models.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Give_Aid.Controllers
     public class DonateController : Controller
     {
         // GET: Donate
+        [HttpGet]
         public ActionResult DonateList()
         {
             SetViewBag();
@@ -25,7 +27,23 @@ namespace Give_Aid.Controllers
             ViewBag.PaymentId = new SelectList(paymentDao.ListPayment(), "PaymentId", "PaymentName", selectedId);
 
         }
+        [HttpPost]
+        public ActionResult DonateList(Donate entity)
+        {
+            var session = Session[Give_Aid.Common.CommonConstants.USER_SESSION] as Give_Aid.Common.CustomerLogin;
+            var dao = new DonateDao();
+            entity.CustomerId = session.CustomerId;
+            entity.Status = false;
+            dao.Insert(entity);
+
+           // var funddao = new FundDao();
+           // var fund = new Fund();
+           //var fundamount= funddao.Detail(entity.FundId);
+           // fundamount.CurentAmount += entity.Amount;
+           // funddao.UpdateAmount(fundamount);
+            return RedirectToAction("Index","Home");
 
 
+        }
     }
 }

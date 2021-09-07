@@ -8,12 +8,15 @@ using System.Web.Mvc;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class DonateController : Controller
+    public class DonateController : BaseController
     {
         // GET: Admins/Donate
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 7)
         {
-            return View();
+            var dao = new DonateDao();
+            var model = dao.GetAllPaging(searchString, page, pageSize);
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
         [HttpGet]
         public ActionResult Create()
@@ -23,11 +26,14 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Donate donate)
+        public JsonResult ChangeStatus(int id)
         {
 
-            SetViewBagCate();
-            return View();
+            var result = new DonateDao().ChangeStatus(id);
+            return Json(new
+            {
+                status = result
+            });
         }
 
         [HttpGet]
@@ -53,5 +59,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             var dao = new PaymentDao();
             ViewBag.PaymentID = new SelectList(dao.ListPayment(), "PaymentId", "PaymentName", selectedId);
         }
+
+
     }
 }

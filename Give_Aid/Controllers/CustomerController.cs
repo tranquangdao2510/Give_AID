@@ -1,4 +1,4 @@
-﻿using BotDetect.Web.Mvc;
+﻿
 using Give_Aid.Common;
 using Give_Aid.Models;
 using Give_Aid.Models.DAO;
@@ -24,6 +24,14 @@ namespace Give_Aid.Controllers
         {
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            Session[Common.CommonConstants.USER_SESSION] = null;
+            
+            return RedirectToAction("Index","Home");
+        }
+
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
@@ -37,6 +45,9 @@ namespace Give_Aid.Controllers
                     var userSession = new CustomerLogin();
                     userSession.CustomerName = user.CustomerName;
                     userSession.CustomerId= user.CustomerId;
+                    userSession.Email= user.Email;
+                    userSession.Address= user.Address;
+                    userSession.Phone= user.Phone;
 
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
@@ -99,6 +110,12 @@ namespace Give_Aid.Controllers
                 }
             }
             return View(model);
+        }
+
+        public ActionResult Information()
+        {
+            
+            return View();
         }
     }
 }
