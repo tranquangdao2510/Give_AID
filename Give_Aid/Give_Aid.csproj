@@ -3443,16 +3443,10 @@
     <Content Include="Areas\Admins\Views\Customer\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Customer\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Customer\Index.cshtml" />
-    <Content Include="Areas\Admins\Views\Blogs\Create.cshtml" />
-    <Content Include="Areas\Admins\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Tags\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Tags\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Tags\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admins\Views\Volunteers\Create.cshtml" />
-    <Content Include="Areas\Admins\Views\Volunteers\Edit.cshtml" />
-    <Content Include="Areas\Admins\Views\Volunteers\Index.cshtml" />
-    <Content Include="Areas\Admins\Views\Blogs\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Index.cshtml" />
@@ -3469,6 +3463,12 @@
     <Content Include="Areas\Admins\Views\Fund\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Fund\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Donate\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Blogs\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Blogs\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Blogs\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Volunteers\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Volunteers\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Volunteers\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -3568,13 +3568,13 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Volunteer\Index.cshtml" />
     <Content Include="Views\Faq\Index.cshtml" />
-    <Content Include="Views\BecomeVolunteer\Index.cshtml" />
     <Content Include="Views\Fund\FundDetail.cshtml" />
     <Content Include="Views\Fund\Index.cshtml" />
     <Content Include="Views\Customer\Login.cshtml" />
     <Content Include="Views\Customer\Register.cshtml" />
     <Content Include="Views\Customer\Information.cshtml" />
     <Content Include="Views\Donate\DonateList.cshtml" />
+    <Content Include="Views\BecomeVolunteer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
