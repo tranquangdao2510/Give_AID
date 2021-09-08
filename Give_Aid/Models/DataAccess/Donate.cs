@@ -15,10 +15,10 @@ namespace Give_Aid.Models.DataAccess
         [Required(ErrorMessage = "The amount must not be vacated.")]
         public decimal? Amount { get; set; }
         [Required(ErrorMessage = "The card name must not be vacated.")]
-        [StringLength(200,ErrorMessage = "The card name must not exceed 200 characters")]
+        //[StringLength(200,ErrorMessage = "The card name must not exceed 200 characters")]
         public string NameCard { get; set; }
         [Required(ErrorMessage = "The card number must not be vacated.")]
-        [StringLength(200, MinimumLength = 12,ErrorMessage = "The card number must have at least 12 characters.")]
+        //[StringLength(200, MinimumLength = 12,ErrorMessage = "The card number must have at least 12 characters.")]
         public string CardNumber { get; set; }
 
         public DateTime? CreateDate { get; set; }

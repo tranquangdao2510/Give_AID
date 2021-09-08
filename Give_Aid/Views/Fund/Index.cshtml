@@ -82,9 +82,7 @@
                         <img src="@featured.FundImg" alt="" width="100%">
                         <div class="featured-cause-timer">
                             <h3><strong class="txt-orange">$@featured.CurentAmount</strong> raised of <strong class="txt-blue">$@featured.TargetAmount</strong></h3>
-                            <div class="skillbar" data-percent="70%">
-                                <div class="skillbar-bar"></div>
-                            </div>
+                            
 
                         </div>
                     </div>
@@ -98,7 +96,7 @@
                         </h1>
                         <p>@Html.Raw(@featured.Description)</p>
                         <div class="d-flex align-items-center justify-content-between mt-4">
-                            <a href="donation-page.html" class="btn btn-default">Donate Now</a>
+                            <a href="@Url.Action("DonateList","Donate",new {id = featured.FundId})" class="btn btn-default">Donate Now</a>
                             <div class="share-on-text">
                                 <strong>Share On</strong> <a href="#"><img src="assets/images/facebook.svg" alt=""></a> <a href="#"><img src="assets/images/instagram.svg" alt=""></a>
                             </div>

@@ -37,6 +37,7 @@
         public string FundImg { get; set; }
         [Required(ErrorMessage = "TargetAmount cannot be empty")]
         public decimal? TargetAmount { get; set; }
+        [DefaultValue(0)]
         public decimal? CurentAmount { get; set; }
 
         public int? CategoryId { get; set; }

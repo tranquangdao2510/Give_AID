@@ -11,7 +11,7 @@ using PagedList;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class ContactsController : Controller
+    public class ContactsController : BaseController
     {
         private NgoEntity db = new NgoEntity();
 

@@ -1,76 +1,70 @@
 ﻿@model PagedList.IPagedList<Give_Aid.Models.DataAccess.Volunteer>
 @using PagedList.Mvc;
-    @{
-        ViewBag.Title = "Index";
-        Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
-    }   
-    <div style="padding-top:10px;margin-bottom:10px">
-        <a href="/Admins/Volunteers/Create" class="btn btn-primary">Create</a>
-        <a href="/Admins/Volunteers" class="btn btn-primary">Reload</a>
-    </div>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
+}
+<div style="padding-top:10px;margin-bottom:10px">
+    <a href="/Admins/Volunteers/Create" class="btn btn-primary">Create</a>
+    <a href="/Admins/Volunteers" class="btn btn-primary">Reload</a>
+</div>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 style="margin-top:5px" class="card-title">List</h3>
-                    <form action="" method="get" style="margin-left:30px">
-                        <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 220px;">
-                                <div class="input-group-append"><a href="/Admins/Volunteers/Create" class=" btn btn-success">Create at</a></div>
-                                <input type="text" name="search_name" class="form-control float-right" placeholder="Search">
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 style="margin-top:5px" class="card-title">List</h3>
+                <form action="" method="get" style="margin-left:30px">
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 220px;">
+                            <div class="input-group-append"><a href="/Admins/Volunteers/Create" class=" btn btn-success">Create at</a></div>
+                            <input type="text" name="search_name" class="form-control float-right" placeholder="Search">
 
-                                <div class="input-group-append">
-                                    <button class="btn btn-default">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-default">
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-head-fixed text-nowrap">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Id
-                                </th>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Email
-                                </th>
-                                <th>
-                                    Address
-                                </th>
-                                <th>
-                                    Phone
-                                </th>
-                                <th>
-                                    Image
-                                </th>
-                                <th>
-                                    BirthDay
-                                </th>
-                                <th>
-                                    CreateDate
-                                </th>
-                                <th>
-                                    UpdatedDate
-                                </th>
-                                <th>
-                                    Status
-                                </th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    </div>
+                </form>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>
+                                Id
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Phone
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                BirthDay
+                            </th>
+                            <th>
+                                Updated
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                            @foreach (var item in Model)
-                            {
+                        @foreach (var item in Model)
+                        {
                             <tr>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.VolunteersId)
@@ -82,9 +76,6 @@
                                     @Html.DisplayFor(modelItem => item.Email)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Address)
-                                </td>
-                                <td>
                                     @Html.DisplayFor(modelItem => item.Phone)
                                 </td>
                                 <td>
@@ -92,9 +83,6 @@
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.BirthDay)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CreateDate)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.UpdatedDate)
@@ -107,20 +95,20 @@
                                         {<p>Hidden</p> } }
                                 </td>
                                 <td>
-                                    <a href="/Admins/Admin/Edit/@item.VolunteersId"><span class="fa fa-edit"></span></a> |
+                                    <a><span class="fa fa-edit"></span></a> |
                                     @Html.ActionLink("Edit", "Edit", new { id = item.VolunteersId }) |
                                     @Html.ActionLink("Delete", "Delete", new { id = item.VolunteersId }, new { @onclick = "return confirm('you may want to delete ?')" })
                                 </td>
                             </tr>
-                            }
+                        }
 
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
 
-                </div>
-                <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-            <div class="float-left">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, search_name = @ViewBag.search_name }))</div>
+            <!-- /.card-body -->
         </div>
+        <!-- /.card -->
+        <div class="float-left">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, search_name = @ViewBag.search_name }))</div>
     </div>
+</div>

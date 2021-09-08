@@ -57,7 +57,6 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View(faq);
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit(Faq faq)
         {
 
