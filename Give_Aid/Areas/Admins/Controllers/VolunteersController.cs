@@ -11,7 +11,7 @@ using PagedList;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class VolunteersController : Controller
+    public class VolunteersController : BaseController
     {
         private NgoEntity db = new NgoEntity();
 
