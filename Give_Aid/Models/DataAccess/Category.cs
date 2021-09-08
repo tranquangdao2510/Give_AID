@@ -18,12 +18,14 @@ namespace Give_Aid.Models.DataAccess
         public int CategoryId { get; set; }
 
         [StringLength(250)]
+        [Required(ErrorMessage = "CategoryName cannot be empty")]
         public string CategoryName { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
         public DateTime? UpdatedDate { get; set; }
 
+        [Required(ErrorMessage = "Status cannot be empty")]
         public bool Status { get; set; }
         [StringLength(250)]
         public string MetaTitle { get; set; }

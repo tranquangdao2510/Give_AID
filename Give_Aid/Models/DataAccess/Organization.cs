@@ -18,17 +18,24 @@ namespace Give_Aid.Models.DataAccess
         public int OrganizationId { get; set; }
 
         [StringLength(250)]
+        [Required(ErrorMessage = "Name cannot be empty")]
         public string OrganizationName { get; set; }
 
         [StringLength(250)]
+        [Required(ErrorMessage = "Address cannot be empty")]
+
         public string Address { get; set; }
 
         [StringLength(50)]
+        [Required(ErrorMessage = "Phone cannot be empty")]
+
         public string Phone { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 
         public DateTime? UpdatedDate { get; set; }
+
+        [Required(ErrorMessage = "Status cannot be empty")]
 
         public bool Status { get; set; }
 

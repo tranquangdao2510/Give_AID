@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listAll = (List<Give_Aid.Models.DataAccess.About>)ViewBag.Get;
+    var listvolunteer = (List<Give_Aid.Models.DataAccess.Volunteer>)ViewBag.GetVolunteer;
+    var listfaq = (List<Give_Aid.Models.DataAccess.Faq>)ViewBag.GetFaq;
+    var listpartner = (List<Give_Aid.Models.DataAccess.Partner>)ViewBag.GetPartner;
+
+
+}
+
+<!-- Page Breadcrumbs Start -->
+<section class="breadcrumbs-page-wrap">
+    <div class="bg-fixed pos-rel breadcrumbs-page">
+        <div class="container">
+            <h1>About Us</h1>
+            <nav aria-label="breadcrumb" class="breadcrumb-wrap">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- Page Breadcrumbs End -->
+<!-- About Us Style Start -->
+<section class="wide-tb-100">
+    <div class="container">
+        <div class="row align-items-center">
+            @foreach (var item in listAll)
+            {
+                <div class="col-lg-7 col-md-12">
+                    <div class="text-center">
+                        <img src="@item.AboutImg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12">
+                    <h1 class="heading-main">
+                        <small>About Us</small>
+                        @item.Title
+                    </h1>
+
+                    <p>@Html.Raw(@item.Content)</p>
+
+                    <div class="d-flex">
+                        <a class="btn btn-default mr-3" href="become-volunteers.html">Join Now</a>
+                        <div class="about-phone">
+                            <i data-feather="phone-call"></i>
+                            Conatct Us <br> +1234567899
+                        </div>
+                    </div>
+
+
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- About Us Style Start -->
+<!-- Get to Know Us Style Start -->
+<!-- Get to Know Us Style End -->
+<!-- Team Member Style Start -->
+<section class="wide-tb-100 team-bg mb-spacer-md">
+    <div class="container">
+        <div class="row justify-content-between align-items-end">
+            <div class="col-lg-4 col-md-6">
+                <h1 class="heading-main">
+                    <small>Team Member</small>
+                    Our Expert Volunteer
+                </h1>
+            </div>
+            <div class="col-lg-8 col-md-6 text-md-right btn-team">
+                <a href="@Url.Action("Index","Volunteer")" class="btn btn-outline-dark">View All Members</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Team Column One -->
+            @foreach (var item in listvolunteer)
+            {
+                <div class="col-12 col-lg-3 col-sm-6">
+                    <div class="team-section-wrap mb-0">
+                        <div class="img green">
+                            <div class="social-icons">
+                                <a href="#"><i class="icofont-facebook"></i></a>
+                                <a href="#"><i class="icofont-twitter"></i></a>
+                                <a href="#"><i class="icofont-instagram"></i></a>
+                            </div>
+                            <img src="@item.Image" alt="" class="rounded-circle">
+                        </div>
+                        <h4>@item.VolunteersName</h4>
+                        <h5>Volunteer</h5>
+                        <div class="text-md-right">
+                            <a href="#" class="read-more-line"><span>Read More</span></a>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!-- Team Column One -->
+        </div>
+    </div>
+</section>
+<!-- Team Member Style End -->
+<!-- Faq's Style Start -->
+<section class="wide-tb-100 pattern-orange pt-0 mb-spacer-md">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+
+                <div class="faqs-wrap pos-rel">
+                    <div class="bg-overlay blue opacity-80"></div>
+                    <div class="row">
+                        <div class="col-12 col-lg-6 col-md-12">
+                            <h1 class="heading-main light-mode">
+                                <small>Have Questions</small>
+                                Frequently Asked Questions
+                            </h1>
+                            
+                        </div>
+
+                        <!-- Spacer For Medium -->
+                        <div class="w-100 d-none d-sm-block d-lg-none spacer-60"></div>
+                        <!-- Spacer For Medium -->
+
+                        <div class="col-12 col-lg-6 col-md-12">
+                            @foreach(var item in listfaq) { 
+                            <div class="theme-collapse light">
+                                <!-- Toggle Links  -->
+                                <div class="toggle arrow-down">
+                                    <span class="icon">
+                                        <i class="icofont-plus"></i>
+                                    </span> @item.Question
+                                </div>
+                                <!-- Toggle Links  -->
+                                <!-- Toggle Content  -->
+                                <div class="collapse show">
+                                    <div class="content">
+                                        @item.Answered
+                                    </div>
+                                </div>
+                                <!-- Toggle Content  -->
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex align-items-center">
+            <!-- Counter Col Start -->
+            <div class="col col-12 col-lg-3 col-sm-6">
+                <div class="counter-style-box">
+                    <div class="counter-txt"><span class="counter">180</span>+</div>
+                    <div>Featured Campaign</div>
+                </div>
+            </div>
+            <!-- Counter Col End -->
+            <!-- Counter Col Start -->
+            <div class="col col-12 col-lg-3 col-sm-6">
+                <div class="counter-style-box">
+                    <div class="counter-txt"><span class="counter">7120</span>+</div>
+                    <div>Money Raised</div>
+                </div>
+            </div>
+            <!-- Counter Col End -->
+            <!-- Spacer For Medium -->
+            <div class="w-100 d-none d-sm-block d-lg-none spacer-60"></div>
+            <!-- Spacer For Medium -->
+            <!-- Counter Col Start -->
+            <div class="col col-12 col-lg-3 col-sm-6">
+                <div class="counter-style-box">
+                    <div class="counter-txt"><span class="counter">250</span>+</div>
+                    <div>Dedicated Volunteers</div>
+                </div>
+            </div>
+            <!-- Counter Col End -->
+            <!-- Counter Col Start -->
+            <div class="col col-12 col-lg-3 col-sm-6">
+                <div class="counter-style-box">
+                    <div class="counter-txt"><span class="counter">1530</span>+</div>
+                    <div>People Helped Happily</div>
+                </div>
+            </div>
+            <!-- Counter Col End -->
+        </div>
+    </div>
+</section>
+<!-- Faq's Style End -->
+<!-- Testimonials Style Start -->
+<!-- Testimonials Style End -->
+<!-- Callout Style Start -->
+<!--<section class="wide-tb-150 bg-scroll bg-img-6 pos-rel callout-style-1">
+    <div class="bg-overlay blue opacity-80"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h1 class="heading-main light-mode">
+                    <small>Help Other People</small>
+                    We Dream to Create A Bright Future Of The Underprivileged Children
+                </h1>
+            </div>
+            <div class="col-sm-12 text-md-right">
+                <a href="donation-page.html" class="btn btn-default">Donate Now</a>
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- Callout Style End -->
+<!-- Our Partners Start -->
+<section class="wide-tb-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <h1 class="heading-main">
+                    <small>Global Providers</small>
+                    Our World Wide Partner
+                </h1>
+            </div>
+            <div class="col-sm-12">
+                <div class="owl-carousel owl-theme" id="home-clients">
+
+                    @foreach (var item in listpartner)
+                    {
+                        <!-- Client Logo -->
+                        <div class="item">
+                            <div class="clients-logo">
+                                <img src="@item.Image" alt="">
+                            </div>
+                        </div>
+                        <!-- Client Logo -->
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Our Partners End -->

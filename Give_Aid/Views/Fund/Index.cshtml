@@ -46,20 +46,17 @@
 
                                         </p>
                                     </div>
-                                    <div class="skillbar" data-percent="67%">
-                                        <div class="skillbar-percent">67%</div>
-                                        <div class="skillbar-bar"></div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
 
                         <div class="content-wrap" style="word-wrap: break-word">
                             <span class="tag">Education</span>
-                            <h3><a href="@Url.Action("FundDetail","Fund",new {id = item.FundId})">@Html.Raw(item.Description) </a></h3>
-                            <p>@Html.Raw(item.Content)</p>
+                            <h3><a href="@Url.Action("FundDetail","Fund",new {id = item.FundId})">@Html.Raw(item.FundName) </a></h3>
+                            <p>@Html.Raw(item.Description)</p>
                             <div class="btn-wrap">
-                                <a class="btn-primary btn" href="causes-list.html">Donate Now</a>
+                                <a class="btn-primary btn" href="@Url.Action("DonateList","Donate",new {id = item.FundId})">Donate Now</a>
                             </div>
                         </div>
 
@@ -97,7 +94,7 @@
                         <div class="featured-heart-icon"><i class="charity-hearts"></i></div>
                         <h1 class="heading-main">
                             <small>Featured Cause</small>
-                            @featured.Title
+                            @featured.FundName
                         </h1>
                         <p>@Html.Raw(@featured.Description)</p>
                         <div class="d-flex align-items-center justify-content-between mt-4">

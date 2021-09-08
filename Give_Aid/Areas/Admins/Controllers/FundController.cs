@@ -27,28 +27,35 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Fund fund, HttpPostedFileBase fileimage)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Fund fund)
         {
-            var dao = new FundDao();
-            if(fileimage != null)
+            if (ModelState.IsValid)
             {
-                fileimage.SaveAs(Server.MapPath("~/Content/assets/images/Funds" + fileimage.FileName));
-                fund.FundImg = "/Content/assets/images/Funds" + fileimage.FileName;
-            }
-            string id = dao.Insert(fund);
-            if (id!=null)
-            {
-                SetAlert("Create Fund success", "success");
-                return RedirectToAction("Index", "Fund");
+                var dao = new FundDao();
+                string id = dao.Insert(fund);
+                if (id != null)
+                {
+                    SetAlert("Create Fund success", "success");
+                    return RedirectToAction("Index", "Fund");
 
-            }
-            else
-            {
-                ModelState.AddModelError("", "error");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "error");
+                }
 
+                return View("Index");
             }
-
-            return View("Index");
+            SetviewBag();
+            return View(fund);
+        }
+        [HttpGet]
+        public ActionResult Detail (string id)
+        {
+            var getDetail = new FundDao().Detail(id);
+            SetviewBag();
+            return View(getDetail);
         }
         [HttpGet]
         public ActionResult Edit(string id)
@@ -58,6 +65,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View(fund);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Fund fund)
         {
 
@@ -75,7 +83,7 @@ namespace Give_Aid.Areas.Admins.Controllers
                     ModelState.AddModelError("", "error");
                 }
             }
-
+            SetviewBag();
             return View("Index");
         }
         public ActionResult Delete(string id)

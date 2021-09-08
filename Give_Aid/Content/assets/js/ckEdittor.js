@@ -8,4 +8,6 @@
         };
         finder.popup();
     });
+    CKEDITOR.replace("conTent1");
+
 })
