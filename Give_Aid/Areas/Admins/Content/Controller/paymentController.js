@@ -1,6 +1,6 @@
 ﻿// install config 
 var paymentConfig = {
-    pageSize: 2,
+    pageSize: 10,
     pageIndex: 1,
 }
 
@@ -170,15 +170,15 @@ var paymentController = {
 
     loadData: function (changePageSize) {
         var name = $('#txtSreachPayment').val();
-        var status = $('#ddlStatusS').val();
+        //var status = $('#ddlStatusS').val();
         $.ajax({
             url: '/Admins/Payment/LoadData',
             type: 'GET',
             data: {
                 name: name,
-                status: status,
+                //status: status,
                 page: paymentConfig.pageIndex,
-                pageSize:2
+                pageSize:10,
             },
             dataType: 'json',
             success: function (response) {

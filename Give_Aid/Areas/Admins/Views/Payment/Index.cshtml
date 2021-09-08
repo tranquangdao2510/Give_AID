@@ -44,7 +44,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>User</th>
+                            <th>Name</th>
                             <th>Status</th>
                             <th>Reason</th>
                         </tr>
@@ -52,23 +52,25 @@
                     <tbody id="tbldata"></tbody>
                 </table>
 
-                <script id="data-template" type="x-tmpl-mustache">
-                    <tr>
-                        <td>{{PaymentId}}</td>
-                        <td>{{PaymentName}}</td>
-                        <td>{{{Status}}}</td>
-                        <td>
-                            <button class="btn btn-primary btn-xs btn-edit" data-id="{{PaymentId}}"><span class="fa fa-edit"></span></button>
-                            <button class="btn btn-danger btn-xs btn-delete" data-id="{{PaymentId}}"><span class="fa fa-trash"></span></button>
-                        </td>
-                    </tr>
-                </script>
+
             </div>
 
             <div class="card-footer clearfix" id="pagination">
 
             </div>
             <!-- /.card-body -->
+
+            <script id="data-template" type="x-tmpl-mustache">
+                <tr>
+                    <td>{{PaymentId}}</td>
+                    <td>{{PaymentName}}</td>
+                    <td>{{{Status}}}</td>
+                    <td>
+                        <button class="btn btn-primary btn-xs btn-edit" data-id="{{PaymentId}}"><span class="fa fa-edit"></span></button>
+                        <button class="btn btn-danger btn-xs btn-delete" data-id="{{PaymentId}}"><span class="fa fa-trash"></span></button>
+                    </td>
+                </tr>
+            </script>
         </div>
         <!-- /.card -->
     </div>

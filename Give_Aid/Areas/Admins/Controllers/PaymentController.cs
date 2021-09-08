@@ -9,7 +9,7 @@ using System.Web.Script.Serialization;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class PaymentController : Controller
+    public class PaymentController : BaseController
     {
         //NgoEntity db = new NgoEntity();
         // GET: Admins/Payment
@@ -18,15 +18,16 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View();
         }
         [HttpGet]
-        public JsonResult LoadData(string name, string status, int page, int pagesize = 2)
+        public JsonResult LoadData(string name, string status, int page, int pagesize = 10)
         {
+
             var dao = new PaymentDao();
             var model = dao.GetAll(name, status,page,pagesize);
-            int totalRow = model.Count();
+            
             return Json(new
             {
                 data = model,
-                total = totalRow,
+                total = dao.totalRow,
                 status = true
             },JsonRequestBehavior.AllowGet);
         }
