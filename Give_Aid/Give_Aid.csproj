@@ -3469,6 +3469,7 @@
     <Content Include="Areas\Admins\Views\Fund\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Fund\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Donate\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Donate\_GetDetail.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />

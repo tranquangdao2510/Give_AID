@@ -10,13 +10,15 @@ namespace Give_Aid.Models.DAO
     public class PaymentDao
     {
         private NgoEntity db = null;
+        public int totalRow = 0;
 
         public PaymentDao()
         {
             db = new NgoEntity();
         }
-        public IEnumerable<Payment> GetAll(string name, string status, int page, int pagesize = 2)
+        public IEnumerable<Payment> GetAll(string name, string status, int page, int pagesize = 10)
         {
+            db.Configuration.ProxyCreationEnabled = false;
             IQueryable<Payment> model = db.Payments;
             if (!string.IsNullOrEmpty(name))
             {
@@ -27,8 +29,8 @@ namespace Give_Aid.Models.DAO
                 var statusbool = bool.Parse(status);
                 model = model.Where(x => x.Status==statusbool);
             }
-            
-            
+             totalRow = model.Count();
+
             return model.OrderByDescending(x => x.CreateDate)
                 .Skip((page - 1) * pagesize)
                 .Take(pagesize)

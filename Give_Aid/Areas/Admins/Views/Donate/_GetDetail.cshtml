@@ -1,0 +1,42 @@
+﻿
+<div id="btAddNeworUpdate" class="modal fade" role="dialog">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Donate detail</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>Donate ID</th>
+                            <th> Card Name </th>
+                            <th>Card Number</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbldata"></tbody>
+                </table>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                @*<button type="submit" class="btn btn-primary" id="btnSave">Save changes</button>*@
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+
+<script id="data-template" type="x-tmpl-mustache">
+    <tr>
+        <td>{{DonateID}}</td>
+        <td>{{CardName}}</td>
+        <td>{{CardNumber}}</td>
+      
+        
+    </tr>
+</script>

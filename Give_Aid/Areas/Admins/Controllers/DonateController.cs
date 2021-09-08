@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class DonateController : BaseController
+    public class DonateController : Controller
     {
         // GET: Admins/Donate
         public ActionResult Index(string searchString, int page = 1, int pageSize = 7)
@@ -37,12 +37,15 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public JsonResult Detail(int id)
         {
             var dao = new DonateDao();
             var donate = dao.ViewDetail(id);
-            SetViewBagCate(donate.PaymentId);
-            return View();
+            return Json(new
+            {
+                data = donate,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

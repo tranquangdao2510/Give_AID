@@ -61,15 +61,22 @@ namespace Give_Aid.Models.DAO
         //    }
         //}
 
-        //public Donate GetbyId(string name)
-        //{
-        //    return db.Donates.SingleOrDefault(x => x.AdminName == name);
-        //}
-
         public Donate ViewDetail(int id)
         {
-            return db.Donates.Where(a => a.DonateId == id).FirstOrDefault();
+            db.Configuration.ProxyCreationEnabled = false;
+            //var model = (from d in db.Donates
+            //             join c in db.Customers
+            //             on d.CustomerId equals (c.CustomerId)
+            //             where d.DonateId == id
+            //             select d).FirstOrDefault();
+            var model = db.Donates.Find(id);
+            return model;
         }
+
+        //public Donate ViewDetail(int id)
+        //{
+        //    return db.Donates.Where(a => a.DonateId == id).FirstOrDefault();
+        //}
         public bool ChangeStatus(int id)
         {
             var donate = db.Donates.Find(id);
