@@ -12,6 +12,12 @@ namespace Give_Aid.Models.DataAccess
         [Key]
         public int ImageId { get; set; }
 
+        [StringLength(250)]
+        public string Name { get; set; }
+
+        [StringLength(500)]
+        public string Image { get; set; }
+
         [Column(TypeName = "xml")]
         public string MoreImage { get; set; }
 
@@ -20,6 +26,8 @@ namespace Give_Aid.Models.DataAccess
         public DateTime? CreateDate { get; set; }
 
         public DateTime? UpdatedDate { get; set; }
+        public int? TagId { get; set; }
+        public virtual Tag Tag { get; set; }
 
         public bool Status { get; set; }
         [StringLength(250)]

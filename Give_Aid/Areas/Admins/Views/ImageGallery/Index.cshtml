@@ -1,0 +1,134 @@
+﻿@model PagedList.IPagedList<Give_Aid.Models.DataAccess.ImageGallery>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
+}
+@section js{
+
+    <script src="~/Areas/Admins/Content/Controller/imageGalleryController.js"></script>
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">List Admin </h3>
+
+
+                <div class="card-tools">
+
+                    @using (Html.BeginForm("Index", "ImageGallery", FormMethod.Get))
+                    {
+                        <div class="input-group input-group-sm" style="width: 220px;">
+                            <div class="input-group-append"><a href="/Admins/ImageGallery/Create" class=" btn btn-success">Create at</a></div>
+                            <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control float-right" placeholder="Search">
+
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Tag Name</th>
+                            <th>Display Order</th>
+                            <th>Create At</th>
+                            <th>Status</th>
+                            <th>More Image</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.ImageId">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ImageId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tag.TagName)
+                                </td>
+                                <td>
+                                    <img src="@item.Image" alt="Alternate Text" width="150" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DisplayOrder)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreateDate)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+
+                                <td>
+                                    <a href="#" class="btn-Image" data-id="@item.ImageId">content</a>
+                                </td>
+
+                                <td>
+                                    <a href="/Admins/ImageGallery/Edit/@item.ImageId"><span class="fa fa-edit" style="color:cornflowerblue"></span></a> |
+                                    @Ajax.ActionLink(" ", "Delete",new { @id = item.ImageId }, new AjaxOptions
+                               {
+                                   Confirm="Do you want to delete this record? " + item.ImageId,
+                                   OnComplete = "$('#row_"+@item.ImageId+"').remove()",
+                                   HttpMethod = "Delete",
+                               }, new { @class = "fa fa-trash" , @style= "Color:firebrick" })
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+
+
+
+
+<div id="btnMoreImage" class="modal fade" role="dialog">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Donate detail</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class=" m-2 " id="imageList" >
+                   
+                </div>
+                <input type="button" class="btn btn-success" value="Choos Image" id="btnChooImage" />
+                <input type="hidden"  value="0" id="hiddenImageId" />
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="btnSaveImage">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>

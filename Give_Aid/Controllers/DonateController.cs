@@ -28,11 +28,12 @@ namespace Give_Aid.Controllers
 
         }
         [HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult DonateList(Donate entity)
         {
             var session = Session[Give_Aid.Common.CommonConstants.USER_SESSION] as Give_Aid.Common.CustomerLogin;
             var dao = new DonateDao();
-            entity.CustomerId = session.CustomerId;
+            //entity.CustomerId = session.CustomerId;
             entity.Status = false;
             dao.Insert(entity);
 

@@ -24,7 +24,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateInput(false)]
+        //[ValidateInput(false)]
         public ActionResult Create(Slide slide)
         {
             var dao = new SliderDao();
