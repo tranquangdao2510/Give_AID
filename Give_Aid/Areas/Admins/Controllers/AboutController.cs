@@ -1,22 +1,23 @@
 ﻿using Give_Aid.Models.DAO;
 using Give_Aid.Models.DataAccess;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PagedList;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class CategoriesController : BaseController
-    {// GET: Admins/Categories
-        public ActionResult Index(int? page, string search_name)
+    public class AboutController : BaseController
+    {
+        // GET: Admins/About
+        public ActionResult Index(int? page, string search_title)
         {
             page = page ?? 1;
-            int pagesize = 3;
-            var dao = new CategoryDao();
-            var model = dao.GetByName(search_name);
+            int pagesize = 5;
+            var dao = new AboutDao();
+            var model = dao.GetByName(search_title);
             return View(model.ToPagedList(page.Value, pagesize));
         }
 
@@ -27,16 +28,16 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Category cate)
+        public ActionResult Create(About about)
         {
             if (ModelState.IsValid) 
             {
-                var dao = new CategoryDao();
-                int id = dao.Insert(cate);
+                var dao = new AboutDao();
+                int id = dao.Insert(about);
                 if (id > 0)
                 {
-                    SetAlert("Create Category success", "success");
-                    return RedirectToAction("Index", "Categories");
+                    SetAlert("Create About success", "success");
+                    return RedirectToAction("Index", "About");
                 }
                 else
                 {
@@ -45,29 +46,34 @@ namespace Give_Aid.Areas.Admins.Controllers
 
                 return View("Index");
             }
-            return View(cate);
-            
+            return View(about);
+        }
+        [HttpGet]
+        public ActionResult Detail(int id)
+        {
+            var about = new AboutDao().Detail(id);
+            return View(about);
         }
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var cate = new CategoryDao().Detail(id);
-            return View(cate);
+            var about = new AboutDao().Detail(id);
+            return View(about);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Category cate)
+        public ActionResult Edit(About about)
         {
 
             if (ModelState.IsValid)
             {
-                var dao = new CategoryDao();
-                var result = dao.Update(cate);
+                var dao = new AboutDao();
+                var result = dao.Update(about);
                 if (result)
                 {
-                    SetAlert("Update Category success", "success");
-                    return RedirectToAction("Index", "Categories");
+                    SetAlert("Update About success", "success");
+                    return RedirectToAction("Index", "About");
                 }
                 else
                 {
@@ -80,12 +86,12 @@ namespace Give_Aid.Areas.Admins.Controllers
         public ActionResult Delete(int id)
         {
 
-            var dao = new CategoryDao();
+            var dao = new AboutDao();
             var result = dao.Delete(id);
             if (result)
             {
-                SetAlert("Delete Categories success", "success");
-                return RedirectToAction("Index", "Categories");
+                SetAlert("Delete About success", "success");
+                return RedirectToAction("Index", "About");
             }
             else
             {

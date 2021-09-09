@@ -32,18 +32,11 @@
                             @Html.ValidationMessageFor(model => model.FundName, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" }, @id = "conTent", @rows = 2, @cols = 10, @style = "width=" })
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -55,10 +48,10 @@
                         </div>
                     </div>
 
-                   
-
+                </div>
+                <div class="col-5">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.FundImg, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.FundImg, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-10">
                             @Html.TextBoxFor(model => model.FundImg, new { @class = "form-control", @id = "linkImg" })
                             <a id="selectImg" href="#">Select Image </a>
@@ -67,7 +60,7 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.TargetAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.TargetAmount, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.TargetAmount, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.TargetAmount, "", new { @class = "text-danger" })
@@ -75,21 +68,21 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.CurentAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.CurentAmount, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.CurentAmount, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.CurentAmount, new { htmlAttributes = new { @class = "form-control", @Value = "0"  } })
                             @Html.ValidationMessageFor(model => model.CurentAmount, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-10">
                             @Html.DropDownListFor(model => model.CategoryId, null, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.OrganizationId, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.OrganizationId, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-10">
                             @Html.DropDownListFor(model => model.OrganizationId, null, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.OrganizationId, "", new { @class = "text-danger" })
@@ -97,7 +90,7 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-10">
                             <div class="checkbox">
                                 @Html.EditorFor(model => model.Status)
@@ -116,18 +109,8 @@
 
     }
 </div>
-@section js {
-    <script src="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <script type="text/javascript">
-        $(function () { $(".datepicker").datepicker({ dateFormat: "mm/dd/yy", changeMonth: true, changeMonth: true, }); });
-        $(function () { $(".datepicker1").datepicker({ dateFormat: "mm/dd/yy", changeMonth: true, changeMonth: true }); });
-    </script>
 
 
-    var editor = CKEditor.replace('txtContent'{
-    CustomConfig :'/Content/ckeditor/config.js',
-    });
-}
 
 
 

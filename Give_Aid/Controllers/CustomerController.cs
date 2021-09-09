@@ -112,9 +112,13 @@ namespace Give_Aid.Controllers
             return View(model);
         }
 
-        public ActionResult Information()
+        public ActionResult Information(Customer customer)
         {
-            
+            if (ModelState.IsValid)
+            {
+                var model = new CustomerDao();
+                var result = model.Update(customer);
+            }
             return View();
         }
     }

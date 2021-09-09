@@ -11,16 +11,18 @@ namespace Give_Aid.Models.DataAccess
     {
         public int FaqId { get; set; }
 
-        [Column(TypeName = "text")]
+        [Required(ErrorMessage = "Question cannot be empty")]
+
         public string Question { get; set; }
 
-        [Column(TypeName = "text")]
+
+        [Required(ErrorMessage = "Answered cannot be empty")]
         public string Answered { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
         public DateTime? UpdatedDate { get; set; }
-
+        [Required(ErrorMessage = "Status cannot be empty")]
         public bool Status { get; set; }
     }
 }

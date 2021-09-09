@@ -28,21 +28,25 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Organization organization)
         {
-            var dao = new OrganizationDao();
-            int id = dao.Insert(organization);
-            if (id > 0)
+            if (ModelState.IsValid)
             {
-                SetAlert("Create organization success", "success");
-                return RedirectToAction("Index", "Organization");
-            }
-            else
-            {
-                ModelState.AddModelError("", "error");
-            }
+                var dao = new OrganizationDao();
+                int id = dao.Insert(organization);
+                if (id > 0)
+                {
+                    SetAlert("Create organization success", "success");
+                    return RedirectToAction("Index", "Organization");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "error");
+                }
 
-            return View("Index");
+            }
+            return View(organization);
         }
         [HttpGet]
         public ActionResult Edit(int id)
@@ -51,6 +55,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View(Org);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Organization organization)
         {
 

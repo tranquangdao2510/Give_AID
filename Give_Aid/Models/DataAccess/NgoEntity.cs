@@ -12,6 +12,7 @@ namespace Give_Aid.Models.DataAccess
         {
         }
 
+        public virtual DbSet<About> Abouts { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
@@ -30,6 +31,19 @@ namespace Give_Aid.Models.DataAccess
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<About>()
+                .Property(e => e.Content)
+                .IsUnicode(false);
+            modelBuilder.Entity<About>()
+                .Property(e => e.AboutImg)
+                .IsUnicode(false);
+            modelBuilder.Entity<About>()
+                .Property(e => e.Title)
+                .IsUnicode(false);
+            modelBuilder.Entity<About>()
+                .Property(e => e.Content)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Admin>()
                 .Property(e => e.AdminName)
                 .IsUnicode(false);
@@ -123,10 +137,6 @@ namespace Give_Aid.Models.DataAccess
 
             modelBuilder.Entity<Fund>()
                 .Property(e => e.FundName)
-                .IsUnicode(false);
-            
-            modelBuilder.Entity<Fund>()
-                .Property(e => e.Title)
                 .IsUnicode(false);
             
             modelBuilder.Entity<Fund>()
