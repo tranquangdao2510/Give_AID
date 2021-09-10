@@ -45,6 +45,7 @@ namespace Give_Aid.Models.DAO
                 Org.Phone = organization.Phone;
                 Org.UpdatedDate = DateTime.Now;
                 Org.Status = organization.Status;
+                Org.MetaTitle = organization.MetaTitle;
                 db.SaveChanges();
                 return true;
             }

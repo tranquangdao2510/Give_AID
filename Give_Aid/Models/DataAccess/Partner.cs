@@ -41,5 +41,6 @@ namespace Give_Aid.Models.DataAccess
 
         [Required(ErrorMessage = "Status cannot be empty")]
         public bool Status { get; set; }
+        public string MetaTitle { get; set; }
     }
 }

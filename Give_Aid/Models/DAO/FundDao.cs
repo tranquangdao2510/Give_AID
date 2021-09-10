@@ -47,6 +47,7 @@ namespace Give_Aid.Models.DAO
                 F.OrganizationId = fund.OrganizationId;
                 F.UpdatedDate = DateTime.Now;
                 F.Status = fund.Status;
+                F.MetaTitle = fund.MetaTitle;
                 db.SaveChanges();
                 return true;
             }

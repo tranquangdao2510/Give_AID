@@ -43,6 +43,7 @@ namespace Give_Aid.Models.DAO
                 Cate.CategoryName = cate.CategoryName;
                 Cate.UpdatedDate = DateTime.Now;
                 Cate.Status = cate.Status;
+                Cate.MetaTitle = cate.MetaTitle;
                 db.SaveChanges();
                 return true;
             }

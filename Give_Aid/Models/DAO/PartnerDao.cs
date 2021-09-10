@@ -41,6 +41,7 @@ namespace Give_Aid.Models.DAO
                 pner.Phone = partner.Phone;
                 pner.UpdatedDate = DateTime.Now;
                 pner.Status = partner.Status;
+                pner.MetaTitle = partner.MetaTitle;
                 db.SaveChanges();
                 return true;
             }

@@ -45,6 +45,7 @@ namespace Give_Aid.Models.DAO
                 ab.Content = about.Content;
                 ab.UpdatedDate = DateTime.Now;
                 ab.Status = about.Status;
+                ab.MetaTitle = about.MetaTitle;
                 db.SaveChanges();
                 return true;
             }

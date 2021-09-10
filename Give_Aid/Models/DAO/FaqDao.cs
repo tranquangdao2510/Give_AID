@@ -44,6 +44,7 @@ namespace Give_Aid.Models.DAO
                 FAQ.Answered = faq.Answered;
                 FAQ.UpdatedDate = DateTime.Now;
                 FAQ.Status = faq.Status;
+                FAQ.MetaTitle = faq.MetaTitle;
                 db.SaveChanges();
                 return true;
             }

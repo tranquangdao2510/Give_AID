@@ -53,7 +53,7 @@
 
                         <div class="content-wrap" style="word-wrap: break-word">
                             <span class="tag">Education</span>
-                            <h3><a href="@Url.Action("FundDetail","Fund",new {id = item.FundId})">@Html.Raw(item.FundName) </a></h3>
+                            <h3><a href="Detail/@item.MetaTitle/@item.FundId">@Html.Raw(item.FundName) </a></h3>
                             <p>@Html.Raw(item.Description)</p>
                             <div class="btn-wrap">
                                 <a class="btn-primary btn" href="@Url.Action("DonateList","Donate",new {id = item.FundId})">Donate Now</a>
