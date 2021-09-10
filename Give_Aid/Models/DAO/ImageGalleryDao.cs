@@ -87,5 +87,9 @@ namespace Give_Aid.Models.DAO
             imageGallery.MoreImage = images;
             db.SaveChanges();
         }
+        public List<ImageGallery> GetImageGallery()
+        {
+            return db.ImageGalleries.Where(b => b.Status == true).OrderByDescending(b => b.CreateDate).Take(6).ToList();
+        }
     }
 }

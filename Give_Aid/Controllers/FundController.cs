@@ -50,6 +50,19 @@ namespace Give_Aid.Controllers
             
             return View(model);
         }
+        public JsonResult ListFundName(string name)
+        {
+            var data = new FundDao().ListFundName(name);
+            return Json(new
+            {
+                data = data,
+                status= true
+            },JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Search(string keyword)
+        {
+            return View();
+        }
 
     }
 }

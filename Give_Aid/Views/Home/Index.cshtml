@@ -5,8 +5,8 @@
     var listTopfund = (List<Give_Aid.Models.DataAccess.Fund>)ViewBag.TopFund;
     var listAllfund = (List<Give_Aid.Models.DataAccess.Fund>)ViewBag.AllFund;
     var listAllblog = (List<Give_Aid.Models.DataAccess.Blog>)ViewBag.AllBlog;
-    var listAllpartner = (List<Give_Aid.Models.DataAccess.Partner>)ViewBag.AllPartner;
     var listAllvolunteer = (List<Give_Aid.Models.DataAccess.Volunteer>)ViewBag.AllVolunteer;
+    var listAllImages = (List<Give_Aid.Models.DataAccess.ImageGallery>)ViewBag.AllImageGallery;
 }
 
 <section class="main-banner home-style-second">
@@ -234,149 +234,35 @@
                     Project We Have Done
                 </h1>
             </div>
-
-            <div class="col-lg-4 col-md-6">
+            @foreach (var item in listAllImages)
+            {
+                   <div class="col-lg-4 col-md-6">
                 <!-- Gallery Item -->
                 <div class="img-gallery-item">
-                    <a href="~/Content/assets/images/gallery/gallery_img_1.jpg" title="School Development">
+                    <a href="@item.Image" title="School Development">
                         <div class="gallery-content">
-                            <div class="tag"><span>Education</span></div>
-                            <h3>School Development</h3>
+                            <div class="tag"><span>@item.Tag.TagName</span></div>
+                            <h3>@item.Name</h3>
                             <div class="img-open">
                                 <i data-feather="plus-circle"></i>
                             </div>
                         </div>
-                        <img src="~/Content/assets/images/gallery/gallery_img_1.jpg" alt="">
+                        <img src="@item.Image" alt="">
                     </a>
                 </div>
                 <!-- Gallery Item -->
             </div>
+            }
+         
 
-            <div class="col-lg-4 col-md-6">
-                <!-- Gallery Item -->
-                <div class="img-gallery-item">
-                    <a href="assets/images/gallery/gallery_img_2.jpg" title="Child Welfare">
-                        <div class="gallery-content">
-                            <div class="tag"><span>Education</span></div>
-                            <h3>Child Welfare</h3>
-                            <div class="img-open">
-                                <i data-feather="plus-circle"></i>
-                            </div>
-                        </div>
-                        <img src="assets/images/gallery/gallery_img_2.jpg" alt="">
-                    </a>
-                </div>
-                <!-- Gallery Item -->
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <!-- Gallery Item -->
-                <div class="img-gallery-item">
-                    <a href="assets/images/gallery/gallery_img_3.jpg" title="Child Welfare">
-                        <div class="gallery-content">
-                            <div class="tag"><span>Education</span></div>
-                            <h3>Child Welfare</h3>
-                            <div class="img-open">
-                                <i data-feather="plus-circle"></i>
-                            </div>
-                        </div>
-                        <img src="assets/images/gallery/gallery_img_3.jpg" alt="">
-                    </a>
-                </div>
-                <!-- Gallery Item -->
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <!-- Gallery Item -->
-                <div class="img-gallery-item">
-                    <a href="assets/images/gallery/gallery_img_4.jpg" title="Child Welfare">
-                        <div class="gallery-content">
-                            <div class="tag"><span>Education</span></div>
-                            <h3>Child Welfare</h3>
-                            <div class="img-open">
-                                <i data-feather="plus-circle"></i>
-                            </div>
-                        </div>
-                        <img src="assets/images/gallery/gallery_img_4.jpg" alt="">
-                    </a>
-                </div>
-                <!-- Gallery Item -->
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <!-- Gallery Item -->
-                <div class="img-gallery-item">
-                    <a href="assets/images/gallery/gallery_img_5.jpg" title="Child Welfare">
-                        <div class="gallery-content">
-                            <div class="tag"><span>Education</span></div>
-                            <h3>Child Welfare</h3>
-                            <div class="img-open">
-                                <i data-feather="plus-circle"></i>
-                            </div>
-                        </div>
-                        <img src="assets/images/gallery/gallery_img_5.jpg" alt="">
-                    </a>
-                </div>
-                <!-- Gallery Item -->
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <!-- Gallery Item -->
-                <div class="img-gallery-item">
-                    <a href="assets/images/gallery/gallery_img_6.jpg" title="Child Welfare">
-                        <div class="gallery-content">
-                            <div class="tag"><span>Education</span></div>
-                            <h3>Child Welfare</h3>
-                            <div class="img-open">
-                                <i data-feather="plus-circle"></i>
-                            </div>
-                        </div>
-                        <img src="assets/images/gallery/gallery_img_6.jpg" alt="">
-                    </a>
-                </div>
-                <!-- Gallery Item -->
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <!-- Gallery Item -->
-                <div class="img-gallery-item">
-                    <a href="assets/images/gallery/gallery_img_7.jpg" title="Child Welfare">
-                        <div class="gallery-content">
-                            <div class="tag"><span>Education</span></div>
-                            <h3>Child Welfare</h3>
-                            <div class="img-open">
-                                <i data-feather="plus-circle"></i>
-                            </div>
-                        </div>
-                        <img src="assets/images/gallery/gallery_img_7.jpg" alt="">
-                    </a>
-                </div>
-                <!-- Gallery Item -->
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <!-- Gallery Item -->
-                <div class="img-gallery-item">
-                    <a href="assets/images/gallery/gallery_img_8.jpg" title="Child Welfare">
-                        <div class="gallery-content">
-                            <div class="tag"><span>Education</span></div>
-                            <h3>Child Welfare</h3>
-                            <div class="img-open">
-                                <i data-feather="plus-circle"></i>
-                            </div>
-                        </div>
-                        <img src="assets/images/gallery/gallery_img_8.jpg" alt="">
-                    </a>
-                </div>
-                <!-- Gallery Item -->
-            </div>
+          
 
         </div>
     </div>
 </section>
 <!-- Images Gallery Style End -->
 <!-- About Us Style Start -->
-<section class="wide-tb-100 bg-white shadow">
+@*<section class="wide-tb-100 bg-white shadow">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-12">
@@ -404,7 +290,7 @@
                     <a class="btn btn-default mr-3" href="become-volunteers.html">Join Now</a>
                     <div class="about-phone">
                         <i data-feather="phone-call"></i>
-                        Conatct Us <br> +1234567899
+                        Conatct Us <br> 
                     </div>
                 </div>
 
@@ -412,7 +298,7 @@
             </div>
         </div>
     </div>
-</section>
+</section>*@
 <!-- About Us Style Start -->
 <!-- Event Style Start -->
 
@@ -462,7 +348,7 @@
 </section>
 <!-- Team Member Style End -->
 <!-- Testimonials Style Start -->
-<section class="wide-tb-100 pattern-green pb-0 home-second-testimonials-wrap">
+@*<section class="wide-tb-100 pattern-green pb-0 home-second-testimonials-wrap">
     <div class="container">
         <h1 class="heading-main light-mode green">
             <small>Our Testimonials</small>
@@ -501,7 +387,7 @@
 
         </div>
     </div>
-</section>
+</section>*@
 <!-- Testimonials Style End -->
 <!-- Blog Style Start -->
 <section class="wide-tb-100 pb-0 home-blog-post-wrap">
@@ -550,34 +436,5 @@
 
 <!-- Google Map Style End -->
 <!-- Our Partners Start -->
-<section class="wide-tb-100 pt-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-12">
-                <h1 class="heading-main">
-                    <small>Global Providers</small>
-                    Our World Wide Partner
-                </h1>
-            </div>
-            <div class="col-sm-12">
-                <div class="owl-carousel owl-theme" id="home-clients">
 
-                    <!-- Client Logo -->
-                    @foreach (var item in listAllpartner)
-                    {
-                        <div class="item">
-                            <div class="clients-logo">
-                                <img src="@item.Image" alt="">
-                            </div>
-                        </div>
-                    }
-
-                    <!-- Client Logo -->
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <!-- Our Partners End -->

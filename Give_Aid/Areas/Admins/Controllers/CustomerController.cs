@@ -28,21 +28,25 @@ namespace Give_Aid.Areas.Admins.Controllers
         public ActionResult Create(Customer customer)
         {
 
-            var dao = new CustomerDao();
-            var encryptedMd5Pas = Encryptor.MD5Hash(customer.PassWord);
-            customer.PassWord = encryptedMd5Pas;
-            int id = dao.Insert(customer);
-            if (id > 0)
+            if (ModelState.IsValid)
             {
-                SetAlert("Create Customer success", "success");
-                return RedirectToAction("Index", "Customer");
-            }
-            else
-            {
-                ModelState.AddModelError("", "error");
+                var dao = new CustomerDao();
+                var encryptedMd5Pas = Encryptor.MD5Hash(customer.PassWord);
+                customer.PassWord = encryptedMd5Pas;
+                int id = dao.Insert(customer);
+                if (id > 0)
+                {
+                    SetAlert("Create Customer success", "success");
+                    return RedirectToAction("Index", "Customer");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "error");
+                }
+                return View("Index");
             }
 
-            return View("Index");
+            return View(customer);
         }
         [HttpGet]
         public ActionResult Edit(int id)
@@ -73,9 +77,10 @@ namespace Give_Aid.Areas.Admins.Controllers
                 {
                     ModelState.AddModelError("", "error");
                 }
+                return View("Index");
             }
 
-            return View("Index");
+            return View(customer);
         }
         [HttpDelete]
         public ActionResult Delete(int id)

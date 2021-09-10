@@ -156,35 +156,7 @@
     </div>
 </section>
 <!-- Faq's Style End -->
-<!-- Our Partners Start -->
-<section class="wide-tb-100">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-12">
-                <h1 class="heading-main">
-                    <small>Global Providers</small>
-                    Our World Wide Partner
-                </h1>
-            </div>
-            <div class="col-sm-12">
-                <div class="owl-carousel owl-theme" id="home-clients">
 
-                    <!-- Client Logo -->
-                    @foreach (var item in Model.GetPartners)
-                    {
-                        <div class="item">
-                            <div class="clients-logo">
-                                <img src="@item.Image" alt="">
-                            </div>
-                        </div>
-                    }
-                    <!-- Client Logo -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <script src="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.min.js"></script>
 <script>
     $("#success-alert").fadeTo(10000, 5000).slideUp(2000, function () {

@@ -23,7 +23,7 @@
                             <div class="input-group-append"><a href="/Admins/ImageGallery/Create" class=" btn btn-success">Create at</a></div>
                             <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control float-right" placeholder="Search">
 
-                            <div class="input-group-append">
+                            <div class="input-group-append ">
                                 <button type="submit" class="btn btn-default">
                                     <i class="fas fa-search"></i>
                                 </button>
@@ -40,9 +40,10 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Image</th>
+                            <th>Slug</th>
                             <th>Tag Name</th>
-                            <th>Display Order</th>
+                            <th>Image</th>
+
                             <th>Create At</th>
                             <th>Status</th>
                             <th>More Image</th>
@@ -61,13 +62,13 @@
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </td>
                                 <td>
+                                    @Html.DisplayFor(modelItem => item.MetaTitle)
+                                </td>
+                                <td>
                                     @Html.DisplayFor(modelItem => item.Tag.TagName)
                                 </td>
                                 <td>
                                     <img src="@item.Image" alt="Alternate Text" width="150" />
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.DisplayOrder)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.CreateDate)
@@ -78,7 +79,7 @@
                                 </td>
 
                                 <td>
-                                    <a href="#" class="btn-Image" data-id="@item.ImageId">content</a>
+                                    <a href="#" class="btn-Image " style="color:coral" data-id="@item.ImageId" ><span class="fa fa-image "></span></a>
                                 </td>
 
                                 <td>
@@ -109,11 +110,11 @@
 <div id="btnMoreImage" class="modal fade" role="dialog">
 
 
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Donate detail</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h4 class="modal-title">List Images</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -121,11 +122,13 @@
                 <div class=" m-2 " id="imageList" >
                    
                 </div>
-                <input type="button" class="btn btn-success" value="Choos Image" id="btnChooImage" />
+                
                 <input type="hidden"  value="0" id="hiddenImageId" />
             </div>
             <div class="modal-footer justify-content-between">
+
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="button" class="btn btn-success" value="Choos Image" id="btnChooImage" />
                 <button type="submit" class="btn btn-primary" id="btnSaveImage">Save changes</button>
             </div>
         </div>

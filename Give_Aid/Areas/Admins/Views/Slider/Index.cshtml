@@ -36,10 +36,10 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Title</th>
                             <th>Description</th>
                             <th>Url</th>
                             <th>Image</th>
-                            <th>Display Order</th>
                             <th>Create At</th>
                             <th>Status</th>
                             <th>Reason</th>
@@ -54,16 +54,17 @@
                                     @Html.DisplayFor(modelItem => item.SliderId)
                                 </td>
                                 <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td>
                                     @Html.Raw(@item.Description)
                                 </td>
+                                
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Url)
                                 </td>
                                 <td>
                                     <img src="@item.Image" alt="Alternate Text" width="100px" />
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.DisplayOrder)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.CreateDate)

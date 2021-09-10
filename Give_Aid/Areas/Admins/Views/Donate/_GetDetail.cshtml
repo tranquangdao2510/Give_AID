@@ -2,7 +2,7 @@
 <div id="btAddNeworUpdate" class="modal fade" role="dialog">
 
 
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Donate detail</h4>
@@ -15,6 +15,7 @@
                     <thead>
                         <tr>
                             <th>Donate ID</th>
+                            <th> Create Date </th>
                             <th> Card Name </th>
                             <th>Card Number</th>
                         </tr>
@@ -34,6 +35,7 @@
 <script id="data-template" type="x-tmpl-mustache">
     <tr>
         <td>{{DonateID}}</td>
+        @*<td>{{CreateDate}}</td>*@
         <td>{{CardName}}</td>
         <td>{{CardNumber}}</td>
       

@@ -17,8 +17,9 @@ namespace Give_Aid.Models.DAO
 
         public int Insert(Admin entity)
         {
-            db.Admins.Add(entity);
             entity.CreatedDate = DateTime.Now;
+            db.Admins.Add(entity);
+            
             db.SaveChanges();
             return entity.AdminId;
         }

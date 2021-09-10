@@ -27,19 +27,23 @@ namespace Give_Aid.Areas.Admins.Controllers
         //[ValidateInput(false)]
         public ActionResult Create(Slide slide)
         {
-            var dao = new SliderDao();
-            int id = dao.Insert(slide);
-            if (id > 0)
+            if (ModelState.IsValid)
             {
-                SetAlert("Create Slider success", "success");
-                return RedirectToAction("Index", "Slider");
-            }
-            else
-            {
-                ModelState.AddModelError("", "error");
+                var dao = new SliderDao();
+                int id = dao.Insert(slide);
+                if (id > 0)
+                {
+                    SetAlert("Create Slider success", "success");
+                    return RedirectToAction("Index", "Slider");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "error");
+                }
+                return View("Index");
             }
 
-            return View("Index");
+            return View(slide);
         }
         [HttpGet]
         public ActionResult Edit(int id)
@@ -48,7 +52,6 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View(slider);
         }
         [HttpPost]
-        [ValidateInput(false)]
         public ActionResult Edit(Slide slide)
         {
 
@@ -66,9 +69,10 @@ namespace Give_Aid.Areas.Admins.Controllers
                 {
                     ModelState.AddModelError("", "error");
                 }
+                return View("Index");
             }
-
-            return View("Index");
+            return View(slide);
+           
         }
         [HttpDelete]
         public ActionResult Delete(int id)

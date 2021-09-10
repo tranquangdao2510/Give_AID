@@ -28,21 +28,29 @@ namespace Give_Aid.Controllers
 
         }
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public ActionResult DonateList(Donate entity)
         {
-            var session = Session[Give_Aid.Common.CommonConstants.USER_SESSION] as Give_Aid.Common.CustomerLogin;
-            var dao = new DonateDao();
-            //entity.CustomerId = session.CustomerId;
-            entity.Status = false;
-            dao.Insert(entity);
-
-           // var funddao = new FundDao();
-           // var fund = new Fund();
-           //var fundamount= funddao.Detail(entity.FundId);
-           // fundamount.CurentAmount += entity.Amount;
-           // funddao.UpdateAmount(fundamount);
-            return RedirectToAction("Index","Home");
+            if (ModelState.IsValid)
+            {
+                var dao = new DonateDao();
+                var session = Session[Give_Aid.Common.CommonConstants.USER_SESSION] as Give_Aid.Common.CustomerLogin;
+                entity.CustomerId = session.CustomerId;
+                entity.Status = false;
+                int id= dao.Insert(entity);
+                if (id != null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "error");
+                }
+            }
+           
+            SetViewBag();
+           
+            return View(entity);
 
 
         }

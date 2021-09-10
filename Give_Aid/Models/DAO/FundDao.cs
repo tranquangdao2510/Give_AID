@@ -75,7 +75,7 @@ namespace Give_Aid.Models.DAO
         }
         public List<Fund> ListAllFund()
         {
-            return db.Funds.Where(x => x.Status == true).OrderByDescending(x => x.CreateDate).ToList();
+            return db.Funds.Where(x => x.Status == true).OrderByDescending(x => x.CreateDate).Take(6).ToList();
         }
         public IEnumerable<Fund>  FundFeatured(int orderBy)
         {
@@ -84,6 +84,11 @@ namespace Give_Aid.Models.DAO
         public IEnumerable<Fund> newFund(int orderBy)
         {
             return db.Funds.Where(x => x.Status == true ).OrderByDescending(x => x.CreateDate).Take(orderBy).ToList();
+        }
+
+        public List<string> ListFundName(string keyword)
+        {
+            return db.Funds.Where(x => x.FundName.Contains(keyword)).Select(x => x.FundName).ToList();
         }
 
         public bool UpdateAmount(Fund fund)

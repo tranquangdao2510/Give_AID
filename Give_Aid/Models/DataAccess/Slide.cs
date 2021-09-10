@@ -12,16 +12,21 @@ namespace Give_Aid.Models.DataAccess
     {
         [Key]
         public int SliderId { get; set; }
-
+        [Required(ErrorMessage = "The title must not be vacated.")]
+        [StringLength(250)]
+        public string Title { get; set; }
+        
         [Column(TypeName = "xml")]
         public string Image { get; set; }
 
+        [Required(ErrorMessage = "the description must not be vacated.")]
         [StringLength(500)]
         [AllowHtml]
         public string Description { get; set; }
 
         public int? DisplayOrder { get; set; }
 
+        [Required(ErrorMessage = "the url must not be vacated.")]
         [StringLength(250)]
         public string Url { get; set; }
 

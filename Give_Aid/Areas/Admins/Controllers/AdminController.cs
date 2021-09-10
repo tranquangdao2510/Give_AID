@@ -28,21 +28,24 @@ namespace Give_Aid.Areas.Admins.Controllers
         public ActionResult Create(Admin admin)
         {
 
-            var dao = new AdminDao();
-            var encryptedMd5Pas = Encryptor.MD5Hash(admin.PassWord);
-            admin.PassWord = encryptedMd5Pas;
-            int id = dao.Insert(admin);
-            if (id > 0)
+            if (ModelState.IsValid)
             {
-                SetAlert("Create Admin success", "success");
-                return RedirectToAction("Index", "Admin");
+                var dao = new AdminDao();
+                var encryptedMd5Pas = Encryptor.MD5Hash(admin.PassWord);
+                admin.PassWord = encryptedMd5Pas;
+                int id = dao.Insert(admin);
+                if (id > 0)
+                {
+                    SetAlert("Create Admin success", "success");
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "error");
+                }
+                return View("Index");
             }
-            else
-            {
-                ModelState.AddModelError("", "error");
-            }
-
-            return View("Index");
+            return View(admin);
         }
         [HttpGet]
         public ActionResult Edit(int id)
@@ -73,9 +76,10 @@ namespace Give_Aid.Areas.Admins.Controllers
                 {
                     ModelState.AddModelError("", "error");
                 }
+                return View("Index");
             }
-
-            return View("Index");
+            return View(admin);
+            
         }
         [HttpDelete]
         public ActionResult Delete(int id)

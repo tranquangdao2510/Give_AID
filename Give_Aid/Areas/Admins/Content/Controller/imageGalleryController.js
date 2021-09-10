@@ -18,7 +18,7 @@
             e.preventDefault();
             var finder = new CKFinder();
             finder.selectActionFunction = function (url) {
-                $('#imageList').append(' <div style="float:left" ><img src="' + url + '" style="witdh:70px;heigth:100px" alt="Alternate Text" /><a href="#" class="ml-2  btn-delImage"><span class="fa fa-times"></span></a></div>');
+                $('#imageList').append(' <div style="float:left" ><img src="' + url + '"class="moreImgae" alt="Alternate Text" /><a href="#" class="ml-2  btn-delImage"><span class="fa fa-times"></span></a></div>');
                 $('.btn-delImage').off('click').on('click', function (e) {
                     e.preventDefault();
                     $(this).parent().remove();
@@ -66,7 +66,7 @@
                     var data = response.data;
                     var html = '';
                     $.each(data, function (i, item) {
-                        html += ' <div style="float:left" ><img src="' + item + '" style="witdh:70px;heigth:100px" alt="Alternate Text" /><a href="#" class="ml-2  btn-delImage"><span class="fa fa-times"></span></a></div>'
+                        html += ' <div style="float:left" ><img src="' + item + '" class="moreImgae" alt="Alternate Text" /><a href="#" class="ml-2  btn-delImage"><span class="fa fa-times"></span></a></div>'
                     });
                     $('#imageList').html(html);
                     $('.btn-delImage').off('click').on('click', function (e) {

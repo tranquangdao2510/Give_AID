@@ -57,7 +57,7 @@
                    
                         html += Mustache.render(template, {
                             DonateID: data.DonateId,
-                            Date:data.CreateDate,
+                            //CreateDate:data.CreateDate,
                             CardName: data.NameCard,
                             CardNumber: data.CardNumber,
                             //Status: item.Status == true ? "<input class=\"check-box\" disabled=\"disabled\" type=\"checkbox\" checked=\" checked\">" : "<input class=\"check-box\" disabled=\"disabled\" type=\"checkbox\">",

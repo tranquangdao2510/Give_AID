@@ -5,6 +5,7 @@
         var finder = new CKFinder();
         finder.selectActionFunction = function (url) {
             $('#linkImg').val(url);
+            $('img#ShowImg').attr('src', url);
         };
         finder.popup();
     });

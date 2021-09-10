@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
+    
 }
-
 <div class="card card-primary">
     <div class="card-header">
         <h3 class="card-title">Create</h3>
@@ -20,19 +20,19 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @id = "name", @placeholder = "Enter Name" })
                         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                     </div>
                 </div>
+
+
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.MetaTitle, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.Image, new { @class = "form-control", @id = "linkImg" })
-                        <a id="selectImg" href="#">Select Image </a>
-                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.MetaTitle, new { @class = "form-control" ,@id="slug", @placeholder = "Enter Slug" })
+                        @Html.ValidationMessageFor(model => model.MetaTitle, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.TagId, "TagId", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -47,7 +47,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.DisplayOrder, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.DisplayOrder, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.DisplayOrder, new { htmlAttributes = new { @class = "form-control", @min = "0", @Value = "0" } })
                         @Html.ValidationMessageFor(model => model.DisplayOrder, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -62,12 +62,21 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.MetaTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.MetaTitle, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.MetaTitle, "", new { @class = "text-danger" })
+                        <div class="row">
+                            <div class="col-8">
+                                @Html.TextBoxFor(model => model.Image, new { @class = "form-control", @id = "linkImg" })
+                            </div>
+                            <div class="col-4"><a id="selectImg" href="#" class="btn btn-outline-dark">Select Image </a></div>
+                        </div>
+                        @*<img src="" alt="Alternate Text" />*@
+                         
+                        <img src="" alt="" id="ShowImg" style="width:50%; padding-top: 20px;">
+                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

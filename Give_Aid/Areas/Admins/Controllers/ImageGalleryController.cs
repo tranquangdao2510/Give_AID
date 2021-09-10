@@ -27,21 +27,27 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(ImageGallery entity)
         {
-            var dao = new ImageGalleryDao();
-            int id = dao.Insert(entity);
-            if (id > 0)
+            if (ModelState.IsValid)
             {
-                SetAlert("Create ImageGallery success", "success");
-                return RedirectToAction("Index", "ImageGallery");
+                var dao = new ImageGalleryDao();
+                int id = dao.Insert(entity);
+                if (id > 0)
+                {
+                    SetAlert("Create ImageGallery success", "success");
+                    return RedirectToAction("Index", "ImageGallery");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "error");
+                }
+                return View("Index");
             }
-            else
-            {
-                ModelState.AddModelError("", "error");
-            }
-
-            return View("Index");
+            SetviewBag();
+            return View(entity);
+            
         }
         [HttpGet]
         public ActionResult Edit(int id)
@@ -51,26 +57,29 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View(imageGall);
         }
         [HttpPost]
-        public ActionResult Edit(ImageGallery ImageGallery)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ImageGallery imageGallery)
         {
 
             if (ModelState.IsValid)
             {
                 var dao = new ImageGalleryDao();
 
-                var result = dao.Update(ImageGallery);
+                var result = dao.Update(imageGallery);
                 if (result)
                 {
                     SetAlert("Update ImageGallery success", "success");
-                    return RedirectToAction("Index", "Slider");
+                    return RedirectToAction("Index", "ImageGallery");
                 }
                 else
                 {
                     ModelState.AddModelError("", "error");
                 }
+                return View("Index");
             }
 
-            return View("Index");
+            SetviewBag();
+            return View(imageGallery);
         }
         [HttpDelete]
         public ActionResult Delete(int id)
@@ -94,22 +103,6 @@ namespace Give_Aid.Areas.Admins.Controllers
           
             ViewBag.TagId = new SelectList(tagdao.GetAll(), "TagId", "TagName", SelectedId);
         }
-        public JsonResult LoadImages(int id)
-        {
-            ImageGalleryDao dao = new ImageGalleryDao();
-            var imgallery = dao.ViewDetail(id);
-            var images = imgallery.MoreImage;
-            XElement xImages = XElement.Parse(images);
-            List<string> listImagesReturn =new List<string>();
-            foreach ( XElement element in xImages.Elements() )
-            {
-                listImagesReturn.Add(element.Value);
-            }
-            return Json(new
-            {
-                data= listImagesReturn
-            },JsonRequestBehavior.AllowGet);
-        }
         [HttpPost]
         public JsonResult SaveImages(int id,string images)
         {
@@ -120,7 +113,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             foreach (var item in listImages)
             {
                 var subtring = item.Substring(22);
-                xElement.Add(new XElement("Image", images));
+                xElement.Add(new XElement("Image", subtring));
             }
             ImageGalleryDao dao = new ImageGalleryDao();
            
@@ -141,6 +134,23 @@ namespace Give_Aid.Areas.Admins.Controllers
                 });
             }
            
+        }
+
+        public JsonResult LoadImages(int id)
+        {
+            ImageGalleryDao dao = new ImageGalleryDao();
+            var imgallery = dao.ViewDetail(id);
+            var images = imgallery.MoreImage;
+            XElement xImages = XElement.Parse(images);
+            List<string> listImagesReturn = new List<string>();
+            foreach (XElement element in xImages.Elements())
+            {
+                listImagesReturn.Add(element.Value);
+            }
+            return Json(new
+            {
+                data = listImagesReturn
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }

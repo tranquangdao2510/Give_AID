@@ -2,6 +2,8 @@
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +12,7 @@ namespace Give_Aid.Models.DAO
     public class DonateDao
     {
         private NgoEntity db = null;
+        
 
         public DonateDao()
         {
@@ -19,8 +22,9 @@ namespace Give_Aid.Models.DAO
 
         public int Insert(Donate entity)
         {
-            db.Donates.Add(entity);
             entity.CreateDate = DateTime.Now;
+
+            db.Donates.Add(entity);
             db.SaveChanges();
             return entity.DonateId;
         }

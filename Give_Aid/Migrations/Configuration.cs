@@ -1,5 +1,6 @@
 namespace Give_Aid.Migrations
 {
+    using Give_Aid.Models.DataAccess;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -19,12 +20,10 @@ namespace Give_Aid.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
+            //context.Admins.AddOrUpdate(
+            
+            //  new Admin { AdminName = "admin" ,PassWord="123456",Address="ha nam",Email="anhdao@gmail.com",Phone="0987654456", }
+            //);
             //
         }
     }

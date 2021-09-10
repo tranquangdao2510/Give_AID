@@ -15,6 +15,14 @@ namespace Give_Aid
             routes.IgnoreRoute("{*botdetect}",
              new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
 
+            // search
+            routes.MapRoute(
+               name: "Search",
+               url: "search",
+               defaults: new { controller = "Fund", action = "Search", id = UrlParameter.Optional },
+               new[] { "Give_Aid.Controllers" }
+           );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
