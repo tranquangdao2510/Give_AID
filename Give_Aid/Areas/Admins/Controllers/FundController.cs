@@ -42,7 +42,7 @@ namespace Give_Aid.Areas.Admins.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "error");
+                    ModelState.AddModelError("Khóa chính trùng", "error");
                 }
 
                 return View("Index");

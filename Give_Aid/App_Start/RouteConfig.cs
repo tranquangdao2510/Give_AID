@@ -24,12 +24,12 @@ namespace Give_Aid
            );
 
             
-            routes.MapRoute(
-                name: "Fund Detail",
-                url: "Detail/{Metatitle}/{id}",
-                defaults: new { controller = "Fund", action = "FundDetail", id = UrlParameter.Optional },
-                new[] { "Give_Aid.Controllers" }
-            );
+            //routes.MapRoute(
+            //    name: "Fund Detail",
+            //    url: "Detail/{Metatitle}/{id}",
+            //    defaults: new { controller = "Fund", action = "FundDetail", id = UrlParameter.Optional },
+            //    new[] { "Give_Aid.Controllers" }
+            //);
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

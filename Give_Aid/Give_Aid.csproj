@@ -156,6 +156,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admins\AdminsAreaRegistration.cs" />
+    <Compile Include="Areas\Admins\Controllers\AboutController.cs" />
     <Compile Include="Areas\Admins\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admins\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admins\Controllers\BlogsController.cs" />
@@ -163,8 +164,10 @@
     <Compile Include="Areas\Admins\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admins\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Admins\Controllers\DonateController.cs" />
+    <Compile Include="Areas\Admins\Controllers\FaqController.cs" />
     <Compile Include="Areas\Admins\Controllers\FundController.cs" />
     <Compile Include="Areas\Admins\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admins\Controllers\ImageGalleryController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admins\Controllers\OrganizationController.cs" />
     <Compile Include="Areas\Admins\Controllers\PartnerController.cs" />
@@ -177,6 +180,7 @@
     <Compile Include="Common\AdminLogin.cs" />
     <Compile Include="Common\CustomerLogin.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BecomeVolunteerController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -189,15 +193,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202109061300583_v1.cs" />
-    <Compile Include="Migrations\202109061300583_v1.Designer.cs">
-      <DependentUpon>202109061300583_v1.cs</DependentUpon>
+    <Compile Include="Migrations\202109101409072_v1.cs" />
+    <Compile Include="Migrations\202109101409072_v1.Designer.cs">
+      <DependentUpon>202109101409072_v1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202109070810249_v11.cs" />
-    <Compile Include="Migrations\202109070810249_v11.Designer.cs">
-      <DependentUpon>202109070810249_v11.cs</DependentUpon>
+    <Compile Include="Migrations\202109110812358_v2.cs" />
+    <Compile Include="Migrations\202109110812358_v2.Designer.cs">
+      <DependentUpon>202109110812358_v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DAO\AboutDao.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
     <Compile Include="Models\DAO\BecomVolunteerDao.cs" />
     <Compile Include="Models\DAO\BlogClientDao.cs" />
@@ -206,13 +211,16 @@
     <Compile Include="Models\DAO\CustomerDao.cs" />
     <Compile Include="Models\DAO\DonateDao.cs" />
     <Compile Include="Models\DAO\FaqClientDao.cs" />
+    <Compile Include="Models\DAO\FaqDao.cs" />
     <Compile Include="Models\DAO\FundDao.cs" />
     <Compile Include="Models\DAO\ImageGalleryDao.cs" />
     <Compile Include="Models\DAO\OrganizationDao.cs" />
     <Compile Include="Models\DAO\PartnerDao.cs" />
     <Compile Include="Models\DAO\PaymentDao.cs" />
     <Compile Include="Models\DAO\SliderDao.cs" />
+    <Compile Include="Models\DAO\TagsDao.cs" />
     <Compile Include="Models\DAO\VolunteerDao.cs" />
+    <Compile Include="Models\DataAccess\About.cs" />
     <Compile Include="Models\DataAccess\Admin.cs" />
     <Compile Include="Models\DataAccess\Blog.cs" />
     <Compile Include="Models\DataAccess\Category.cs" />
@@ -237,6 +245,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admins\Content\Controller\donateController.js" />
+    <Content Include="Areas\Admins\Content\Controller\imageGalleryController.js" />
     <Content Include="Areas\Admins\Content\Controller\paymentController.js" />
     <Content Include="Areas\Admins\Content\dist\css\adminlte.css" />
     <Content Include="Areas\Admins\Content\dist\css\adminlte.min.css" />
@@ -287,6 +296,12 @@
     <Content Include="Areas\Admins\Content\dist\js\adminlte.js" />
     <Content Include="Areas\Admins\Content\dist\js\adminlte.min.js" />
     <Content Include="Areas\Admins\Content\dist\js\sb-admin-2.js" />
+    <Content Include="Areas\Admins\Content\js\ajaxjquery.min.js" />
+    <Content Include="Areas\Admins\Content\js\bootbox.min.js" />
+    <Content Include="Areas\Admins\Content\js\jquery.twbsPagination.min.js" />
+    <Content Include="Areas\Admins\Content\js\mustache.min.js" />
+    <Content Include="Areas\Admins\Content\js\Slug.js" />
+    <Content Include="Areas\Admins\Content\js\Stylescss.css" />
     <Content Include="Content\assets\css\error-page.css" />
     <Content Include="Content\assets\css\fonts\icomoon2849.svg" />
     <Content Include="Content\assets\css\home-main.css" />
@@ -3298,6 +3313,7 @@
     <Content Include="Content\ckfinder\skins\v1\skin.js" />
     <Content Include="Content\ckfinder\skins\v1\uipanel.css" />
     <Content Include="Content\ckfinder\translations.txt" />
+    <Content Include="Content\controller\baseController.js" />
     <Content Include="Content\images\ui-icons_444444_256x240.png" />
     <Content Include="Content\images\ui-icons_555555_256x240.png" />
     <Content Include="Content\images\ui-icons_777620_256x240.png" />
@@ -3463,16 +3479,24 @@
     <Content Include="Areas\Admins\Views\Fund\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Fund\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Donate\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\Admins\Views\Donate\_GetDetail.cshtml" />
-=======
     <Content Include="Areas\Admins\Views\Blogs\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Blogs\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Volunteers\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Volunteers\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Volunteers\Index.cshtml" />
->>>>>>> f12a61490d3a427a669a40d8dc1e1803f33ffe3f
+    <Content Include="Areas\Admins\Views\ImageGallery\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\ImageGallery\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\ImageGallery\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Faq\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Faq\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Faq\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Fund\Detail.cshtml" />
+    <Content Include="Areas\Admins\Views\About\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\About\Detail.cshtml" />
+    <Content Include="Areas\Admins\Views\About\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\About\Edit.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -3579,6 +3603,7 @@
     <Content Include="Views\Customer\Information.cshtml" />
     <Content Include="Views\Donate\DonateList.cshtml" />
     <Content Include="Views\BecomeVolunteer\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3590,11 +3615,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202109061300583_v1.resx">
-      <DependentUpon>202109061300583_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109101409072_v1.resx">
+      <DependentUpon>202109101409072_v1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109070810249_v11.resx">
-      <DependentUpon>202109070810249_v11.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109110812358_v2.resx">
+      <DependentUpon>202109110812358_v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
