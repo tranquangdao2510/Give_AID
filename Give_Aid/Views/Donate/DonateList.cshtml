@@ -54,22 +54,24 @@
                             <h3 class="h3-sm fw-5 txt-blue mb-3">Select Your Donation Amount</h3>
 
                             <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-7">
 
                                     <div class="form-group">
 
-                                        <div class="mt-3">
+                                        <div class="" style="margin-top:2rem !important">
                                             @*<input type="text" class="form-control" id="custom" placeholder="Custom Amount">*@
                                             @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control", @placeholder = "Custom Amount" } })
                                             @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                               
+                                <div class="col-md-5">
+
                                     <div class="form-group">
-                                        <strong>Pay Using</strong>
+                                        <strong>Pay using</strong>
                                         <div class="mb-3">
-                                         
+
                                             @Html.DropDownList("PaymentId", null, htmlAttributes: new { @class = "form-control theme-combo donation-select" })
                                             @Html.ValidationMessageFor(model => model.PaymentId, "", new { @class = "text-danger" })
                                         </div>
@@ -113,14 +115,15 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
+                                    <strong>Funds</strong>
                                     <div class="form-group">
                                         @Html.DropDownList("FundId", null, htmlAttributes: new { @class = "form-control theme-combo donation-select" })
                                         @Html.ValidationMessageFor(model => model.FundId, "", new { @class = "text-danger" })
                                         @*<select class="theme-combo donation-select" name="state" style="height: 400px">
-                                                <option>Select Country</option>
-                                                <option value="Afganistan">Afghanistan</option>
+                    <option>Select Country</option>
+                    <option value="Afganistan">Afghanistan</option>
 
-                                            </select>*@
+                </select>*@
                                     </div>
                                 </div>
                             </div>

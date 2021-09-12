@@ -67,5 +67,11 @@ namespace Give_Aid.Models.DAO
                 return false;
             }
         }
+
+        public int CountOrganization()
+        {
+            var count = db.Organizations.Count();
+            return count;
+        }
     }
 }

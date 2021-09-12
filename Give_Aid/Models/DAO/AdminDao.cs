@@ -19,7 +19,6 @@ namespace Give_Aid.Models.DAO
         {
             entity.CreatedDate = DateTime.Now;
             db.Admins.Add(entity);
-            
             db.SaveChanges();
             return entity.AdminId;
         }
@@ -70,28 +69,28 @@ namespace Give_Aid.Models.DAO
             return db.Admins.Where(a => a.AdminId == id).FirstOrDefault();
         }
 
-        public bool Login(string name, string password)
+        public int Login(string name, string password)
         {
             var result = db.Admins.SingleOrDefault(x => x.AdminName == name);
             if (result == null)
             {
-                return Convert.ToBoolean(0);
+                return 0;
             }
             else
             {
                 if (result.Status == false)
                 {
-                    return Convert.ToBoolean(-1);
+                    return -1;
                 }
                 else
                 {
                     if (result.PassWord == password)
                     {
-                        return Convert.ToBoolean(1);
+                        return 1;
                     }
                     else
                     {
-                        return Convert.ToBoolean(-2);
+                        return -2;
                     }
                 }
             }
