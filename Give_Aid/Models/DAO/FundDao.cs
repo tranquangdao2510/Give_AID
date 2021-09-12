@@ -118,5 +118,17 @@ namespace Give_Aid.Models.DAO
         {
             return db.Categories.Where(x => x.Status == true).OrderBy(x => x.CreateDate).Take(orderby).ToList();
         }
+
+        public int CountFund()
+        {
+            var count = db.Funds.Count();
+            return count;
+        }
+
+        public List<Fund> getNewFund()
+        {
+            
+            return db.Funds.OrderByDescending(x=>x.CreateDate).Take(5).ToList();
+        }
     }
 }

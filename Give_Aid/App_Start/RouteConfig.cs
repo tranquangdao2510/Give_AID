@@ -14,6 +14,48 @@ namespace Give_Aid
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("{*botdetect}",
              new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+            // home
+            routes.MapRoute(
+                name: "Fund Detail",
+                url: "Detail/{Metatitle}/{id}",
+                defaults: new { controller = "Fund", action = "FundDetail", id = UrlParameter.Optional },
+                new[] { "Give_Aid.Controllers" }
+            );
+            // fund
+            routes.MapRoute(
+                name: "Fund",
+                url: "Fund",
+                defaults: new { controller = "Fund", action = "Index", id = UrlParameter.Optional },
+                new[] { "Give_Aid.Controllers" }
+            );
+            // about
+            routes.MapRoute(
+                name: "About us",
+                url: "About",
+                defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional },
+                new[] { "Give_Aid.Controllers" }
+            );
+            // Volunteer
+            routes.MapRoute(
+                name: "Volunteer",
+                url: "Volunteer",
+                defaults: new { controller = "Volunteer", action = "Index", id = UrlParameter.Optional },
+                new[] { "Give_Aid.Controllers" }
+            );
+            // BecomeVolunteer
+            routes.MapRoute(
+                name: "BecomeVolunteer",
+                url: "BecomeVolunteer",
+                defaults: new { controller = "BecomeVolunteer", action = "Index", id = UrlParameter.Optional },
+                new[] { "Give_Aid.Controllers" }
+            );
+            // Faq
+            routes.MapRoute(
+                name: "Faq",
+                url: "Faq",
+                defaults: new { controller = "Faq", action = "Index", id = UrlParameter.Optional },
+                new[] { "Give_Aid.Controllers" }
+            );
 
             // search
             routes.MapRoute(
@@ -69,13 +111,7 @@ namespace Give_Aid
                new[] { "Give_Aid.Controllers" }
            );
 
-            // home
-            routes.MapRoute(
-                name: "Fund Detail",
-                url: "Detail/{Metatitle}/{id}",
-                defaults: new { controller = "Fund", action = "FundDetail", id = UrlParameter.Optional },
-                new[] { "Give_Aid.Controllers" }
-            );
+            
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

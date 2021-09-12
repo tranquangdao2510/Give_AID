@@ -22,7 +22,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             {
                 var dao = new AdminDao();
                 var result = dao.Login(model.AdminName, Encryptor.MD5Hash(model.Password));
-                if (result == Convert.ToBoolean(1))
+                if (result == 1)
                 {
                     var user = dao.GetbyId(model.AdminName);
                     var userSession = new AdminLogin();
@@ -32,15 +32,15 @@ namespace Give_Aid.Areas.Admins.Controllers
                     Session.Add(CommonAdmin.ADMIN_SESSION, userSession);
                     return RedirectToAction("Dashboard", "Home");
                 }
-                else if (result == Convert.ToBoolean(0))
+                else if (result == 0)
                 {
                     ModelState.AddModelError("", "tai khoan ko ton tai");
                 }
-                else if (result == Convert.ToBoolean(-1))
+                else if (result == -1)
                 {
                     ModelState.AddModelError("", "tai khoan dang bi khoa");
                 }
-                else if (result == Convert.ToBoolean(-2))
+                else if (result == -2)
                 {
                     ModelState.AddModelError("", "mat khau ko dung");
                 }

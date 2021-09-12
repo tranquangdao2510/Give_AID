@@ -12,7 +12,7 @@ namespace Give_Aid.Areas.Admins.Controllers
     public class AdminController : BaseController
     {
         // GET: Admins/Admin
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 2)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 7)
         {
             var dao = new AdminDao();
             var model = dao.GetAllPaging(searchString, page, pageSize);

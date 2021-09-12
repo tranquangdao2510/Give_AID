@@ -129,6 +129,11 @@ namespace Give_Aid.Models.DAO
             return db.Customers.Count(x => x.Email == email) > 0;
         }
 
+        public int Countcustomer()
+        {
+            var count = db.Customers.Count();
+            return count;
+        }
         
     }
 }
