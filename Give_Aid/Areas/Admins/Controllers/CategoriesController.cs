@@ -75,7 +75,7 @@ namespace Give_Aid.Areas.Admins.Controllers
                 }
             }
 
-            return View("Index");
+            return View(cate);
         }
         public ActionResult Delete(int id)
         {

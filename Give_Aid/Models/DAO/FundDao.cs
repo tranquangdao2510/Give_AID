@@ -15,16 +15,17 @@ namespace Give_Aid.Models.DAO
         {
             db = new NgoEntity();
         }
-        public IEnumerable<Fund> GetAll(string search_name)
+        public IEnumerable<Fund> GetAll(string search_name,string search_cate)
         {
             search_name = search_name ?? "";
-            return db.Funds.Where(x => x.FundName.Contains(search_name)).OrderBy(x=>x.FundName);
+            search_cate = search_cate ?? "";
+            return db.Funds.Where(x => x.FundName.Contains(search_name) && (x.CategoryId.ToString().Contains(search_cate))).OrderBy(x=>x.CategoryId);
         }
         public string Insert(Fund fund)
         {
-            db.Funds.Add(fund);
-            fund.CreateDate = DateTime.Now;
-            db.SaveChanges();
+                db.Funds.Add(fund);
+                fund.CreateDate = DateTime.Now;
+                db.SaveChanges();
             return fund.FundId;
         }
         public Fund Detail(string id)
@@ -47,6 +48,7 @@ namespace Give_Aid.Models.DAO
                 F.OrganizationId = fund.OrganizationId;
                 F.UpdatedDate = DateTime.Now;
                 F.Status = fund.Status;
+                F.MetaTitle = fund.MetaTitle;
                 db.SaveChanges();
                 return true;
             }
@@ -77,6 +79,10 @@ namespace Give_Aid.Models.DAO
         {
             return db.Funds.Where(x => x.Status == true).OrderByDescending(x => x.CreateDate).Take(6).ToList();
         }
+        public IEnumerable<Donate> GetDonate(int orderby)
+        {
+            return db.Donates.Where(x => x.Status == true).OrderByDescending(x => x.Amount).Take(orderby).ToList();
+        }
         public IEnumerable<Fund>  FundFeatured(int orderBy)
         {
             return db.Funds.Where(x => x.Status == true).OrderByDescending(x => x.TargetAmount).Take(orderBy).ToList();
@@ -103,6 +109,14 @@ namespace Give_Aid.Models.DAO
             {
                 return false;
             }
+        }
+        public IEnumerable<Faq> GetFaq(int orderby)
+        {
+            return db.Faqs.Where(x => x.Status == true).OrderBy(x => x.CreateDate).Take(orderby).ToList();
+        }
+        public IEnumerable<Category> GetCate(int orderby)
+        {
+            return db.Categories.Where(x => x.Status == true).OrderBy(x => x.CreateDate).Take(orderby).ToList();
         }
     }
 }

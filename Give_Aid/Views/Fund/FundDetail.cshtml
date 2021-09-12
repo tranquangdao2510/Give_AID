@@ -4,6 +4,8 @@
 
     var getdetail = ViewBag.GetDetail;
     var getnewfund = (List<Give_Aid.Models.DataAccess.Fund>)ViewBag.Featured;
+    var getdonate = (List<Give_Aid.Models.DataAccess.Donate>)ViewBag.GetDonate;
+    var getcate = (List<Give_Aid.Models.DataAccess.Category>)ViewBag.GetCate;
 
 
 
@@ -43,7 +45,7 @@
                         <div class="content-wrap-single">
                             <div class="featured-cause-timer">
                                 <h3><strong class="txt-orange">$@getdetail.CurentAmount</strong> pledged of <strong class="txt-blue">$@getdetail.TargetAmount</strong></h3>
-                                
+
                                 <div class="d-md-flex align-items-end justify-content-between">
 
                                     <a class="btn-outline-default btn" href="donation-page.html">Donate Now</a>
@@ -127,20 +129,15 @@
 
                             <div class="our-donators">
                                 <ul class="list-unstyled">
-                                    <li>
-                                        <img src="assets/images/sidebar_thumb_1.jpg" alt="">
-                                        <div>
-                                            <h4 class="name">Marty Kamson</h4>
-                                            <div class="money">Raised $4500</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/sidebar_thumb_2.jpg" alt="">
-                                        <div>
-                                            <h4 class="name">Sofia Lorence</h4>
-                                            <div class="money">Raised $2900</div>
-                                        </div>
-                                    </li>
+                                    @foreach (var item in getdonate)
+                                    {
+                                        <li>
+                                            <div>
+                                                <h4 class="name">@item.CustomerId</h4>
+                                                <div class="money">@item.Amount</div>
+                                            </div>
+                                        </li>
+                                    }
                                 </ul>
 
                                 <a href="donation-page.html" class="btn-block btn btn-default">Become Donators</a>
@@ -153,10 +150,10 @@
 
                             <div class="blog-list-categories">
                                 <ul class="list-unstyled icons-listing theme-orange mb-0">
-                                    @*@foreach (var item in listcate)
+                                    @foreach (var item in getcate)
                                         {
                                             <li><a href="">@item.CategoryName</a></li>
-                                        }*@
+                                        }
                                 </ul>
                             </div>
                         </div>

@@ -10,12 +10,12 @@ namespace Give_Aid.Areas.Admins.Controllers
     public class FundController : BaseController
     {
         // GET: Admins/Fund
-        public ActionResult Index(int? page, string search_name)
+        public ActionResult Index(int? page, string search_name,string search_cate)
         {
             page = page ?? 1;
             int pagesize = 3;
             var dao = new FundDao();
-            var model = dao.GetAll(search_name);
+            var model = dao.GetAll(search_name,search_cate);
             return View(model.ToPagedList(page.Value, pagesize));
 
         }
@@ -47,6 +47,7 @@ namespace Give_Aid.Areas.Admins.Controllers
 
                 return View("Index");
             }
+            
             SetviewBag();
             return View(fund);
         }

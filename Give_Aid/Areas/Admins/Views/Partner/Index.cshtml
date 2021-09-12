@@ -35,6 +35,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Slug</th>
                             <th>Email</th>
                             <th>Image</th>
                             <th>Address</th>
@@ -55,6 +56,9 @@
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.PartnerName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MetaTitle)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Email)

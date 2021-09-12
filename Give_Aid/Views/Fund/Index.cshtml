@@ -2,8 +2,10 @@
 @{
     ViewBag.Title = "Fund";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var listAll = (List<Give_Aid.Models.DataAccess.Fund>)ViewBag.Get;
+    var listAll = (PagedList.IPagedList<Give_Aid.Models.DataAccess.Fund>)ViewBag.Get;
     var listFeatured = (List<Give_Aid.Models.DataAccess.Fund>)ViewBag.Featured;
+    var listfaq = (List<Give_Aid.Models.DataAccess.Faq>)ViewBag.GetFaq;
+
 
 
 }
@@ -27,7 +29,7 @@
 <!-- Causes Grid Start -->
 <section class="wide-tb-100">
     <div class="container">
-        
+
         <div class="row">
 
 
@@ -35,7 +37,7 @@
             {
                 <div class="col-sm-12 col-md-6 col-lg-4">
                     <!-- Causes Wrap -->
-                    <div class="causes-wrap" >
+                    <div class="causes-wrap">
                         <div class="img-wrap">
                             <a href="causes-list.html"><img src="@item.FundImg" alt="" height="275"></a>
                             <div class="raised-progress">
@@ -46,14 +48,14 @@
 
                                         </p>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="content-wrap" style="word-wrap: break-word">
                             <span class="tag">Education</span>
-                            <h3><a href="@Url.Action("FundDetail","Fund",new {id = item.FundId})">@Html.Raw(item.FundName) </a></h3>
+                            <h3><a href="Detail/@item.MetaTitle/@item.FundId">@Html.Raw(item.FundName) </a></h3>
                             <p>@Html.Raw(item.Description)</p>
                             <div class="btn-wrap">
                                 <a class="btn-primary btn" href="@Url.Action("DonateList","Donate",new {id = item.FundId})">Donate Now</a>
@@ -64,9 +66,18 @@
                     <!-- Causes Wrap -->
                 </div>
             }
-
-
-
+        </div>
+        <div class="theme-pagination">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    @{
+                        for (int i = 1; i <= listAll.Count; i++)
+                        {
+                            <li class="page-item"><a class="page-link" href="?page=@i">@i</a></li>
+                        }
+                    }
+                </ul>
+            </nav>
         </div>
     </div>
 </section>
@@ -129,49 +140,26 @@
                 <!-- Spacer For Medium -->
 
                 <div class="col-12 col-lg-6 col-md-12">
-                    <div class="theme-collapse light">
-                        <!-- Toggle Links 1 -->
-                        <div class="toggle arrow-down">
-                            <span class="icon">
-                                <i class="icofont-plus"></i>
-                            </span> Our Philosophy
-                        </div>
-                        <!-- Toggle Links 1 -->
-                        <!-- Toggle Content 1 -->
-                        <div class="collapse show">
-                            <div class="content">
-                                Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.
+                    <div class="col-12 col-lg-6 col-md-12">
+                        @foreach (var item in listfaq)
+                        {
+                            <div class="theme-collapse light">
+                                <!-- Toggle Links  -->
+                                <div class="toggle arrow-down">
+                                    <span class="icon">
+                                        <i class="icofont-plus"></i>
+                                    </span> @item.Question
+                                </div>
+                                <!-- Toggle Links  -->
+                                <!-- Toggle Content  -->
+                                <div class="collapse show">
+                                    <div class="content">
+                                        @item.Answered
+                                    </div>
+                                </div>
+                                <!-- Toggle Content  -->
                             </div>
-                        </div>
-                        <!-- Toggle Content 1 -->
-                        <!-- Toggle Links 2 -->
-                        <div class="toggle">
-                            <span class="icon">
-                                <i class="icofont-plus"></i>
-                            </span> Our Organization
-                        </div>
-                        <!-- Toggle Links 2 -->
-                        <!-- Toggle Content 2 -->
-                        <div class="collapse">
-                            <div class="content">
-                                Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.
-                            </div>
-                        </div>
-                        <!-- Toggle Content 2 -->
-                        <!-- Toggle Links 3 -->
-                        <div class="toggle">
-                            <span class="icon">
-                                <i class="icofont-plus"></i>
-                            </span> Know More About Adoption
-                        </div>
-                        <!-- Toggle Links 3 -->
-                        <!-- Toggle Content 3 -->
-                        <div class="collapse">
-                            <div class="content">
-                                Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.
-                            </div>
-                        </div>
-                        <!-- Toggle Content 3 -->
+                        }
                     </div>
                 </div>
             </div>

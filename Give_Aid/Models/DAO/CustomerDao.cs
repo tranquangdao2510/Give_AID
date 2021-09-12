@@ -34,6 +34,12 @@ namespace Give_Aid.Models.DAO
             }
             return model.OrderByDescending(x => x.CreateDate).ToPagedList(page, pageSize);
         }
+        public IEnumerable<Customer> GetAll()
+        {
+           return db.Customers.Where(x => x.Status == true).ToList();
+        }
+
+
 
         public bool Update(Customer customer)
         {

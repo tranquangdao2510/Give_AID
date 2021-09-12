@@ -23,6 +23,7 @@ namespace Give_Aid
                new[] { "Give_Aid.Controllers" }
            );
 
+<<<<<<< HEAD
             // donate
             routes.MapRoute(
                name: "Donate list",
@@ -70,6 +71,15 @@ namespace Give_Aid
            );
 
             // home
+=======
+
+            routes.MapRoute(
+                name: "Fund Detail",
+                url: "Detail/{Metatitle}/{id}",
+                defaults: new { controller = "Fund", action = "FundDetail", id = UrlParameter.Optional },
+                new[] { "Give_Aid.Controllers" }
+            );
+>>>>>>> c87a2e06d654a82c5cf6ddcee5a65c350a8ed71c
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

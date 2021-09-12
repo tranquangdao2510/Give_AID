@@ -15,34 +15,28 @@ namespace Give_Aid.Controllers
         // GET: Fund
         private NgoEntity db = new NgoEntity();
 
-        //public ActionResult Index(string search_title, string search_tag, int? page)
-        //{
-        //    page = page ?? 1;
-        //    int pagesize = 6;
-        //    search_title = search_title ?? "";
-        //    search_tag = search_tag ?? "";
-        //    var model = new BlogClientDao();
-        //    model.Blogs = db.Blogs.ToList().Where(x => (x.Status == true) && (x.Title.Contains(search_title)) && (x.TagId.ToString().Contains(search_tag))).OrderBy(x => x.BlogId).ToPagedList(page.Value, pagesize);
-        //    model.BlogsPagination = db.Blogs.ToList();
-        //    model.BlogsNewpost = db.Blogs.Where(x => x.Status == true).OrderByDescending(x => x.CreateDate).Take(2).ToList();
-        //    model.Tags = db.Tags.ToList().Where(x => x.Status == true);
-        //    return View(model);
-        //}
+  
 
-        public ActionResult Index()
+        public ActionResult Index(int? page,string search_name,string search_cate)
         {
+            page = page ?? 1;
+            int pagesize=6 ;
             var dao = new FundDao();
-            ViewBag.Get = dao.ListAllFund();
+            ViewBag.Get = dao.GetAll(search_name,search_cate).ToPagedList(page.Value,pagesize);
             ViewBag.Featured = dao.FundFeatured(1);
+            ViewBag.GetFaq = dao.GetFaq(3);
+
             return View();
         }
 
-        public ActionResult FundDetail(string id)
+        public ActionResult FundDetail(string id,string search_cate)
         {
             var model = new FundDao();
             ViewBag.GetDetail = model.Detail(id);
             ViewBag.Featured = model.newFund(3);
-
+            ViewBag.GetDonate = model.GetDonate(2);
+            ViewBag.GetCate = model.GetCate(5);
+            SetViewBag();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -62,6 +56,15 @@ namespace Give_Aid.Controllers
         public ActionResult Search(string keyword)
         {
             return View();
+        }
+        public void SetViewBag(int? selectedId = null)
+        {
+            var customerdao = new CustomerDao();
+            var catedao = new CategoryDao();
+
+            ViewBag.CustomerId = new SelectList(customerdao.GetAll(), "CustomerId", "CustomerName", selectedId);
+            ViewBag.CategoryId = new SelectList(catedao.GetAll(), "CategoryId", "CategoryName", selectedId);
+
         }
 
     }

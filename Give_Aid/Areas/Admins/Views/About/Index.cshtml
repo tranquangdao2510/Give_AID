@@ -31,8 +31,9 @@
                 <table class="table table-head-fixed text-nowrap" style="text-align:center">
                     <thead>
                         <tr>
-                            <th>STT</th>
+                            <th>ID</th>
                             <th>Title</th>
+                            <th>Slug</th>
                             <th>Image</th>
                             <th>CreateDate</th>
                             <th>UpdateDate</th>
@@ -46,9 +47,13 @@
                         {
                         <tr>
                             <td>
+                                @Html.DisplayFor(modelItem => item.AboutId)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MetaTitle)
                             </td>
                             
                             <td>
