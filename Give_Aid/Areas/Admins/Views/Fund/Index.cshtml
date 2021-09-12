@@ -13,7 +13,7 @@
                 <h3 class="card-title">Fund</h3>
 
                 <div class="card-tools">
-                    <form action="Fund" method="get">
+                    <form action="" method="get">
                         <div class="input-group input-group-sm" style="width: 220px;">
                             <div class="input-group-append"><a href="/Admins/Fund/Create" class=" btn btn-success">Create at</a></div>
                             <input type="text" name="search_name" class="form-control float-right" placeholder="Search">
@@ -34,14 +34,14 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Slug</th>
+                            
                          
                             <th>FundImg</th>
                      
                             <th>Category</th>
                             <th>Organization</th>
                             <th>CreateDate</th>
-                            <th>UpdateDate</th>
+                            
                             <th>Status</th>
                             <th>#</th>
                         </tr>
@@ -57,9 +57,7 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.FundName)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.MetaTitle)
-                                </td>
+                                
                                
                                 <td>
                                     <img src="@item.FundImg" alt="Alternate Text" width="100px" />
@@ -75,9 +73,7 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.CreateDate)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.UpdatedDate)
-                                </td>
+                                
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Status)
                                 </td>

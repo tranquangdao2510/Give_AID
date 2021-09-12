@@ -9,7 +9,7 @@
 
 <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title">Partner</h3>
+        <h3 class="card-title">Create Partner</h3>
     </div> <!-- /.card-header --> <!-- form start -->
     @using (Html.BeginForm("Create", "Partner", FormMethod.Post))
     {
@@ -81,24 +81,12 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Save</button>
             <a href="/Admins/Partner/Index" class="btn btn-danger">Back</a>
         </div>
 
     }
 </div>
-@*@section js {
-    <script src="~/Areas/Admins/Content/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <script type="text/javascript">
-        $(function () { $(".datepicker").datepicker({ dateFormat: "mm/dd/yy", changeMonth: true, changeMonth: true, }); });
-        $(function () { $(".datepicker1").datepicker({ dateFormat: "mm/dd/yy", changeMonth: true, changeMonth: true }); });
-    </script>
-
-
-    var editor = CKEditor.replace('txtContent'{
-    CustomConfig :'/Content/ckeditor/config.js',
-    });
-}*@
 
 
 

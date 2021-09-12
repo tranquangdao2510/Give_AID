@@ -69,10 +69,10 @@ namespace Give_Aid
                new[] { "Give_Aid.Controllers" }
            );
 
-            // home
+            // Fund
             routes.MapRoute(
                 name: "Fund Detail",
-                url: "Detail/{Metatitle}/{id}",
+                url: "Fund/{Metatitle}-{id}",
                 defaults: new { controller = "Fund", action = "FundDetail", id = UrlParameter.Optional },
                 new[] { "Give_Aid.Controllers" }
             );

@@ -39,7 +39,7 @@
                     <!-- Causes Wrap -->
                     <div class="causes-wrap">
                         <div class="img-wrap">
-                            <a href="causes-list.html"><img src="@item.FundImg" alt="" height="275"></a>
+                            <a href="Detail/@item.MetaTitle-@item.FundId"><img src="@item.FundImg" alt="" height="275"></a>
                             <div class="raised-progress">
                                 <div class="skillbar-wrap">
                                     <div class="clearfix">
@@ -54,8 +54,8 @@
                         </div>
 
                         <div class="content-wrap" style="word-wrap: break-word">
-                            <span class="tag">Education</span>
-                            <h3><a href="Detail/@item.MetaTitle/@item.FundId">@Html.Raw(item.FundName) </a></h3>
+                            <span class="tag">@item.Category.CategoryName</span>
+                            <h3><a href="@item.MetaTitle-@item.FundId">@item.FundName</a></h3>
                             <p>@Html.Raw(item.Description)</p>
                             <div class="btn-wrap">
                                 <a class="btn-primary btn" href="@Url.Action("DonateList","Donate",new {id = item.FundId})">Donate Now</a>
@@ -71,7 +71,8 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     @{
-                        for (int i = 1; i <= listAll.Count; i++)
+                        int count = (listAll.Count) ;
+                        for (int i = 1; i <= count; i++)
                         {
                             <li class="page-item"><a class="page-link" href="?page=@i">@i</a></li>
                         }

@@ -44,7 +44,7 @@ namespace Give_Aid.Areas.Admins.Controllers
                 {
                     ModelState.AddModelError("", "error");
                 }
-
+                return View("Index");
             }
             return View(organization);
         }

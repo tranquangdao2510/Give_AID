@@ -78,6 +78,7 @@ namespace Give_Aid.Models.DAO
         public List<Fund> ListAllFund()
         {
             return db.Funds.Where(x => x.Status == true).OrderByDescending(x => x.CreateDate).Take(6).ToList();
+            
         }
         public IEnumerable<Donate> GetDonate(int orderby)
         {
