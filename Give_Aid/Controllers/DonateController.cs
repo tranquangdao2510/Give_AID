@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace Give_Aid.Controllers
@@ -38,6 +39,22 @@ namespace Give_Aid.Controllers
                 entity.CustomerId = session.CustomerId;
                 entity.Status = false;
                 int id= dao.Insert(entity);
+
+                // send mail
+                string name = session.CustomerName;
+                string phone = session.Phone;
+                string address = session.Address;
+                string email = session.Email;
+                var total = entity.Amount ;
+                string subject = "New donate customers";
+                string conten = System.IO.File.ReadAllText(Server.MapPath("~/Views/Donate/newDonate.html"));
+                conten = conten.Replace("{{CustomerName}}", name);
+                conten = conten.Replace("{{Phone}}", phone);
+                conten = conten.Replace("{{Address}}", address);
+                conten = conten.Replace("{{Email}}", email);
+                conten = conten.Replace("{{Amount}}", total.ToString());
+                WebMail.Send("eprojectsemiii@gmail.com", subject, conten, null, null, null, true, null, null, null, null, null, null);
+
                 if (id != null)
                 {
                     return RedirectToAction("Index", "Home");

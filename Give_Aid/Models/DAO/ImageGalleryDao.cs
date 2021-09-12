@@ -91,5 +91,10 @@ namespace Give_Aid.Models.DAO
         {
             return db.ImageGalleries.Where(b => b.Status == true).OrderByDescending(b => b.CreateDate).Take(6).ToList();
         }
+
+        public List<ImageGallery> GetAll()
+        {
+            return db.ImageGalleries.Where(b => b.Status == true).OrderByDescending(b => b.CreateDate).ToList();
+        }
     }
 }

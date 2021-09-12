@@ -18,11 +18,17 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
     <!-- Animate CSSS -->
+    @*@Styles.Render("~/bundles/core");*@
+
     <link href="/Content/assets/library/animate/animate.min.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="/Content/assets/library/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Dropdown Hover CSS -->
     <link href="/Content/assets/library/bootstrap/css/bootstrap-dropdownhover.min.css" rel="stylesheet">
+
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="/Content/assets/css/style.css" rel="stylesheet">
+    <link href="/Content/assets/css/home-main.css" rel="stylesheet">
     <!-- Icofont CSS -->
     <link href="/Content/assets/library/icofont/icofont.min.css" rel="stylesheet">
     <!-- Owl Carousel CSS -->
@@ -32,10 +38,6 @@
     <!-- Magnific Popup CSS -->
     <link href="/Content/assets/library/magnific-popup/magnific-popup.css" rel="stylesheet">
     <!-- Main Theme CSS -->
-    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
-    <link href="/Content/assets/css/style.css" rel="stylesheet">
-    <link href="/Content/assets/css/home-main.css" rel="stylesheet">
-
 </head>
 <body>
 
@@ -86,22 +88,22 @@
             <div class="container text-nowrap">
                 <div class="d-flex align-items-center w-100 col p-0 logo-brand">
                     <a class="navbar-brand rounded-bottom light-bg" href="index.html">
-                        <img src="assets/images/logo_white.svg" alt="">
+                        <img src="~/Content/assets/images/logo_white.svg" alt="">
                     </a>
                 </div>
                 <!-- Topbar Buttons Start -->
                 <div class="d-inline-flex request-btn order-lg-last col-auto p-0 align-items-center">
                     <a class="btn-outline-primary btn ml-3" href="#" id="search_home"><i data-feather="search"></i></a>
 
-                    <a class="nav-link btn btn-default ml-3 donate-btn" href="/Donate/DonateList">Donate</a>
+                    <a class="nav-link btn btn-default ml-3 donate-btn" href="/Donate">Donate</a>
                     @{
                         var session = Session[Give_Aid.Common.CommonConstants.USER_SESSION] as Give_Aid.Common.CustomerLogin;
 
                     }
                     @if (session == null)
                     {
-                        <a class=" ml-3 donate-btn" href="/Customer/Login" style="color:aliceblue;display:block">Login</a>
-                        <a class="ml-3 donate-btn" href="/Customer/Register" style="color:aliceblue;display:block">Register</a>
+                        <a class=" ml-3 donate-btn" href="/Login" style="color:aliceblue;display:block">Login</a>
+                        <a class="ml-3 donate-btn" href="/Register" style="color:aliceblue;display:block">Register</a>
                     }
                     else
                     {
@@ -113,8 +115,8 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle-mob" href="index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello: @session.CustomerName <i class="icofont-rounded-down"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/Customer/Information/@session.CustomerId">Information</a> </li>
-                                    <li><a class="dropdown-item" href="/Customer/Logout">Logout</a> </li>
+                                    <li><a class="dropdown-item" href="/Information-@session.CustomerId">Information</a> </li>
+                                    <li><a class="dropdown-item" href="/Logout">Logout</a> </li>
 
 
                                 </ul>
@@ -155,8 +157,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/Volunteer/Index">Volunteers</a></li>
                                 <li><a class="dropdown-item" href="/BecomeVolunteer/Index">Become Volunteers</a></li>
-                                <li><a class="dropdown-item" href="/ImagesGallery">Become Volunteers</a></li>
-                                <li><a class="dropdown-item" href="typography.html">Typography</a></li>
+                                <li><a class="dropdown-item" href="/ImagesGallery">ImagesGallery</a></li>
                                 <li><a class="dropdown-item" href="our-faqs.html">Our Faq's</a></li>
                                 <li><a class="dropdown-item" href="404-page.html">404 Page</a></li>
                             </ul>
@@ -336,6 +337,7 @@
     <script src="~/Content/controller/baseController.js"></script>
     <script src="/Content/assets/js/site-custom.js"></script>
     <script src="/Content/assets/js/home-slider.js"></script>
+    @RenderSection("fontendjs", required: false)
 </body>
 
 <!-- Mirrored from mannatstudio.com/html/gracious/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Aug 2021 09:00:13 GMT -->

@@ -52,6 +52,7 @@ namespace Give_Aid.Controllers
             }
             string subject = "Application to join volunteers website NGO";
             string body = "Full Name:" + FullName + ";  \nPhone:" + Phone + ";  \nRefrence Contact:" + RefrenceContact + ";  \nMessage:" + Message + ";  \n From:\n" + Email;
+           
             WebMail.Send("eprojectsemiii@gmail.com", subject, body, null, null, null, true, null, null, null, null, null, null);
             var model = new BecomVolunteerDao();
             model.GetContacts = db.Comtacts.ToList().Where(x => x.Status == true).Take(1);

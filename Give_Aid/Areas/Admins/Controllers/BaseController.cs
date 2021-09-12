@@ -12,7 +12,7 @@ namespace Give_Aid.Areas.Admins.Controllers
     {
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            var session = (AdminLogin)Session[CommonConstants.USER_SESSION];
+            var session = (AdminLogin)Session[CommonAdmin.ADMIN_SESSION];
             if (session == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new

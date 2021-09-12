@@ -50,8 +50,8 @@ var paymentController = {
         $('#btnSearch').off('click').on('click', function () {
             paymentController.loadData(true);
         });
-        $('.btn-edit').off('click').on('click', function () {
-            $('#btAddNeworUpdate').modal('show');
+        $('.plusView').off('click').on('click', function () {
+            $('#showImages').modal('show');
             var id = $(this).data('id');
             paymentController.loadEdit(id);
         });

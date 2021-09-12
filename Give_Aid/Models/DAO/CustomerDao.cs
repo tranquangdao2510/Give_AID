@@ -122,5 +122,7 @@ namespace Give_Aid.Models.DAO
         {
             return db.Customers.Count(x => x.Email == email) > 0;
         }
+
+        
     }
 }

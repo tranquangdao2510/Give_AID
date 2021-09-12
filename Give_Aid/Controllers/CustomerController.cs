@@ -24,6 +24,13 @@ namespace Give_Aid.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult Information(int cusId)
+        {
+            var cus = new CustomerDao().ViewDetail(cusId);
+            return View(cus);
+        }
+
 
         public ActionResult Logout()
         {
@@ -112,12 +119,28 @@ namespace Give_Aid.Controllers
             return View(model);
         }
 
-        public ActionResult Information(Customer customer)
+        [HttpPost]
+        public ActionResult Information(Customer model)
         {
             if (ModelState.IsValid)
             {
-                var model = new CustomerDao();
-                var result = model.Update(customer);
+                var dao = new CustomerDao();
+                var session = Session[Common.CommonConstants.USER_SESSION];
+                if (session != null)
+                {
+                    //var cus = new Customer();
+
+                    //cus.CustomerName = model.CustomerName;
+                    //cus.PassWord = Encryptor.MD5Hash(model.Password);
+                    //cus.Phone = model.Phone;
+                    //cus.Email = model.Email;
+                    //cus.Address = model.Address;
+                    //cus.UpdatedDate = DateTime.Now;
+                    //cus.Status = true;
+                    //var result = dao.Update(cus);
+
+                    dao.Update(model);
+                }
             }
             return View();
         }

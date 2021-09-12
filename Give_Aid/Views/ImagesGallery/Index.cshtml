@@ -1,0 +1,128 @@
+﻿@model  Give_Aid.Models.DataAccess.ImageGallery
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listAllImage = (List<Give_Aid.Models.DataAccess.ImageGallery>)ViewBag.GetAll;
+}
+
+@section fontendjs{
+    <script type="text/javascript">
+        $(function () {
+
+            $('.plusView').off('click').on('click', function () {
+                $('#showImage').modal('show');
+                var id = $(this).data('id');
+                $('#hiddenImageId').val($(this).data('id'));
+                $.ajax({
+                    url: '/ImagesGallery/LoadImages',
+                    type: 'GET',
+                    data: {
+                        id: $('#hiddenImageId').val(),
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        
+                            var data = response.data;
+                            var html = '';
+                            $.each(data, function (i, item) {
+                                //html += ' <div style="float:left" ><img src="' + item + '" class="moreImgae" alt="Alternate Text" /><a href="#" class="ml-2  btn-delImage"><span class="fa fa-times"></span></a></div>'
+                                html += '<div class="container"><img src="' + item + '" class="moreImgae" alt="Alternate Text" /></div>'
+                            });
+                            $('#imageList').html(html);
+                        
+                        
+                       
+
+                    }
+                });
+            });
+        });
+
+    </script>
+}
+<!-- Page Breadcrumbs Start -->
+<section class="breadcrumbs-page-wrap">
+    <div class="bg-fixed pos-rel breadcrumbs-page">
+        <div class="container">
+            <h1>Our Events</h1>
+            <nav aria-label="breadcrumb" class="breadcrumb-wrap">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">ImageGallery</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- Page Breadcrumbs End -->
+<!-- Event Alternate Style Start -->
+<section class="wide-tb-100">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-sm-1">
+            @foreach (var item in listAllImage)
+            {
+                var url = "/ImagesGallery/"+@item.MetaTitle+"-"+@item.ImageId;
+                <div class="col mb-5">
+                    <div class="event-wrap-alternate">
+                        <div class="img-gallery-item">
+
+                            <div class="gallery-content">
+                                <div class="tag"><span>@item.Tag.TagName</span></div>
+                                <h3 class="">@item.Name</h3>
+                                <div class="img-open">
+                                    <i data-feather="plus-circle" class="plusView" data-id="@item.ImageId"></i>
+                                </div>
+                            </div>
+                            <img src="@item.Image" alt="">
+                            <div class="row"><div class="col-6"><img src="' + item + '" class="moreImgae" alt="Alternate Text" /></div></div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- Event Alternate Style Start -->
+<!-- Callout Style Start -->
+<section class="wide-tb-150 bg-scroll bg-img-6 pos-rel callout-style-1">
+    <div class="bg-overlay blue opacity-70"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h1 class="heading-main light-mode">
+                    <small>Help Other People</small>
+                    We Dream to Create A Bright Future Of The Underprivileged Children
+                </h1>
+            </div>
+            <div class="col-sm-12">
+                <a href="donation-page.html" class="btn btn-primary">Donate Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Callout Style End -->
+
+<div id="showImage" class="modal fade" role="dialog">
+
+
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Image More</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class=" m-2 " id="imageList">
+
+                </div>
+                <input type="hidden" value="0" id="hiddenImageId" />
+
+            </div>
+           
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
