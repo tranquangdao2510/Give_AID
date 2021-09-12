@@ -5,6 +5,7 @@ namespace Give_Aid.Models.DataAccess
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Mvc;
 
     [Table("Faq")]
     public partial class Faq
@@ -17,6 +18,7 @@ namespace Give_Aid.Models.DataAccess
 
 
         [Required(ErrorMessage = "Answered cannot be empty")]
+        [AllowHtml]
         public string Answered { get; set; }
 
         public DateTime? CreateDate { get; set; }

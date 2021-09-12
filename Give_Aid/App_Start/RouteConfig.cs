@@ -22,8 +22,7 @@ namespace Give_Aid
                defaults: new { controller = "Fund", action = "Search", id = UrlParameter.Optional },
                new[] { "Give_Aid.Controllers" }
            );
-
-<<<<<<< HEAD
+            
             // donate
             routes.MapRoute(
                name: "Donate list",
