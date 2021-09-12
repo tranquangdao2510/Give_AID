@@ -3463,16 +3463,13 @@
     <Content Include="Areas\Admins\Views\Fund\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Fund\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Donate\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\Admins\Views\Donate\_GetDetail.cshtml" />
-=======
     <Content Include="Areas\Admins\Views\Blogs\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Blogs\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Volunteers\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Volunteers\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Volunteers\Index.cshtml" />
->>>>>>> f12a61490d3a427a669a40d8dc1e1803f33ffe3f
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
