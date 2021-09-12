@@ -17,22 +17,25 @@ namespace Give_Aid.Controllers
 
   
 
-        public ActionResult Index(int? page,string search_name)
+        public ActionResult Index(int? page,string search_name,string search_cate)
         {
             page = page ?? 1;
-            int pagesize = 6;
+            int pagesize=6 ;
             var dao = new FundDao();
-            ViewBag.Get = dao.GetAll(search_name).ToPagedList(page.Value,pagesize);
+            ViewBag.Get = dao.GetAll(search_name,search_cate).ToPagedList(page.Value,pagesize);
             ViewBag.Featured = dao.FundFeatured(1);
+            ViewBag.GetFaq = dao.GetFaq(3);
+
             return View();
         }
 
-        public ActionResult FundDetail(string id)
+        public ActionResult FundDetail(string id,string search_cate)
         {
             var model = new FundDao();
             ViewBag.GetDetail = model.Detail(id);
             ViewBag.Featured = model.newFund(3);
             ViewBag.GetDonate = model.GetDonate(2);
+            ViewBag.GetCate = model.GetCate(5);
             SetViewBag();
             if (id == null)
             {
@@ -57,8 +60,10 @@ namespace Give_Aid.Controllers
         public void SetViewBag(int? selectedId = null)
         {
             var customerdao = new CustomerDao();
+            var catedao = new CategoryDao();
 
             ViewBag.CustomerId = new SelectList(customerdao.GetAll(), "CustomerId", "CustomerName", selectedId);
+            ViewBag.CategoryId = new SelectList(catedao.GetAll(), "CategoryId", "CategoryName", selectedId);
 
         }
 

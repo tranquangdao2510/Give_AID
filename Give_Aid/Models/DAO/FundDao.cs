@@ -15,16 +15,17 @@ namespace Give_Aid.Models.DAO
         {
             db = new NgoEntity();
         }
-        public IEnumerable<Fund> GetAll(string search_name)
+        public IEnumerable<Fund> GetAll(string search_name,string search_cate)
         {
             search_name = search_name ?? "";
-            return db.Funds.Where(x => x.FundName.Contains(search_name)).OrderBy(x=>x.FundName);
+            search_cate = search_cate ?? "";
+            return db.Funds.Where(x => x.FundName.Contains(search_name) && (x.CategoryId.ToString().Contains(search_cate))).OrderBy(x=>x.CategoryId);
         }
         public string Insert(Fund fund)
         {
-            db.Funds.Add(fund);
-            fund.CreateDate = DateTime.Now;
-            db.SaveChanges();
+                db.Funds.Add(fund);
+                fund.CreateDate = DateTime.Now;
+                db.SaveChanges();
             return fund.FundId;
         }
         public Fund Detail(string id)
@@ -108,6 +109,14 @@ namespace Give_Aid.Models.DAO
             {
                 return false;
             }
+        }
+        public IEnumerable<Faq> GetFaq(int orderby)
+        {
+            return db.Faqs.Where(x => x.Status == true).OrderBy(x => x.CreateDate).Take(orderby).ToList();
+        }
+        public IEnumerable<Category> GetCate(int orderby)
+        {
+            return db.Categories.Where(x => x.Status == true).OrderBy(x => x.CreateDate).Take(orderby).ToList();
         }
     }
 }

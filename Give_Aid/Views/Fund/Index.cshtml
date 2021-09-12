@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var listAll = (PagedList.IPagedList<Give_Aid.Models.DataAccess.Fund>)ViewBag.Get;
     var listFeatured = (List<Give_Aid.Models.DataAccess.Fund>)ViewBag.Featured;
+    var listfaq = (List<Give_Aid.Models.DataAccess.Faq>)ViewBag.GetFaq;
+
 
 
 }
@@ -69,8 +71,7 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     @{
-                        int count = (listAll.Count + 6) / 7;
-                        for (int i = 1; i <= count; i++)
+                        for (int i = 1; i <= listAll.Count; i++)
                         {
                             <li class="page-item"><a class="page-link" href="?page=@i">@i</a></li>
                         }
@@ -139,49 +140,26 @@
                 <!-- Spacer For Medium -->
 
                 <div class="col-12 col-lg-6 col-md-12">
-                    <div class="theme-collapse light">
-                        <!-- Toggle Links 1 -->
-                        <div class="toggle arrow-down">
-                            <span class="icon">
-                                <i class="icofont-plus"></i>
-                            </span> Our Philosophy
-                        </div>
-                        <!-- Toggle Links 1 -->
-                        <!-- Toggle Content 1 -->
-                        <div class="collapse show">
-                            <div class="content">
-                                Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.
+                    <div class="col-12 col-lg-6 col-md-12">
+                        @foreach (var item in listfaq)
+                        {
+                            <div class="theme-collapse light">
+                                <!-- Toggle Links  -->
+                                <div class="toggle arrow-down">
+                                    <span class="icon">
+                                        <i class="icofont-plus"></i>
+                                    </span> @item.Question
+                                </div>
+                                <!-- Toggle Links  -->
+                                <!-- Toggle Content  -->
+                                <div class="collapse show">
+                                    <div class="content">
+                                        @item.Answered
+                                    </div>
+                                </div>
+                                <!-- Toggle Content  -->
                             </div>
-                        </div>
-                        <!-- Toggle Content 1 -->
-                        <!-- Toggle Links 2 -->
-                        <div class="toggle">
-                            <span class="icon">
-                                <i class="icofont-plus"></i>
-                            </span> Our Organization
-                        </div>
-                        <!-- Toggle Links 2 -->
-                        <!-- Toggle Content 2 -->
-                        <div class="collapse">
-                            <div class="content">
-                                Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.
-                            </div>
-                        </div>
-                        <!-- Toggle Content 2 -->
-                        <!-- Toggle Links 3 -->
-                        <div class="toggle">
-                            <span class="icon">
-                                <i class="icofont-plus"></i>
-                            </span> Know More About Adoption
-                        </div>
-                        <!-- Toggle Links 3 -->
-                        <!-- Toggle Content 3 -->
-                        <div class="collapse">
-                            <div class="content">
-                                Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.
-                            </div>
-                        </div>
-                        <!-- Toggle Content 3 -->
+                        }
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@
     var getdetail = ViewBag.GetDetail;
     var getnewfund = (List<Give_Aid.Models.DataAccess.Fund>)ViewBag.Featured;
     var getdonate = (List<Give_Aid.Models.DataAccess.Donate>)ViewBag.GetDonate;
+    var getcate = (List<Give_Aid.Models.DataAccess.Category>)ViewBag.GetCate;
 
 
 
@@ -149,10 +150,10 @@
 
                             <div class="blog-list-categories">
                                 <ul class="list-unstyled icons-listing theme-orange mb-0">
-                                    @*@foreach (var item in listcate)
+                                    @foreach (var item in getcate)
                                         {
                                             <li><a href="">@item.CategoryName</a></li>
-                                        }*@
+                                        }
                                 </ul>
                             </div>
                         </div>
