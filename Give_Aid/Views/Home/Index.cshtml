@@ -91,12 +91,12 @@
 
             @foreach (var item in listTopfund)
             {
-                var url = "/Fund" + item.MetaTitle + "-" + item.FundId;
+                var url = "/Fund/" + item.MetaTitle + "-" + item.FundId;
                 <div class="col-sm-6 col-md-6 col-lg-3">
                     <!-- Icon Boxes Image Style -->
                     <div class="icon-box-with-img">
                         <div class="img">
-                            <a href="causes-single.html"><img src="@item.FundImg" alt=""></a>
+                            <a href="@url"><img src="@item.FundImg" alt=""></a>
                         </div>
                         <div class="text">
                             <h3>@item.FundName</h3>
@@ -174,11 +174,11 @@
             @foreach (var item in listAllfund)
             {
 
-                var url = "/Fund" + item.MetaTitle + "-" + item.FundId;
+                var url = "/Fund/" + item.MetaTitle + "-" + item.FundId;
                 <div class="item">
                     <div class="causes-wrap">
                         <div class="img-wrap">
-                            <a href="causes-single.html"><img src="@item.FundImg" alt=""></a>
+                            <a href="@url"><img src="@item.FundImg" alt=""></a>
                             <div class="raised-progress">
                                 <div class="skillbar-wrap">
                                     <div class="clearfix">
@@ -197,7 +197,7 @@
                             <h3><a href="@url">@item.FundName</a></h3>
                             <p>@item.Description</p>
                             <div class="btn-wrap">
-                                <a class="btn-primary btn" href="causes-single.html">Donate Now</a>
+                                <a class="btn-primary btn" href="/Donate">Donate Now</a>
                             </div>
                         </div>
                     </div>
@@ -221,7 +221,7 @@
                     <small>Help Other People</small>
                     We Dream to Create A Bright Future Of The Underprivileged Children
                 </h1>
-                <a href="donation-page.html" class="btn btn-default">Donate Now</a>
+                <a href="/Donate" class="btn btn-default">Donate Now</a>
             </div>
         </div>
     </div>

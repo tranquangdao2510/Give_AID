@@ -38,11 +38,9 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="/Admins/Home" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
+               
             </ul>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
@@ -169,8 +167,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="/Areas/Admins/Content/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                @*<img src="/Areas/Admins/Content/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">*@
+                <span class="brand-text font-weight-light">Give_Aid</span>
             </a>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -180,7 +178,17 @@
                         <img src="/Areas/Admins/Content/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <ul class="nav">
+                            @{
+                                var session = Session[Give_Aid.Common.CommonAdmin.ADMIN_SESSION] as Give_Aid.Common.AdminLogin;
+                                if (session != null)
+                                {
+                                    <li class="nav-item"> <a href="/Admins/Login/Logout" class="d-block">Hello: @session.AdminName</a></li>
+                                   
+                                }
+                            }
+
+                        </ul>
                     </div>
                 </div>
                 <!-- SidebarSearch Form -->

@@ -32,37 +32,45 @@ namespace Give_Aid.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DonateList(Donate entity)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var dao = new DonateDao();
-                var session = Session[Give_Aid.Common.CommonConstants.USER_SESSION] as Give_Aid.Common.CustomerLogin;
-                entity.CustomerId = session.CustomerId;
-                entity.Status = false;
-                int id= dao.Insert(entity);
-
-                // send mail
-                string name = session.CustomerName;
-                string phone = session.Phone;
-                string address = session.Address;
-                string email = session.Email;
-                var total = entity.Amount ;
-                string subject = "New donate customers";
-                string conten = System.IO.File.ReadAllText(Server.MapPath("~/Views/Donate/newDonate.html"));
-                conten = conten.Replace("{{CustomerName}}", name);
-                conten = conten.Replace("{{Phone}}", phone);
-                conten = conten.Replace("{{Address}}", address);
-                conten = conten.Replace("{{Email}}", email);
-                conten = conten.Replace("{{Amount}}", total.ToString());
-                WebMail.Send("eprojectsemiii@gmail.com", subject, conten, null, null, null, true, null, null, null, null, null, null);
-
-                if (id != null)
+                if (ModelState.IsValid)
                 {
-                    return RedirectToAction("Index", "Home");
+                    var dao = new DonateDao();
+                    var session = Session[Give_Aid.Common.CommonConstants.USER_SESSION] as Give_Aid.Common.CustomerLogin;
+                    entity.CustomerId = session.CustomerId;
+                    entity.Status = false;
+                    int id = dao.Insert(entity);
+
+                    // send mail
+                    string name = session.CustomerName;
+                    string phone = session.Phone;
+                    string address = session.Address;
+                    string email = session.Email;
+                    var total = entity.Amount;
+                    string subject = "New donate customers";
+                    string conten = System.IO.File.ReadAllText(Server.MapPath("~/Views/Donate/newDonate.html"));
+                    conten = conten.Replace("{{CustomerName}}", name);
+                    conten = conten.Replace("{{Phone}}", phone);
+                    conten = conten.Replace("{{Address}}", address);
+                    conten = conten.Replace("{{Email}}", email);
+                    conten = conten.Replace("{{Amount}}", total.ToString());
+                    WebMail.Send("eprojectsemiii@gmail.com", subject, conten, null, null, null, true, null, null, null, null, null, null);
+
+                    if (id != null)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "error");
+                    }
                 }
-                else
-                {
-                    ModelState.AddModelError("", "error");
-                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
            
             SetViewBag();
