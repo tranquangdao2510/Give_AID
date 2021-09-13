@@ -34,22 +34,29 @@ namespace Give_Aid.Areas.Admins.Controllers
                 }
                 else if (result == 0)
                 {
-                    ModelState.AddModelError("", "tai khoan ko ton tai");
+                    ModelState.AddModelError("", "The account does not exist.");
                 }
                 else if (result == -1)
                 {
-                    ModelState.AddModelError("", "tai khoan dang bi khoa");
+                    ModelState.AddModelError("", "Account is locked");
                 }
                 else if (result == -2)
                 {
-                    ModelState.AddModelError("", "mat khau ko dung");
+                    ModelState.AddModelError("", "Incorrect password");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Vui long kiem tra tk mk");
+                    ModelState.AddModelError("", "Please check your account again");
                 }
             }
             return View("Index");
+        }
+
+        public ActionResult Logout()
+        {
+            Session[Common.CommonAdmin.ADMIN_SESSION] = null;
+
+            return RedirectToAction("Index", "Login");
         }
     }
 }

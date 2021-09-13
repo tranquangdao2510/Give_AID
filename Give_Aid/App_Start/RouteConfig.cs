@@ -73,6 +73,12 @@ namespace Give_Aid
                defaults: new { controller = "Donate", action = "DonateList", id = UrlParameter.Optional },
                new[] { "Give_Aid.Controllers" }
            );
+            routes.MapRoute(
+               name: "Donate",
+               url: "Donate-{id}",
+               defaults: new { controller = "Donate", action = "DonateList", id = UrlParameter.Optional },
+               new[] { "Give_Aid.Controllers" }
+           );
 
             // customer
             routes.MapRoute(
@@ -111,8 +117,6 @@ namespace Give_Aid
                defaults: new { controller = "ImagesGallery", action = "ImagesDetail", id = UrlParameter.Optional },
                new[] { "Give_Aid.Controllers" }
            );
-
-            
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

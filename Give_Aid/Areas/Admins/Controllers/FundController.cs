@@ -54,7 +54,7 @@ namespace Give_Aid.Areas.Admins.Controllers
                     }
                     catch (Exception ex)
                     {
-                      ex.Message.Contains(ViewBag.error = "trùng khóa");
+                      ex.Message.Contains(ViewBag.error = "id already exists");
                     }
                 }
             

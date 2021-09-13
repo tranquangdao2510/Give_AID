@@ -14,7 +14,6 @@ namespace Give_Aid.Controllers
     {
         // GET: Fund
         private NgoEntity db = new NgoEntity();
-
   
 
         public ActionResult Index(int? page,string search_name)
@@ -28,12 +27,16 @@ namespace Give_Aid.Controllers
 
             return View();
         }
-        public ActionResult IndexFundByCate(int? page,string search_cate)
+       
+
+        public ActionResult Search(int? page, string search_name, string search_cate, string keyword)
         {
             page = page ?? 1;
-            int pagesize=6 ;
+            int pagesize = 6;
             var dao = new FundDao();
-            ViewBag.GetbyCate = dao.GetByCate(search_cate).ToPagedList(page.Value,pagesize);
+            ViewBag.Get = dao.GetAll(search_name).ToPagedList(page.Value, pagesize);
+            ViewBag.Featured = dao.FundFeatured(1);
+            ViewBag.GetFaq = dao.GetFaq(3);
 
             return View();
         }
@@ -61,10 +64,6 @@ namespace Give_Aid.Controllers
                 data = data,
                 status= true
             },JsonRequestBehavior.AllowGet);
-        }
-        public ActionResult Search(string keyword)
-        {
-            return View();
         }
         public void SetViewBag(int? selectedId = null)
         {

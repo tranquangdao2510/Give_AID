@@ -48,7 +48,7 @@
 
                                 <div class="d-md-flex align-items-end justify-content-between">
 
-                                    <a class="btn-outline-default btn" href="donation-page.html">Donate Now</a>
+                                    <a class="btn-outline-default btn" href="@Url.Action("DonateList","Donate",new {id=getdetail.FundId})}">Donate Now</a>
                                 </div>
                             </div>
                         </div>
@@ -98,18 +98,16 @@
                                         <div class="raised-progress">
                                             <div class="skillbar-wrap">
                                                 <div class="clearfix">
-                                                    <span class="txt-orange">$10086</span> raised of <span class="txt-green">$15000</span>
+                                                    <span class="txt-orange">$@item.CurentAmount</span> raised of <span class="txt-green">$@item.TargetAmount</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="content-wrap">
-                                        <span class="tag">Health</span>
-                                        <h3><a href="causes-single.html">Supply Water For Good Health</a></h3>
-                                        <div class="text-md-right">
-                                            <a href="@Url.Action("FundDetail","Fund",new{id=item.FundId})" class="read-more-line"><span>Read More</span></a>
-                                        </div>
+                                        <span class="tag">@item.Category.CategoryName</span>
+                                        <h3><a href="@item.MetaTitle-@item.FundId">Supply Water For Good Health</a></h3>
+                                        
                                     </div>
 
                                 </div>

@@ -1,10 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "Fund";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    var listAll = (PagedList.IPagedList<Give_Aid.Models.DataAccess.Fund>)ViewBag.Get;
-    var listFeatured = (List<Give_Aid.Models.DataAccess.Fund>)ViewBag.Featured;
-    var listfaq = (List<Give_Aid.Models.DataAccess.Faq>)ViewBag.GetFaq;
+                /**/
+
+                ViewBag.Title = "Fund";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+                var listAll = (PagedList.IPagedList<Give_Aid.Models.DataAccess.Fund>)ViewBag.Get;
+                var listFeatured = (List<Give_Aid.Models.DataAccess.Fund>)ViewBag.Featured;
+                var listfaq = (List<Give_Aid.Models.DataAccess.Faq>)ViewBag.GetFaq;
 
 
 
@@ -12,7 +14,7 @@
 
 
 
-<!-- Page Breadcrumbs Start --> 
+<!-- Page Breadcrumbs Start -->
 <section class="breadcrumbs-page-wrap">
     <div class="bg-fixed pos-rel breadcrumbs-page">
         <div class="container">
@@ -39,7 +41,7 @@
                     <!-- Causes Wrap -->
                     <div class="causes-wrap">
                         <div class="img-wrap">
-                            <a href="Fund/@item.MetaTitle-@item.FundId"><img src="@item.FundImg" alt="" height="275"></a>
+                            <a href="Detail/@item.MetaTitle-@item.FundId"><img src="@item.FundImg" alt="" height="275"></a>
                             <div class="raised-progress">
                                 <div class="skillbar-wrap">
                                     <div class="clearfix">
@@ -55,10 +57,10 @@
 
                         <div class="content-wrap" style="word-wrap: break-word">
                             <span class="tag">@item.Category.CategoryName</span>
-                            <h3><a href="Fund/@item.MetaTitle-@item.FundId">@item.FundName</a></h3>
+                            <h3><a href="@item.MetaTitle-@item.FundId">@item.FundName</a></h3>
                             <p>@Html.Raw(item.Description)</p>
                             <div class="btn-wrap">
-                                <a class="btn-primary btn" href="Donate-@item.FundId">Donate Now</a>
+                                <a class="btn-primary btn" href="@Url.Action("DonateList","Donate",new {id = item.FundId})">Donate Now</a>
                             </div>
                         </div>
 
@@ -71,7 +73,7 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     @{
-                        int count = (listAll.Count) ;
+                        int count = (listAll.Count);
                         for (int i = 1; i <= count; i++)
                         {
                             <li class="page-item"><a class="page-link" href="?page=@i">@i</a></li>
@@ -94,7 +96,7 @@
                         <img src="@featured.FundImg" alt="" width="100%">
                         <div class="featured-cause-timer">
                             <h3><strong class="txt-orange">$@featured.CurentAmount</strong> raised of <strong class="txt-blue">$@featured.TargetAmount</strong></h3>
-                            
+
 
                         </div>
                     </div>
@@ -108,7 +110,7 @@
                         </h1>
                         <p>@Html.Raw(@featured.Description)</p>
                         <div class="d-flex align-items-center justify-content-between mt-4">
-                            <a href="Donate-{@featured.FundId}" class="btn btn-default">Donate Now</a>
+                            <a href="@Url.Action("DonateList","Donate",new {id = featured.FundId})" class="btn btn-default">Donate Now</a>
                             <div class="share-on-text">
                                 <strong>Share On</strong> <a href="#"><img src="assets/images/facebook.svg" alt=""></a> <a href="#"><img src="assets/images/instagram.svg" alt=""></a>
                             </div>
@@ -169,5 +171,4 @@
 </section>
 <!-- Faq's Style End -->
 <!-- Our Partners Start -->
-
 <!-- Our Partners End -->

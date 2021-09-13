@@ -81,17 +81,20 @@ namespace Give_Aid.Areas.Admins.Controllers
 
         public ActionResult Delete(int id)
         {
-          
-            var dao = new OrganizationDao();
-            var result = dao.Delete(id);
-            if (result)
+
+            if(ModelState.IsValid)
             {
-                SetAlert("Delete organization success", "success");
-                return RedirectToAction("Index", "Organization");
-            }
-            else
-            {
-                ModelState.AddModelError("", "error");
+                var dao = new OrganizationDao();
+                var result = dao.Delete(id);
+                if (result)
+                {
+                    SetAlert("Delete organization success", "success");
+                    return RedirectToAction("Index", "Organization");
+                }
+                else
+                {
+                    SetAlert("Unable to delete category with data", "error");
+                }
             }
             return RedirectToAction("Index");
         }

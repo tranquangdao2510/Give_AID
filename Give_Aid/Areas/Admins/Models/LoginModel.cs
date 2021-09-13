@@ -8,9 +8,9 @@ namespace Give_Aid.Areas.Admins.Models
 {
     public class LoginModel
     {
-        [Required(ErrorMessage = " ban vui long nhap ten")]
+        [Required(ErrorMessage = "name login must not be vacated.")]
         public string AdminName { get; set; }
-        [Required(ErrorMessage = " ban vui long nhap mat khau")]
+        [Required(ErrorMessage = "Passwords must not be left blank")]
         public string Password { get; set; }
 
         public bool RemenberMe { get; set; }

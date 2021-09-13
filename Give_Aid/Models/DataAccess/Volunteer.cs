@@ -17,6 +17,7 @@ namespace Give_Aid.Models.DataAccess
         public string VolunteersName { get; set; }
 
         [StringLength(200)]
+        [EmailAddress(ErrorMessage = "Invalid Email Address. Example(abc@gmail.com)")]
         [Required(ErrorMessage = "Email cannot be empty")]
         public string Email { get; set; }
 

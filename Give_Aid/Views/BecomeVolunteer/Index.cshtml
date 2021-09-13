@@ -84,6 +84,10 @@
                             {
                                 <div id="error-alertimg" class="alert alert-warning">@ViewBag.valiimg</div>
                             }
+                            @if (ViewBag.emaillimited != null)
+                            {
+                                <div id="error-alertlimited" class="alert alert-warning">@ViewBag.emaillimited</div>
+                            }
                             @using (Html.BeginForm("index", "BecomeVolunteer", FormMethod.Post, new { @enctype = "multipart/form-data" }))
                             {
                                 @Html.AntiForgeryToken()
@@ -167,6 +171,9 @@
     });
     $("#error-alertimg").fadeTo(10000, 5000).slideUp(2000, function () {
         $("#error-alertimg").slideUp(500);
+    });
+    $("#error-alertlimited").fadeTo(10000, 5000).slideUp(2000, function () {
+        $("#error-alertlimited").slideUp(500);
     });
 </script>
 <!-- Our Partners End -->
