@@ -7,10 +7,12 @@ namespace Give_Aid.Migrations
     {
         public override void Up()
         {
+            DropColumn("dbo.Comtact", "MetaTitle");
         }
         
         public override void Down()
         {
+            AddColumn("dbo.Comtact", "MetaTitle", c => c.String(maxLength: 250));
         }
     }
 }
