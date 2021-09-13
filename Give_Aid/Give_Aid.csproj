@@ -195,6 +195,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\202109130105337_v1.cs" />
     <Compile Include="Migrations\202109130105337_v1.Designer.cs">
       <DependentUpon>202109130105337_v1.cs</DependentUpon>
@@ -202,6 +203,11 @@
     <Compile Include="Migrations\202109130743433_v2.cs" />
     <Compile Include="Migrations\202109130743433_v2.Designer.cs">
       <DependentUpon>202109130743433_v2.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\202109130728535_v1.cs" />
+    <Compile Include="Migrations\202109130728535_v1.Designer.cs">
+      <DependentUpon>202109130728535_v1.cs</DependentUpon>
+>>>>>>> b48dd67dac7730c29d48debd9daa32530385a681
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AboutDao.cs" />
@@ -3655,11 +3661,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202109130105337_v1.resx">
       <DependentUpon>202109130105337_v1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109130743433_v2.resx">
       <DependentUpon>202109130743433_v2.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\202109130728535_v1.resx">
+      <DependentUpon>202109130728535_v1.cs</DependentUpon>
+>>>>>>> b48dd67dac7730c29d48debd9daa32530385a681
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
