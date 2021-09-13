@@ -14,12 +14,11 @@ namespace Give_Aid.Models.DataAccess
 
         [StringLength(250)]
         [Required(ErrorMessage = "Name cannot be empty")]
-
         public string PartnerName { get; set; }
 
-        [StringLength(200)]
-        [Required(ErrorMessage = "Email cannot be empty")]
-
+        [Required(ErrorMessage = "The Email must not be vacated.")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [StringLength(250)]
         public string Email { get; set; }
 
         [StringLength(500)]
@@ -30,16 +29,18 @@ namespace Give_Aid.Models.DataAccess
 
         public string Address { get; set; }
 
-        [StringLength(50)]
-        [Required(ErrorMessage = "Phone cannot be empty")]
+
+        [StringLength(200)]
+        [Required(ErrorMessage = "The phone must not be vacated.")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+
 
         public string Phone { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
         public DateTime? UpdatedDate { get; set; }
-
-        [Required(ErrorMessage = "Status cannot be empty")]
         public bool Status { get; set; }
         public string MetaTitle { get; set; }
     }

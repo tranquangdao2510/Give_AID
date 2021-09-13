@@ -28,22 +28,25 @@ namespace Give_Aid.Areas.Admins.Controllers
         [HttpPost]
         public ActionResult Create(Partner partner)
         {
-            var dao = new PartnerDao();
-            
-            int id = dao.Insert(partner);
-            if (id > 0)
+            if (ModelState.IsValid)
             {
-                SetAlert("Create Partner success", "success");
-                return RedirectToAction("Index", "Partner");
+                var dao = new PartnerDao();
 
+                int id = dao.Insert(partner);
+                if (id > 0)
+                {
+                    SetAlert("Create Partner success", "success");
+                    return RedirectToAction("Index", "Partner");
+
+                }
+                else
+                {
+                    ModelState.AddModelError("", "error");
+
+                }
+                return View("Index");
             }
-            else
-            {
-                ModelState.AddModelError("", "error");
-
-            }
-
-            return View("Index");
+            return View(partner);
         }
         [HttpGet]
         public ActionResult Edit(int id)

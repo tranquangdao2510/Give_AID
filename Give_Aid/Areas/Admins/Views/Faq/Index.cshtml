@@ -13,7 +13,7 @@
                 <h3 class="card-title">Faq</h3>
 
                 <div class="card-tools">
-                    <form action="Faq" method="get">
+                    <form action="" method="get">
                         <div class="input-group input-group-sm" style="width: 220px;">
                             <div class="input-group-append"><a href="/Admins/Faq/Create" class=" btn btn-success">Create at</a></div>
                             <input type="text" name="search_question" class="form-control float-right" placeholder="Search">
@@ -36,7 +36,7 @@
                             <th>Questiom</th>
                             <th>Answered</th>
                             <th>CreateDate</th>
-                            <th>UpdateDate</th>
+                            
                             <th>Status</th>
                             <th>#</th>
                         </tr>
@@ -58,9 +58,7 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.CreateDate)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.UpdatedDate)
-                                </td>
+                                
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Status)
                                 </td>

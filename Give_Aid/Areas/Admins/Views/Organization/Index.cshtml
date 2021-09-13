@@ -13,7 +13,7 @@
                 <h3 class="card-title">Organization</h3>
 
                 <div class="card-tools">
-                    <form action="/Organization" method="get" >
+                    <form action="" method="get" >
                         <div class="input-group input-group-sm" style="width: 220px;">
                             <div class="input-group-append"><a href="/Admins/Organization/Create" class=" btn btn-success">Create at</a></div>
                             <input type="text" name="search_name" class="form-control float-right" placeholder="Search">
@@ -34,11 +34,9 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Slug</th>
                             <th>Address</th>
                             <th>Phone</th>
                             <th>CreateDate</th>
-                            <th>UpdateDate</th>
                             <th>Status</th>
                             <th>#</th>
                         </tr>
@@ -55,9 +53,6 @@
                                     @Html.DisplayFor(modelItem => item.OrganizationName)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.MetaTitle)
-                                </td>
-                                <td>
                                     @Html.DisplayFor(modelItem => item.Address)
                                 </td>
                                 <td>
@@ -65,9 +60,6 @@
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.CreatedDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.UpdatedDate)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Status)

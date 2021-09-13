@@ -21,7 +21,11 @@ namespace Give_Aid.Models.DAO
         {
             return db.Volunteers.Where(b => b.Status == true).OrderByDescending(b => b.CreateDate).ToList();
         }
-
+        public int CountVolunteer()
+        {
+            var count = db.Funds.Count();
+            return count;
+        }
 
     }
 }

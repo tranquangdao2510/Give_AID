@@ -2,7 +2,184 @@
 @{
     ViewBag.Title = "Dashboard";
     Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
+    var countOrg = ViewBag.CountOrg;
+    var countCus = ViewBag.CountCus;
+    var countFund = ViewBag.CountFud;
+    var countVolt = ViewBag.CountVlo;
+    var listDonate = (List<Give_Aid.Models.DataAccess.Donate>)ViewBag.ListDonate;
+    var listFund = (List<Give_Aid.Models.DataAccess.Fund>)ViewBag.ListFund;
 }
 
-<h2>Dashboard</h2>
-a
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box">
+            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-money-bill"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Organization</span>
+                <span class="info-box-number">
+                    @countOrg
+                    <small></small>
+                </span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Customer</span>
+                <span class="info-box-number">@countCus</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <!-- fix for small devices only -->
+    <div class="clearfix hidden-md-up"></div>
+
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-landmark"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Fund</span>
+                <span class="info-box-number">@countFund</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">New Voluteers</span>
+                <span class="info-box-number">@countVolt</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+</div>
+
+<div class="row">
+    <div class="col-7">
+        <div class="card">
+            <div class="card-header border-transparent">
+                <h3 class="card-title">Latest Orders</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table m-0">
+                        <thead>
+                            <tr>
+                                <th>Donate ID</th>
+                                <th>Customer Name</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in listDonate)
+                            {
+                               
+                                <tr>
+                                    <td>@item.DonateId</td>
+                                    <td>@item.Customer.CustomerName</td>
+                                    <td>
+
+                                        @if (item.Status == false)
+                                        {
+                                            <span class="badge badge-danger">Unfinished</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-success">Completed</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <div class="sparkbar" data-color="#00a65a" data-height="20">@item.CreateDate</div>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer clearfix">
+                @*<a href="/" class="btn btn-sm btn-info float-left">Place New Order</a>*@
+                <a href="/Admins/Donate" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+            </div>
+            <!-- /.card-footer -->
+        </div>
+    </div>
+    <div class="col-5">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Recently Added Products</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+                <ul class="products-list product-list-in-card pl-2 pr-2">
+                    @foreach (var item in listFund)
+                    {
+                        <li class="item">
+                            <div class="product-img">
+                                <img src="@item.FundImg" alt="Product Image" class="img-size-50">
+                            </div>
+                            <div class="product-info">
+                                <a href="javascript:void(0)" class="product-title">
+                                    @item.FundName
+                                    <span class="badge badge-warning float-right">$@item.TargetAmount</span>
+                                </a>
+                                <span class="product-description">
+                                    @item.Description
+                                </span>
+                            </div>
+                        </li>
+                    }
+                    <!-- /.item -->
+                    <!-- /.item -->
+                </ul>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer text-center">
+                <a href="/Admins/Fund" class="uppercase">View All Fund</a>
+            </div>
+            <!-- /.card-footer -->
+        </div>
+    </div>
+</div>
+
+

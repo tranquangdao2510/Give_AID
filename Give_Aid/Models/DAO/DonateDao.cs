@@ -93,5 +93,10 @@ namespace Give_Aid.Models.DAO
             db.SaveChanges();
             return donate.Status;
         }
+
+        public List<Donate> getAll()
+        {
+            return db.Donates.OrderByDescending(x => x.CreateDate).Take(7).ToList();
+        }
     }
 }

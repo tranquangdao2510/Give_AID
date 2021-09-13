@@ -23,21 +23,15 @@ namespace Give_Aid.Models.DataAccess
         [StringLength(250)]
         public string Email { get; set; }
         [Required(ErrorMessage = "Pasword cannot be vacated")]
-        [DataType(DataType.Password)]
+        //[DataType(DataType.Password)]
         [StringLength(250, MinimumLength = 6, ErrorMessage = "The password must have at least 6 characters.")]
-        [MembershipPassword(
-            MinRequiredNonAlphanumericCharacters = 1,
-            MinNonAlphanumericCharactersError = "Your password needs to contain at least one symbol (!, @, #, etc).",
-            ErrorMessage = "Your password must be 6 characters long and contain at least one symbol (!, @, #, etc).",
-            MinRequiredPasswordLength = 6
-        )]
-
+        //[RegularExpression("(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,30})$" ,ErrorMessage = "Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special character")]
         public string PassWord { get; set; }
         [Required(ErrorMessage = "The address must not be vacated.")]
         [StringLength(250)]
         public string Address { get; set; }
         [Required(ErrorMessage = "The phone must not be vacated.")]
-        [DataType(DataType.PhoneNumber)]
+        //[DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
         public string Phone { get; set; }
         
