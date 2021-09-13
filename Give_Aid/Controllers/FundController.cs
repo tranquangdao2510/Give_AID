@@ -17,14 +17,23 @@ namespace Give_Aid.Controllers
 
   
 
-        public ActionResult Index(int? page,string search_name,string search_cate)
+        public ActionResult Index(int? page,string search_name)
         {
             page = page ?? 1;
             int pagesize=6 ;
             var dao = new FundDao();
-            ViewBag.Get = dao.GetAll(search_name,search_cate).ToPagedList(page.Value,pagesize);
+            ViewBag.Get = dao.GetAll(search_name).ToPagedList(page.Value,pagesize);
             ViewBag.Featured = dao.FundFeatured(1);
             ViewBag.GetFaq = dao.GetFaq(3);
+
+            return View();
+        }
+        public ActionResult IndexFundByCate(int? page,string search_cate)
+        {
+            page = page ?? 1;
+            int pagesize=6 ;
+            var dao = new FundDao();
+            ViewBag.GetbyCate = dao.GetByCate(search_cate).ToPagedList(page.Value,pagesize);
 
             return View();
         }

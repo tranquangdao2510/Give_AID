@@ -133,7 +133,7 @@
                                     {
                                         <li>
                                             <div>
-                                                <h4 class="name">@item.CustomerId</h4>
+                                                <h4 class="name">@item.Customer.CustomerName</h4>
                                                 <div class="money">@item.Amount</div>
                                             </div>
                                         </li>
@@ -152,7 +152,7 @@
                                 <ul class="list-unstyled icons-listing theme-orange mb-0">
                                     @foreach (var item in getcate)
                                         {
-                                            <li><a href="">@item.CategoryName</a></li>
+                                            <li><a href="@Url.Action("IndexFundByCate","Fund",new {id=item.CategoryId})">@item.CategoryName</a></li>
                                         }
                                 </ul>
                             </div>

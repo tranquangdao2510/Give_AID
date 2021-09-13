@@ -15,11 +15,11 @@ namespace Give_Aid.Models.DAO
         {
             db = new NgoEntity();
         }
-        public IEnumerable<Fund> GetAll(string search_name,string search_cate)
+        public IEnumerable<Fund> GetAll(string search_name)
         {
             search_name = search_name ?? "";
-            search_cate = search_cate ?? "";
-            return db.Funds.Where(x => x.FundName.Contains(search_name) && (x.CategoryId.ToString().Contains(search_cate))).OrderBy(x=>x.CategoryId);
+            
+            return db.Funds.Where(x => x.FundName.Contains(search_name)).OrderBy(x=>x.CategoryId);
         }
         public string Insert(Fund fund)
         {

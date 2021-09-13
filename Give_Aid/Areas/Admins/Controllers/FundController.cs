@@ -4,18 +4,19 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using System;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
     public class FundController : BaseController
     {
         // GET: Admins/Fund
-        public ActionResult Index(int? page, string search_name,string search_cate)
+        public ActionResult Index(int? page, string search_name)
         {
             page = page ?? 1;
             int pagesize = 3;
             var dao = new FundDao();
-            var model = dao.GetAll(search_name,search_cate);
+            var model = dao.GetAll(search_name);
             return View(model.ToPagedList(page.Value, pagesize));
 
         }
@@ -28,25 +29,35 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [HandleError]
         public ActionResult Create(Fund fund)
         {
-            if (ModelState.IsValid)
-            {
-                var dao = new FundDao();
-                string id = dao.Insert(fund);
-                if (id != null)
+         
+                if (ModelState.IsValid)
                 {
-                    SetAlert("Create Fund success", "success");
-                    return RedirectToAction("Index", "Fund");
+                    try
+                    {
+                        var dao = new FundDao();
+                        string id = dao.Insert(fund);
+                        if (id != null)
+                        {
+                            SetAlert("Create Fund success", "success");
+                            return RedirectToAction("Index", "Fund");
 
-                }
-                else
-                {
-                    ModelState.AddModelError("", "error");
-                }
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "error");
+                        }
 
-                return View("Index");
-            }
+                        return View("Index");
+                    }
+                    catch (Exception ex)
+                    {
+                      ex.Message.Contains(ViewBag.error = "trùng khóa");
+                    }
+                }
+            
             
             SetviewBag();
             return View(fund);

@@ -35,5 +35,14 @@ namespace Give_Aid.Areas.Admins.Controllers
                 TempData["AlertType"] = "alert-danger";
             }
         }
+        protected void Alert(String message, string type)
+        {
+            TempData["Message"] = message;
+            if(type == "error")
+            {
+                TempData["AlertType"] = "alert-error";
+            }
+            
+        }
     }
 }

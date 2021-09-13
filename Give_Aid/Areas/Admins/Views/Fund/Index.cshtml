@@ -5,8 +5,16 @@
     Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
 
 }
-
+<div class=" container-fluid">
+    @if (TempData["Message"] != null)
+    {
+        <div id="Alert" class="alert @TempData["AlertType"] hide">
+            @TempData["Message"]
+        </div>
+    }
+</div>
 <div class="row">
+    
     <div class="col-12">
         <div class="card">
             <div class="card-header">

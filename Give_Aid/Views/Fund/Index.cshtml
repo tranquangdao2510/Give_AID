@@ -39,7 +39,7 @@
                     <!-- Causes Wrap -->
                     <div class="causes-wrap">
                         <div class="img-wrap">
-                            <a href="Detail/@item.MetaTitle-@item.FundId"><img src="@item.FundImg" alt="" height="275"></a>
+                            <a href="Fund/@item.MetaTitle-@item.FundId"><img src="@item.FundImg" alt="" height="275"></a>
                             <div class="raised-progress">
                                 <div class="skillbar-wrap">
                                     <div class="clearfix">
@@ -55,7 +55,7 @@
 
                         <div class="content-wrap" style="word-wrap: break-word">
                             <span class="tag">@item.Category.CategoryName</span>
-                            <h3><a href="@item.MetaTitle-@item.FundId">@item.FundName</a></h3>
+                            <h3><a href="Fund/@item.MetaTitle-@item.FundId">@item.FundName</a></h3>
                             <p>@Html.Raw(item.Description)</p>
                             <div class="btn-wrap">
                                 <a class="btn-primary btn" href="@Url.Action("DonateList","Donate",new {id = item.FundId})">Donate Now</a>

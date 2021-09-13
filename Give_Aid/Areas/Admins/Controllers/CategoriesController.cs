@@ -10,7 +10,8 @@ using PagedList;
 namespace Give_Aid.Areas.Admins.Controllers
 {
     public class CategoriesController : BaseController
-    {// GET: Admins/Categories
+    {
+        // GET: Admins/Categories
         public ActionResult Index(int? page, string search_name)
         {
             page = page ?? 1;
@@ -80,17 +81,22 @@ namespace Give_Aid.Areas.Admins.Controllers
         public ActionResult Delete(int id)
         {
 
-            var dao = new CategoryDao();
-            var result = dao.Delete(id);
-            if (result)
-            {
-                SetAlert("Delete Categories success", "success");
-                return RedirectToAction("Index", "Categories");
-            }
-            else
-            {
-                ModelState.AddModelError("", "error");
-            }
+            
+                if (ModelState.IsValid)
+                {
+                    var dao = new CategoryDao();
+                    var result = dao.Delete(id);
+                    if (result)
+                    {
+                        SetAlert("Delete Categories success", "success");
+                        return RedirectToAction("Index", "Categories");
+                    }
+                    else
+                    {
+                        SetAlert("Unable to delete category with data", "error");
+                    }
+                }
+            
             return RedirectToAction("Index");
         }
     }
