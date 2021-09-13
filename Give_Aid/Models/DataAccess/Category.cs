@@ -14,7 +14,7 @@ namespace Give_Aid.Models.DataAccess
         {
             Funds = new HashSet<Fund>();
         }
-
+        [Key]
         public int CategoryId { get; set; }
 
         [StringLength(250)]

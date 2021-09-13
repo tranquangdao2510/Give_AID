@@ -6,12 +6,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using Give_Aid.Common;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
     public class CategoriesController : BaseController
-    {
-        // GET: Admins/Categories
+    {// GET: Admins/Categories
         public ActionResult Index(int? page, string search_name)
         {
             page = page ?? 1;
@@ -22,6 +22,8 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         [HttpGet]
+
+        [HasPermission(RoleId = "CREATE")]
         public ActionResult Create()
         {
             return View();
@@ -51,6 +53,8 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         [HttpGet]
+
+        [HasPermission(RoleId = "EDIT")]
         public ActionResult Edit(int id)
         {
             var cate = new CategoryDao().Detail(id);
@@ -78,6 +82,8 @@ namespace Give_Aid.Areas.Admins.Controllers
 
             return View(cate);
         }
+
+        [HasPermission(RoleId = "DELETE")]
         public ActionResult Delete(int id)
         {
 

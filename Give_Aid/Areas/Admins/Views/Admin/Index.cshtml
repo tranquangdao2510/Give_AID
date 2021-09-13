@@ -20,6 +20,7 @@
                     @using (Html.BeginForm("Index", "Admin", FormMethod.Get))
                     {
                     <div class="input-group input-group-sm" style="width: 220px;">
+                        <div class="input-group-append"><a href="/Admins/GroupAdmin/Create" class=" btn btn-default">Group Admin</a></div>
                         <div class="input-group-append"><a href="/Admins/Admin/Create" class=" btn btn-success">Create at</a></div>
                         <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control float-right" placeholder="Search">
 

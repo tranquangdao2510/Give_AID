@@ -21,13 +21,16 @@ namespace Give_Aid.Areas.Admins.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new AdminDao();
-                var result = dao.Login(model.AdminName, Encryptor.MD5Hash(model.Password));
+                var result = dao.Login(model.AdminName, Encryptor.MD5Hash(model.Password),true);
                 if (result == 1)
                 {
                     var user = dao.GetbyId(model.AdminName);
                     var userSession = new AdminLogin();
                     userSession.AdminName = user.AdminName;
                     userSession.AdminId = user.AdminId;
+                    userSession.GroupAdminId = user.GroupAdminId;
+                    var listPermission = dao.getListPermision(model.AdminName);
+                    Session.Add(CommonAdmin.SESSION_PERMISSION,listPermission);
 
                     Session.Add(CommonAdmin.ADMIN_SESSION, userSession);
                     return RedirectToAction("Dashboard", "Home");
@@ -43,6 +46,10 @@ namespace Give_Aid.Areas.Admins.Controllers
                 else if (result == -2)
                 {
                     ModelState.AddModelError("", "Incorrect password");
+                }
+                else if (result == -3)
+                {
+                    ModelState.AddModelError("", "tai khoan cu abnj lo co quyn");
                 }
                 else
                 {

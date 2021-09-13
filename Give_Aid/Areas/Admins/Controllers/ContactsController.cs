@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Give_Aid.Common;
 using Give_Aid.Models.DataAccess;
 using PagedList;
 
@@ -16,6 +17,8 @@ namespace Give_Aid.Areas.Admins.Controllers
         private NgoEntity db = new NgoEntity();
 
         // GET: Admins/Contacts
+
+        [HasPermission(RoleId = "VIEW")]
         public ActionResult Index(string search_email, int? page)
         {
             page = page ?? 1;
@@ -27,6 +30,8 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         // GET: Admins/Contacts/Create
+
+        [HasPermission(RoleId = "CREATE")]
         public ActionResult Create()
         {
             return View();
@@ -50,6 +55,8 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         // GET: Admins/Contacts/Edit/5
+
+        [HasPermission(RoleId = "EDIT")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,6 +88,8 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         // GET: Admins/Contacts/Delete/5
+
+        [HasPermission(RoleId = "DELETE")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
