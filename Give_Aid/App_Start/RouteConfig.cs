@@ -72,7 +72,7 @@ namespace Give_Aid
             // Fund
             routes.MapRoute(
                 name: "Fund Detail",
-                url: "Fund/{Metatitle}-{id}",
+                url: "Fund/{metatitle}-{id}",
                 defaults: new { controller = "Fund", action = "FundDetail", id = UrlParameter.Optional },
                 new[] { "Give_Aid.Controllers" }
             );
