@@ -195,25 +195,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202109091522454_v1.cs" />
-    <Compile Include="Migrations\202109091522454_v1.Designer.cs">
-      <DependentUpon>202109091522454_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109091539561_v2.cs" />
-    <Compile Include="Migrations\202109091539561_v2.Designer.cs">
-      <DependentUpon>202109091539561_v2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109091551395_v6.cs" />
-    <Compile Include="Migrations\202109091551395_v6.Designer.cs">
-      <DependentUpon>202109091551395_v6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109091553158_v21.cs" />
-    <Compile Include="Migrations\202109091553158_v21.Designer.cs">
-      <DependentUpon>202109091553158_v21.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109120846116_tqdao.cs" />
-    <Compile Include="Migrations\202109120846116_tqdao.Designer.cs">
-      <DependentUpon>202109120846116_tqdao.cs</DependentUpon>
+    <Compile Include="Migrations\202109121005307_v1.cs" />
+    <Compile Include="Migrations\202109121005307_v1.Designer.cs">
+      <DependentUpon>202109121005307_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AboutDao.cs" />
@@ -3622,20 +3606,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202109091522454_v1.resx">
-      <DependentUpon>202109091522454_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109091539561_v2.resx">
-      <DependentUpon>202109091539561_v2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109091551395_v6.resx">
-      <DependentUpon>202109091551395_v6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109091553158_v21.resx">
-      <DependentUpon>202109091553158_v21.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109120846116_tqdao.resx">
-      <DependentUpon>202109120846116_tqdao.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109121005307_v1.resx">
+      <DependentUpon>202109121005307_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
