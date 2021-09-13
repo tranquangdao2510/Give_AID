@@ -195,9 +195,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202109121005307_v1.cs" />
-    <Compile Include="Migrations\202109121005307_v1.Designer.cs">
-      <DependentUpon>202109121005307_v1.cs</DependentUpon>
+    <Compile Include="Migrations\202109130728535_v1.cs" />
+    <Compile Include="Migrations\202109130728535_v1.Designer.cs">
+      <DependentUpon>202109130728535_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AboutDao.cs" />
@@ -3606,8 +3606,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202109121005307_v1.resx">
-      <DependentUpon>202109121005307_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109130728535_v1.resx">
+      <DependentUpon>202109130728535_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
