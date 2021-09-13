@@ -1,4 +1,5 @@
-﻿using Give_Aid.Models.DataAccess;
+﻿using Give_Aid.Common;
+using Give_Aid.Models.DataAccess;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -68,8 +69,24 @@ namespace Give_Aid.Models.DAO
         {
             return db.Admins.Where(a => a.AdminId == id).FirstOrDefault();
         }
-
-        public int Login(string name, string password)
+        public List<string> getListPermision(string adminName)
+        {
+            var admin = db.Admins.Single(a => a.AdminName == adminName);
+            var data = (from p in db.Permissions
+                        join g in db.GroupAdmins on p.GroupAdminId equals g.Id
+                        join r in db.Roles on p.RoleId equals r.Id
+                        where g.Id == admin.GroupAdminId
+                        select new
+                        {
+                            RoleId = p.RoleId,
+                            GroupAdminId = p.GroupAdminId
+                        }).AsEnumerable().Select(x => new Permission() {
+                            RoleId = x.RoleId,
+                            GroupAdminId = x.GroupAdminId
+                       });
+            return data.Select(x=>x.RoleId).ToList();
+        }
+        public int Login(string name, string password, bool isLoginAdmin = false)
         {
             var result = db.Admins.SingleOrDefault(x => x.AdminName == name);
             if (result == null)
@@ -78,21 +95,50 @@ namespace Give_Aid.Models.DAO
             }
             else
             {
-                if (result.Status == false)
+                if (isLoginAdmin == true)
                 {
-                    return -1;
-                }
-                else
-                {
-                    if (result.PassWord == password)
+                    if (result.GroupAdminId == CommonGroup.ADMIN_GROUP || result.GroupAdminId == CommonGroup.EMPLOYEES_GROUP)
                     {
-                        return 1;
+                        if (result.Status == false)
+                        {
+                            return -1;
+                        }
+                        else
+                        {
+                            if (result.PassWord == password)
+                            {
+                                return 1;
+                            }
+                            else
+                            {
+                                return -2;
+                            }
+                        }
                     }
                     else
                     {
-                        return -2;
+                        return -3;
                     }
                 }
+                else
+                {
+                    if (result.Status == false)
+                    {
+                        return -1;
+                    }
+                    else
+                    {
+                        if (result.PassWord == password)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return -2;
+                        }
+                    }
+                }
+                    
             }
         }
 

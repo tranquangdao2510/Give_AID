@@ -9,13 +9,13 @@ using System.Web.Mvc;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
-    public class AdminController : BaseController
+    public class RoleController : BaseController
     {
-        // GET: Admins/Admin
+        // GET: Admins/Role
         [HasPermission(RoleId = "VIEW")]
         public ActionResult Index(string searchString, int page = 1, int pageSize = 7)
         {
-            var dao = new AdminDao();
+            var dao = new RoleDao();
             var model = dao.GetAllPaging(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
             return View(model);
@@ -27,19 +27,17 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Admin admin)
+        //[ValidateInput(false)]
+        public ActionResult Create(Role role)
         {
-
             if (ModelState.IsValid)
             {
-                var dao = new AdminDao();
-                var encryptedMd5Pas = Encryptor.MD5Hash(admin.PassWord);
-                admin.PassWord = encryptedMd5Pas;
-                int id = dao.Insert(admin);
-                if (id > 0)
+                var dao = new RoleDao();
+                string id = dao.Insert(role);
+                if (id != null)
                 {
-                    SetAlert("Create Admin success", "success");
-                    return RedirectToAction("Index", "Admin");
+                    SetAlert("Create Slider success", "success");
+                    return RedirectToAction("Index", "Role");
                 }
                 else
                 {
@@ -47,33 +45,29 @@ namespace Give_Aid.Areas.Admins.Controllers
                 }
                 return View("Index");
             }
-            return View(admin);
+
+            return View(role);
         }
         [HttpGet]
         [HasPermission(RoleId = "EDIT")]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            var adm = new AdminDao().ViewDetail(id);
-            return View(adm);
+            var slider = new RoleDao().ViewDetail(id);
+            return View(slider);
         }
         [HttpPost]
-        public ActionResult Edit(Admin admin)
+        public ActionResult Edit(Role role)
         {
 
             if (ModelState.IsValid)
             {
-                var dao = new AdminDao();
-                if (!string.IsNullOrEmpty(admin.PassWord))
-                {
-                    var encryptedMd5Pas = Encryptor.MD5Hash(admin.PassWord);
-                    admin.PassWord = encryptedMd5Pas;
-                }
+                var dao = new RoleDao();
 
-                var result = dao.Update(admin);
+                var result = dao.Update(role);
                 if (result)
                 {
-                    SetAlert("Update Admin success", "success");
-                    return RedirectToAction("Index", "Admin");
+                    SetAlert("Update Slider success", "success");
+                    return RedirectToAction("Index", "Role");
                 }
                 else
                 {
@@ -81,19 +75,19 @@ namespace Give_Aid.Areas.Admins.Controllers
                 }
                 return View("Index");
             }
-            return View(admin);
-            
+            return View(role);
+
         }
         [HttpDelete]
         [HasPermission(RoleId = "DELETE")]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
-            var dao = new AdminDao();
+            var dao = new RoleDao();
             var result = dao.Delete(id);
             if (result)
             {
-                SetAlert("Delete Admin success", "success");
-                return RedirectToAction("Index", "Admin");
+                SetAlert("Delete Slider success", "success");
+                return RedirectToAction("Index", "Role");
             }
             else
             {

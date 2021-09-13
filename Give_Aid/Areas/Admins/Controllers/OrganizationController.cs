@@ -7,12 +7,15 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using Give_Aid.Common;
 
 namespace Give_Aid.Areas.Admins.Controllers
 {
     public class OrganizationController : BaseController
     {
         // GET: Admins/Organization
+
+        [HasPermission(RoleId = "VIEW")]
         public ActionResult Index(int? page, string search_name)
         {
             page = page ?? 1;
@@ -23,6 +26,7 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         [HttpGet]
+        [HasPermission(RoleId = "CREATE")]
         public ActionResult Create()
         {
             return View();
@@ -49,6 +53,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View(organization);
         }
         [HttpGet]
+        [HasPermission(RoleId = "EDIT")]
         public ActionResult Edit(int id)
         {
             var Org = new OrganizationDao().Detail(id);
@@ -76,9 +81,10 @@ namespace Give_Aid.Areas.Admins.Controllers
 
             return View("Index");
         }
-     
-  
 
+
+
+        [HasPermission(RoleId = "DELETE")]
         public ActionResult Delete(int id)
         {
           

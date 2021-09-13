@@ -1,4 +1,5 @@
-﻿using Give_Aid.Models.DAO;
+﻿using Give_Aid.Common;
+using Give_Aid.Models.DAO;
 using Give_Aid.Models.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace Give_Aid.Areas.Admins.Controllers
     public class ImageGalleryController : BaseController
     {
         // GET: Admins/ImageGallery
+
+        [HasPermission(RoleId = "VIEW")]
         public ActionResult Index(string searchString, int page = 1, int pageSize = 7)
         {
             var dao = new ImageGalleryDao();
@@ -21,6 +24,8 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View(model);
         }
         [HttpGet]
+
+        [HasPermission(RoleId = "CREATE")]
         public ActionResult Create()
         {
             SetviewBag();
@@ -50,6 +55,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             
         }
         [HttpGet]
+        [HasPermission(RoleId = "EDIT")]
         public ActionResult Edit(int id)
         {
             SetviewBag();
@@ -82,6 +88,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View(imageGallery);
         }
         [HttpDelete]
+        [HasPermission(RoleId = "DELETE")]
         public ActionResult Delete(int id)
         {
             var dao = new ImageGalleryDao();

@@ -10,5 +10,6 @@ namespace Give_Aid.Common
     {
         public long AdminId { get; set; }
         public string AdminName { get; set; }
+        public string GroupAdminId { get; set; }
     }
 }

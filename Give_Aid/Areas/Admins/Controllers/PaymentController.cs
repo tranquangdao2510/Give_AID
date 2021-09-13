@@ -1,4 +1,5 @@
-﻿using Give_Aid.Models.DAO;
+﻿using Give_Aid.Common;
+using Give_Aid.Models.DAO;
 using Give_Aid.Models.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace Give_Aid.Areas.Admins.Controllers
     {
         //NgoEntity db = new NgoEntity();
         // GET: Admins/Payment
+
+        [HasPermission(RoleId = "VIEW")]
         public ActionResult Index()
         {
             return View();
@@ -45,6 +48,7 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         [HttpGet]
+        [HasPermission(RoleId = "EDIT")]
         public JsonResult Edit(int id)
         {
             var dao = new PaymentDao();
@@ -58,6 +62,7 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         [HttpPost]
+        [HasPermission(RoleId = "DELETE")]
         public JsonResult Delete(int id)
         {
             

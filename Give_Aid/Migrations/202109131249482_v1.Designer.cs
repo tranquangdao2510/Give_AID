@@ -13,11 +13,7 @@ namespace Give_Aid.Migrations
         
         string IMigrationMetadata.Id
         {
-<<<<<<< HEAD:Give_Aid/Migrations/202109130105337_v1.Designer.cs
-            get { return "202109130105337_v1"; }
-=======
-            get { return "202109121005307_v1"; }
->>>>>>> b48dd67dac7730c29d48debd9daa32530385a681:Give_Aid/Migrations/202109121005307_v1.Designer.cs
+            get { return "202109131249482_v1"; }
         }
         
         string IMigrationMetadata.Source

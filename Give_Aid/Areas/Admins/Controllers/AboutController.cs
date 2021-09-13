@@ -1,4 +1,5 @@
-﻿using Give_Aid.Models.DAO;
+﻿using Give_Aid.Common;
+using Give_Aid.Models.DAO;
 using Give_Aid.Models.DataAccess;
 using PagedList;
 using System;
@@ -12,6 +13,8 @@ namespace Give_Aid.Areas.Admins.Controllers
     public class AboutController : BaseController
     {
         // GET: Admins/About
+
+        [HasPermission(RoleId = "VIEW")]
         public ActionResult Index(int? page, string search_title)
         {
             page = page ?? 1;
@@ -22,6 +25,8 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         [HttpGet]
+
+        [HasPermission(RoleId = "CREATE")]
         public ActionResult Create()
         {
             return View();
@@ -49,6 +54,8 @@ namespace Give_Aid.Areas.Admins.Controllers
             return View(about);
         }
         [HttpGet]
+
+        [HasPermission(RoleId = "DETAIL")]
         public ActionResult Detail(int id)
         {
             var about = new AboutDao().Detail(id);
@@ -56,6 +63,8 @@ namespace Give_Aid.Areas.Admins.Controllers
         }
 
         [HttpGet]
+
+        [HasPermission(RoleId = "EDIT")]
         public ActionResult Edit(int id)
         {
             var about = new AboutDao().Detail(id);
@@ -83,6 +92,7 @@ namespace Give_Aid.Areas.Admins.Controllers
 
             return View("Index");
         }
+        [HasPermission(RoleId = "DELETE")]
         public ActionResult Delete(int id)
         {
 
