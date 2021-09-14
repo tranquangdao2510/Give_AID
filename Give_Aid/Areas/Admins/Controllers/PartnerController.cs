@@ -90,7 +90,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             if (result)
             {
                 SetAlert("Delete Fund success", "success");
-                return RedirectToAction("Index", "Fund");
+                return RedirectToAction("Index", "Partner");
             }
             else
             {

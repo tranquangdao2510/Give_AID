@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admins/Views/Shared/_Layout.cshtml";
+    var listAllFund = (List<Give_Aid.Models.DataAccess.Fund>)ViewBag.listFund;
 }
 @section js{
     <script src="~/Areas/Admins/Content/js/mustache.min.js"></script>>
@@ -16,20 +17,21 @@
 
 
                 <div class="card-tools">
-
+                   
                     @using (Html.BeginForm("Index", "Donate", FormMethod.Get))
                     {
-                        <div class="input-group input-group-sm" style="width: 220px;">
-                            <div class="input-group-append"><a href="/Admins/Admin/Create" class=" btn btn-success">Create at</a></div>
-                            <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control float-right" placeholder="Search">
+                    <div class="input-group input-group-sm" style="width: 220px;">
+                       
+                        <div class="input-group-append"><a href="/Admins/Admin/Create" class=" btn btn-success">Create at</a></div>
+                        <input type="text" name="searchString" value="@ViewBag.SearchFund" class="form-control float-right" placeholder="Search">
 
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-default">
+                                <i class="fas fa-search"></i>
+                            </button>
                         </div>
+
+                    </div>
                     }
                 </div>
             </div>

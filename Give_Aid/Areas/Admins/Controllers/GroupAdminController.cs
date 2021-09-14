@@ -70,8 +70,7 @@ namespace Give_Aid.Areas.Admins.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
+                
                     var dao = new GroupAdminDao();
 
                     var result = dao.Update(GroupAdmin);
@@ -85,13 +84,7 @@ namespace Give_Aid.Areas.Admins.Controllers
                         ModelState.AddModelError("", "error");
                     }
                     return View("Index");
-                }
-                catch (Exception ex)
-                {
-
-                    ex.Message.Contains(ViewBag.error = "id already exists");
-                }
-               
+                
             }
             return View(GroupAdmin);
 
@@ -109,7 +102,7 @@ namespace Give_Aid.Areas.Admins.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "error");
+                SetAlert("Unable to delete Group Admin with data", "error");
             }
             return RedirectToAction("Index");
         }

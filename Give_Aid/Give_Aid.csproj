@@ -166,12 +166,14 @@
     <Compile Include="Areas\Admins\Controllers\DonateController.cs" />
     <Compile Include="Areas\Admins\Controllers\FaqController.cs" />
     <Compile Include="Areas\Admins\Controllers\FundController.cs" />
+    <Compile Include="Areas\Admins\Controllers\GroupAdminController.cs" />
     <Compile Include="Areas\Admins\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admins\Controllers\ImageGalleryController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admins\Controllers\OrganizationController.cs" />
     <Compile Include="Areas\Admins\Controllers\PartnerController.cs" />
     <Compile Include="Areas\Admins\Controllers\PaymentController.cs" />
+    <Compile Include="Areas\Admins\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admins\Controllers\SliderController.cs" />
     <Compile Include="Areas\Admins\Controllers\TagsController.cs" />
     <Compile Include="Areas\Admins\Controllers\VolunteersController.cs" />
@@ -179,8 +181,10 @@
     <Compile Include="Common\CommonAdmin.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\AdminLogin.cs" />
+    <Compile Include="Common\CommonGroup.cs" />
     <Compile Include="Common\CustomerLogin.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Common\HasPermissionAttribute.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BecomeVolunteerController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -195,26 +199,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202109091522454_v1.cs" />
-    <Compile Include="Migrations\202109091522454_v1.Designer.cs">
-      <DependentUpon>202109091522454_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109091539561_v2.cs" />
-    <Compile Include="Migrations\202109091539561_v2.Designer.cs">
-      <DependentUpon>202109091539561_v2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109091551395_v6.cs" />
-    <Compile Include="Migrations\202109091551395_v6.Designer.cs">
-      <DependentUpon>202109091551395_v6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109091553158_v21.cs" />
-    <Compile Include="Migrations\202109091553158_v21.Designer.cs">
-      <DependentUpon>202109091553158_v21.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109120846116_tqdao.cs" />
-    <Compile Include="Migrations\202109120846116_tqdao.Designer.cs">
-      <DependentUpon>202109120846116_tqdao.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAO\AboutDao.cs" />
     <Compile Include="Models\DAO\AdminDao.cs" />
@@ -227,10 +211,12 @@
     <Compile Include="Models\DAO\FaqClientDao.cs" />
     <Compile Include="Models\DAO\FaqDao.cs" />
     <Compile Include="Models\DAO\FundDao.cs" />
+    <Compile Include="Models\DAO\GroupAdminDao.cs" />
     <Compile Include="Models\DAO\ImageGalleryDao.cs" />
     <Compile Include="Models\DAO\OrganizationDao.cs" />
     <Compile Include="Models\DAO\PartnerDao.cs" />
     <Compile Include="Models\DAO\PaymentDao.cs" />
+    <Compile Include="Models\DAO\RoleDao.cs" />
     <Compile Include="Models\DAO\SliderDao.cs" />
     <Compile Include="Models\DAO\TagsDao.cs" />
     <Compile Include="Models\DAO\VolunteerDao.cs" />
@@ -243,11 +229,14 @@
     <Compile Include="Models\DataAccess\Donate.cs" />
     <Compile Include="Models\DataAccess\Faq.cs" />
     <Compile Include="Models\DataAccess\Fund.cs" />
+    <Compile Include="Models\DataAccess\GroupAdmin.cs" />
     <Compile Include="Models\DataAccess\ImageGallery.cs" />
     <Compile Include="Models\DataAccess\NgoEntity.cs" />
     <Compile Include="Models\DataAccess\Organization.cs" />
     <Compile Include="Models\DataAccess\Partner.cs" />
     <Compile Include="Models\DataAccess\Payment.cs" />
+    <Compile Include="Models\DataAccess\Permission.cs" />
+    <Compile Include="Models\DataAccess\Role.cs" />
     <Compile Include="Models\DataAccess\Slide.cs" />
     <Compile Include="Models\DataAccess\Tag.cs" />
     <Compile Include="Models\DataAccess\Volunteer.cs" />
@@ -3502,6 +3491,12 @@
     <Content Include="Areas\Admins\Views\ImageGallery\Create.cshtml" />
     <Content Include="Areas\Admins\Views\ImageGallery\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\ImageGallery\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\GroupAdmin\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\GroupAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\GroupAdmin\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Role\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Role\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -3620,23 +3615,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202109091522454_v1.resx">
-      <DependentUpon>202109091522454_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109091539561_v2.resx">
-      <DependentUpon>202109091539561_v2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109091551395_v6.resx">
-      <DependentUpon>202109091551395_v6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109091553158_v21.resx">
-      <DependentUpon>202109091553158_v21.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109120846116_tqdao.resx">
-      <DependentUpon>202109120846116_tqdao.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

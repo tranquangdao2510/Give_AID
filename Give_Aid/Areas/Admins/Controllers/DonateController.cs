@@ -11,10 +11,11 @@ namespace Give_Aid.Areas.Admins.Controllers
     public class DonateController : Controller
     {
         // GET: Admins/Donate
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 7)
+        public ActionResult Index(string searchString,  int page = 1, int pageSize = 7)
         {
             var dao = new DonateDao();
             var model = dao.GetAllPaging(searchString, page, pageSize);
+           
             ViewBag.SearchString = searchString;
             return View(model);
         }
@@ -62,7 +63,11 @@ namespace Give_Aid.Areas.Admins.Controllers
             var dao = new PaymentDao();
             ViewBag.PaymentID = new SelectList(dao.ListPayment(), "PaymentId", "PaymentName", selectedId);
         }
-
+        public void SetViewBag(string selectId = null)
+        {
+            var dao = new FundDao();
+            ViewBag.FundId = new SelectList(dao.GetFundsId(), "FundId", "FundName", selectId);
+        }
 
     }
 }

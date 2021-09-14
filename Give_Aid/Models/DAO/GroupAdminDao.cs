@@ -25,7 +25,10 @@ namespace Give_Aid.Models.DAO
             db.SaveChanges();
             return entity.Id;
         }
-
+        public List<GroupAdmin> GetAll()
+        {
+            return db.GroupAdmins.Where(x => x.Status == true).ToList();
+        }
         public IEnumerable<GroupAdmin> GetAllPaging(string searchString, int page, int pageSize)
         {
             IQueryable<GroupAdmin> model = db.GroupAdmins;

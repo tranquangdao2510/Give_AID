@@ -132,6 +132,11 @@ namespace Give_Aid.Models.DAO
             return db.Funds.OrderByDescending(x=>x.CreateDate).Take(5).ToList();
         }
 
+        public List<Fund> GetFundsId()
+        {
+            return db.Funds.OrderByDescending(x => x.CreateDate).ToList();
+        }
+
         
     }
 }

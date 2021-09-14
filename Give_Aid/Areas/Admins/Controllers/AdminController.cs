@@ -24,6 +24,7 @@ namespace Give_Aid.Areas.Admins.Controllers
         [HasPermission(RoleId = "CREATE")]
         public ActionResult Create()
         {
+            SetviewBag();
             return View();
         }
         [HttpPost]
@@ -47,12 +48,14 @@ namespace Give_Aid.Areas.Admins.Controllers
                 }
                 return View("Index");
             }
+            SetviewBag();
             return View(admin);
         }
         [HttpGet]
         [HasPermission(RoleId = "EDIT")]
         public ActionResult Edit(int id)
         {
+            SetviewBag();
             var adm = new AdminDao().ViewDetail(id);
             return View(adm);
         }
@@ -81,6 +84,7 @@ namespace Give_Aid.Areas.Admins.Controllers
                 }
                 return View("Index");
             }
+            SetviewBag();
             return View(admin);
             
         }
@@ -97,9 +101,15 @@ namespace Give_Aid.Areas.Admins.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "error");
+                SetAlert("Unable to delete admin with data", "error");
             }
             return RedirectToAction("Index");
+        }
+        public void SetviewBag(string SelectedId = null)
+        {
+            var groupAdminDao = new GroupAdminDao();
+           
+            ViewBag.GroupAdminId = new SelectList(groupAdminDao.GetAll(), "Id", "Name", SelectedId);
         }
     }
 }
