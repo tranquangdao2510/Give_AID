@@ -84,6 +84,7 @@ namespace Give_Aid.Models.DAO
         }
         public Payment Edit(int id)
         {
+            db.Configuration.ProxyCreationEnabled = false;
             return db.Payments.Where(x=>x.PaymentId == id).FirstOrDefault();
         }
 

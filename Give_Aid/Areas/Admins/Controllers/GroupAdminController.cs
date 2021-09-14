@@ -33,18 +33,26 @@ namespace Give_Aid.Areas.Admins.Controllers
         {
             if (ModelState.IsValid)
             {
-                var dao = new GroupAdminDao();
-                string id = dao.Insert(groupAdmin);
-                if (id != null)
+                try
                 {
-                    SetAlert("Create Slider success", "success");
-                    return RedirectToAction("Index", "GroupAdmin");
+                    var dao = new GroupAdminDao();
+                    string id = dao.Insert(groupAdmin);
+                    if (id != null)
+                    {
+                        SetAlert("Create Slider success", "success");
+                        return RedirectToAction("Index", "GroupAdmin");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "error");
+                    }
+                    return View("Index");
                 }
-                else
+                catch (Exception ex)
                 {
-                    ModelState.AddModelError("", "error");
+
+                    ex.Message.Contains(ViewBag.error = "id already exists");
                 }
-                return View("Index");
             }
 
             return View(groupAdmin);
@@ -62,19 +70,28 @@ namespace Give_Aid.Areas.Admins.Controllers
 
             if (ModelState.IsValid)
             {
-                var dao = new GroupAdminDao();
+                try
+                {
+                    var dao = new GroupAdminDao();
 
-                var result = dao.Update(GroupAdmin);
-                if (result)
-                {
-                    SetAlert("Update Slider success", "success");
-                    return RedirectToAction("Index", "GroupAdmin");
+                    var result = dao.Update(GroupAdmin);
+                    if (result)
+                    {
+                        SetAlert("Update Slider success", "success");
+                        return RedirectToAction("Index", "GroupAdmin");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "error");
+                    }
+                    return View("Index");
                 }
-                else
+                catch (Exception ex)
                 {
-                    ModelState.AddModelError("", "error");
+
+                    ex.Message.Contains(ViewBag.error = "id already exists");
                 }
-                return View("Index");
+               
             }
             return View(GroupAdmin);
 

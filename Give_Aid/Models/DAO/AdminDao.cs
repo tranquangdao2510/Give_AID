@@ -33,7 +33,19 @@ namespace Give_Aid.Models.DAO
             }
             return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
-
+        public List<GroupAdmin> GetAll()
+        {
+            var List = from a in db.GroupAdmins
+                       join b in db.Admins on a.Id equals b.GroupAdminId
+                     
+                       where b.Status == true
+                       select new
+                       {
+                           //FruitName = c.FruitName,
+                           GroupAdminId = b.GroupAdminId
+                       };
+            return List;
+        }
         public bool Update(Admin admin)
         {
             try
