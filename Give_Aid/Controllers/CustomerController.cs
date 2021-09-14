@@ -46,7 +46,7 @@ namespace Give_Aid.Controllers
             {
                 var dao = new CustomerDao();
                 var result = dao.Login(model.Name, Encryptor.MD5Hash(model.Password));
-                if (result == Convert.ToBoolean(1))
+                if (result == 1)
                 {
                     var user = dao.GetbyId(model.Name);
                     var userSession = new CustomerLogin();
@@ -59,23 +59,23 @@ namespace Give_Aid.Controllers
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }
-                else if (result == Convert.ToBoolean(0))
+                else if (result == 0)
                 {
-                    ModelState.AddModelError("", "tai khoan ko ton tai");
+                    ModelState.AddModelError("", "The account does not exist.");
                 }
-                else if (result == Convert.ToBoolean(-1))
+                else if (result == -1)
                 {
-                    ModelState.AddModelError("", "tai khoan dang bi khoa");
+                    ModelState.AddModelError("", "Account is locked");
                 }
-                else if (result == Convert.ToBoolean(-2))
+                else if (result == -2)
                 {
-                    ModelState.AddModelError("", "mat khau ko dung");
+                    ModelState.AddModelError("", "Incorrect password");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Vui long kiem tra tk mk");
+                    ModelState.AddModelError("", "Please check your account again");
                 }
-                
+
             }
             return View(model);
         }

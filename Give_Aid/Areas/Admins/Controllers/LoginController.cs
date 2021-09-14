@@ -49,7 +49,7 @@ namespace Give_Aid.Areas.Admins.Controllers
                 }
                 else if (result == -3)
                 {
-                    ModelState.AddModelError("", "tai khoan cu abnj lo co quyn");
+                    ModelState.AddModelError("", "Accounts without permissions");
                 }
                 else
                 {

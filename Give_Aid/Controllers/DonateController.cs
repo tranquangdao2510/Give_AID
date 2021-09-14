@@ -55,7 +55,7 @@ namespace Give_Aid.Controllers
                     conten = conten.Replace("{{Address}}", address);
                     conten = conten.Replace("{{Email}}", email);
                     conten = conten.Replace("{{Amount}}", total.ToString());
-                    WebMail.Send("eprojectsemiii@gmail.com", subject, conten, null, null, null, true, null, null, null, null, null, null);
+                    WebMail.Send("giveaidprojectsem3@gmail.com", subject, conten, null, null, null, true, null, null, null, null, null, null);
 
                     if (id != null)
                     {
